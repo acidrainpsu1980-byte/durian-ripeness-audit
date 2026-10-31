@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this code or the frozen fruit-level splits, please cite the paper and this repository, and cite the underlying dataset separately (see references)."
+type: software
+title: "durian-ripeness-audit: reproducible audit package for fruit-grouped and batch-aware evaluation of multimodal durian ripeness classification"
+version: 1.8.0
+date-released: "2026-10-30"
+license: MIT
+repository-code: "https://github.com/acidrainpsu1980-byte/durian-ripeness-audit"
+doi: "[TODO: Zenodo DOI minted for this repository]"
+authors:
+  - family-names: "[TODO]"
+    given-names: "[TODO]"
+    affiliation: "[TODO]"
+    orcid: "[TODO]"
+keywords:
+  - durian
+  - fruit ripeness
+  - multimodal sensing
+  - thermal imaging
+  - multispectral imaging
+  - acoustic (knock) sensing
+  - data leakage
+  - fruit-grouped cross-validation
+references:
+  - type: dataset
+    title: "Multi-Modal Sensor Data for Durian Fruit Maturity Classification and Ripeness Assessment"
+    authors:
+      - family-names: Mesa-Satina
+        given-names: A. R.
+      - family-names: Kobayashi
+        given-names: V. B.
+      - family-names: Bayogan
+        given-names: E. R.
+      - family-names: Calag
+        given-names: V. B.
+    year: 2026
+    publisher:
+      name: Zenodo
+    doi: 10.5281/zenodo.18603796
+    license: CC-BY-4.0
+  - type: article
+    title: "Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and RGB Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"
+    journal: "Computers (MDPI)"
+    year: 2026
+    status: "submitted"

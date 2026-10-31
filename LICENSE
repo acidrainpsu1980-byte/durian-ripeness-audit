@@ -1,0 +1,35 @@
+MIT License
+
+Copyright (c) 2026 the authors of "Multimodal classification of durian ripeness on the day of capture" [TODO: author names]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+----------------------------------------------------------------------------------------------------
+Scope of this licence
+----------------------------------------------------------------------------------------------------
+The MIT licence above covers the CODE in this repository (src/, Makefile, run_all.sh) and the derived
+tables we produced (data/durian_mm_*.csv, intermediate/, results/).
+
+It does NOT cover the underlying sensor data.  The raw thermal, multispectral, RGB and acoustic recordings
+are the dataset "Multi-Modal Sensor Data for Durian Fruit Maturity Classification and Ripeness Assessment"
+(Mesa-Satina, A. R., Kobayashi, V. B., Bayogan, E. R., & Calag, V. B., 2026; University of the Philippines
+Mindanao), distributed on Zenodo under the Creative Commons Attribution 4.0 International licence
+(CC BY 4.0): https://doi.org/10.5281/zenodo.18603796 .  The raw data are not redistributed here; the
+derived tables that reference them (file names, labels, folds, per-capture features and out-of-fold
+probabilities) are released under CC BY 4.0 as well, with attribution to the dataset authors.

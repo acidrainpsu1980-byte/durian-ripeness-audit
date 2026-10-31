@@ -1,0 +1,13 @@
+session_id,fruit_id,date,days_from_recorded_harvest,label_thermal,label_multispectral,label_sound,label_rgb,unanimous,Actual_Ripening_Status,Actual_Ripening_Days,Actual_Days_Capsule_Splitting,label_common,label_rule,log_inconsistent,label_v12_majority,in_evaluation_268
+11_2025-09-13,11,2025-09-13,8,Ripe,Ripe,,Unripe,False,Ripe,7.0,,Ripe,log: on/after ripening day (±1 d),False,Ripe,False
+139_2025-09-27,139,2025-09-27,4,Ripe,Ripe,Overripe,Ripe,False,Ripe,4.0,,Ripe,log: on/after ripening day (±1 d),False,Ripe,True
+140_2025-09-27,140,2025-09-27,3,Ripe,Ripe,Overripe,Ripe,False,Ripe,4.0,,Ripe,log: on/after ripening day (±1 d),False,Ripe,True
+146_2025-10-02,146,2025-10-02,9,Unripe,Ripe,Ripe,Unripe,False,Overripe,,9.0,Overripe,log: on/after capsule splitting (±1 d),False,Unripe,True
+162_2025-10-07,162,2025-10-07,8,Overripe,Overripe,Unripe,Overripe,False,Overripe,,8.0,Overripe,log: on/after capsule splitting (±1 d),False,Overripe,True
+18_2025-09-17,18,2025-09-17,12,Overripe,Overripe,Ripe,Overripe,False,Overripe,,13.0,Overripe,log: on/after capsule splitting (±1 d),False,Overripe,True
+37_2025-09-17,37,2025-09-17,12,Ripe,Ripe,Ripe,Overripe,False,Overripe,,8.0,Overripe,log: on/after capsule splitting (±1 d),False,Ripe,True
+39_2025-09-13,39,2025-09-13,8,Ripe,Ripe,,Overripe,False,Overripe,,8.0,Overripe,log: on/after capsule splitting (±1 d),False,Ripe,False
+40_2025-09-17,40,2025-09-17,12,Overripe,Overripe,Ripe,Overripe,False,Overripe,,8.0,Overripe,log: on/after capsule splitting (±1 d),False,Overripe,True
+52_2025-09-13,52,2025-09-13,8,Ripe,Ripe,,Unripe,False,Ripe,8.0,,Ripe,log: on/after ripening day (±1 d),False,Ripe,False
+82_2025-09-27,82,2025-09-27,9,Overripe,Overripe,Ripe,Overripe,False,Overripe,,9.0,Overripe,log: on/after capsule splitting (±1 d),False,Overripe,True
+84_2025-09-27,84,2025-09-27,9,Overripe,Overripe,Ripe,Overripe,False,Overripe,,9.0,Overripe,log: on/after capsule splitting (±1 d),False,Overripe,True

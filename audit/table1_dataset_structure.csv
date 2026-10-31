@@ -1,0 +1,5 @@
+batch,fruits,fruits_U_R_O,sessions,sessions_U_R_O,first_capture,last_capture,n_capture_dates,rgb_images,rgb_R50,rgb_M50II,thermal_quant_p1_p99_to_13Sep,thermal_quant_p1_p99_after_13Sep,ambient_mean_c
+Immature,59,19/21/19,93,59/23/11,2025-09-05,2025-09-17,5,933,481,452,9–33,45–124,28.5
+Mature,54,12/21/21,95,54/21/20,2025-09-19,2025-10-03,9,581,0,581,,39–168,30.2
+Overmature,51,17/15/19,80,46/16/18,2025-09-23,2025-10-09,10,485,0,485,,47–239,29.9
+Total,164,48/57/59,268,159/60/49,2025-09-05,2025-10-09,18,1999,481,1518,9–33,40–236,29.5

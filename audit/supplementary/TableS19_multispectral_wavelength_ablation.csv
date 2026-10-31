@@ -1,0 +1,6 @@
+variant,primary_acc,primary_f1,ten_partitions_acc_mean,ten_min,ten_max,ten_f1_mean,model
+"Published features, assumed mapping (720–980 nm ascending)",0.74,0.652,0.75,0.736,0.765,0.675,LR (selected)
+Without slope/curvature features (3 removed),0.752,0.665,0.753,0.729,0.765,0.678,LR (selected)
+"Slope/curvature with alternative centres 720,760,795,830,870,905,940,980 nm",0.744,0.656,0.751,0.732,0.765,0.676,LR (selected)
+PLS-DA on 8 raw band means (order-free),0.734,0.575,0.728,0.717,0.743,0.563,PLS-DA
+20 random tile orders (all order-dependent features recomputed),0.732–0.762 (mean 0.747),0.646–0.677 (mean 0.662),primary partition only,,,,LR (selected)

@@ -1,0 +1,5 @@
+id,candidate,reference,d_acc_pp_primary,ref_only,cand_only,p_mcnemar_fruit_clustered,nb_d_acc_pp,nb_ci_lo,nb_ci_hi,nb_p,partitions_cand_better
+P1,nestedfam_thermal+sound+rgb|mean,nestedfam_sound,0.7,6,8,0.593,1.5,-2.1,5.0,0.413,9
+P2,nestedfam_thermal+multispectral+sound+rgb|stacking,nestedfam_sound,0.7,7,9,0.617,2.0,-1.8,5.9,0.299,10
+P3,nested_cfg_nestedfam,nested_single_nestedfam,0.0,7,7,1.0,0.0,-3.8,3.8,0.992,5
+P4,nested_cfg_fixedfam,fixed_sound,0.0,7,7,1.0,-0.3,-3.9,3.2,0.844,4

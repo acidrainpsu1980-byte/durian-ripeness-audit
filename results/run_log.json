@@ -1,0 +1,17 @@
+{
+ "sessions_by_n_modalities": {
+  "4": 268,
+  "2": 36,
+  "3": 8,
+  "1": 3
+ },
+ "label_disagreements": 0,
+ "fold_disagreements": 0,
+ "stacking_scheme": "nested (inner out-of-fold base-model refits)",
+ "error_analysis_model": "thermal+multispectral+sound+rgb|stacking",
+ "n_sessions_main": 268,
+ "best_single": "sound",
+ "best_fusion": "sound+rgb|stacking",
+ "best_fusion_f1": 0.8757350641561168,
+ "best_fusion_acc": 0.9237371008041604
+}

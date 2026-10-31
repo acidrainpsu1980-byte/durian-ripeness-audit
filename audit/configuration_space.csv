@@ -1,0 +1,38 @@
+space,configuration,sensors,rule
+C26,thermal,thermal,single sensor (selected family)
+C26,multispectral,multispectral,single sensor (selected family)
+C26,sound,sound,single sensor (selected family)
+C26,rgb,rgb,single sensor (selected family)
+C26,thermal+multispectral|mean,thermal+multispectral,mean of session probabilities
+C26,thermal+multispectral|product,thermal+multispectral,product of session probabilities
+C26,thermal+sound|mean,thermal+sound,mean of session probabilities
+C26,thermal+sound|product,thermal+sound,product of session probabilities
+C26,thermal+rgb|mean,thermal+rgb,mean of session probabilities
+C26,thermal+rgb|product,thermal+rgb,product of session probabilities
+C26,multispectral+sound|mean,multispectral+sound,mean of session probabilities
+C26,multispectral+sound|product,multispectral+sound,product of session probabilities
+C26,multispectral+rgb|mean,multispectral+rgb,mean of session probabilities
+C26,multispectral+rgb|product,multispectral+rgb,product of session probabilities
+C26,sound+rgb|mean,sound+rgb,mean of session probabilities
+C26,sound+rgb|product,sound+rgb,product of session probabilities
+C26,thermal+multispectral+sound|mean,thermal+multispectral+sound,mean of session probabilities
+C26,thermal+multispectral+sound|product,thermal+multispectral+sound,product of session probabilities
+C26,thermal+multispectral+rgb|mean,thermal+multispectral+rgb,mean of session probabilities
+C26,thermal+multispectral+rgb|product,thermal+multispectral+rgb,product of session probabilities
+C26,thermal+sound+rgb|mean,thermal+sound+rgb,mean of session probabilities
+C26,thermal+sound+rgb|product,thermal+sound+rgb,product of session probabilities
+C26,multispectral+sound+rgb|mean,multispectral+sound+rgb,mean of session probabilities
+C26,multispectral+sound+rgb|product,multispectral+sound+rgb,product of session probabilities
+C26,thermal+multispectral+sound+rgb|mean,thermal+multispectral+sound+rgb,mean of session probabilities
+C26,thermal+multispectral+sound+rgb|product,thermal+multispectral+sound+rgb,product of session probabilities
+C37 only,thermal+multispectral|stacking,thermal+multispectral,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,thermal+sound|stacking,thermal+sound,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,thermal+rgb|stacking,thermal+rgb,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,multispectral+sound|stacking,multispectral+sound,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,multispectral+rgb|stacking,multispectral+rgb,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,sound+rgb|stacking,sound+rgb,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,thermal+multispectral+sound|stacking,thermal+multispectral+sound,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,thermal+multispectral+rgb|stacking,thermal+multispectral+rgb,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,thermal+sound+rgb|stacking,thermal+sound+rgb,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,multispectral+sound+rgb|stacking,multispectral+sound+rgb,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"
+C37 only,thermal+multispectral+sound+rgb|stacking,thermal+multispectral+sound+rgb,"nested stacking: multinomial logistic regression (class_weight balanced) on inner out-of-fold session probabilities, C in {0.03, 0.1, 0.3, 1, 3, 10} by GroupKFold over fruits, macro-F1"

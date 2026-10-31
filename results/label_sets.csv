@@ -1,0 +1,269 @@
+session_id,fruit_id,Maturity_Stage,label_capture,unripe_lab,days_from_harvest,label_common,unanimous,log_inconsistent,label_rule,Pliability_Harvest,Aroma_Harvest,VQR_Harvest,Harvest_Rind_Color,harvest_sign
+100_2025-09-20,100,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+100_2025-09-25,100,Mature,Overripe,False,7,Overripe,True,True,unanimous file label,1.0,1.0,8.0,Green,False
+101_2025-09-20,101,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+101_2025-09-23,101,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+102_2025-09-20,102,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Brown Than Green,False
+102_2025-09-25,102,Mature,Overripe,False,7,Overripe,True,True,unanimous file label,1.0,1.0,9.0,More Brown Than Green,False
+103_2025-09-19,103,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+103_2025-09-26,103,Mature,Overripe,False,8,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+104_2025-09-20,104,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+104_2025-09-25,104,Mature,Overripe,False,7,Overripe,True,True,unanimous file label,1.0,1.0,8.0,Green,False
+105_2025-09-19,105,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+105_2025-10-03,105,Mature,Overripe,False,15,Overripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+107_2025-09-19,107,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+108_2025-09-19,108,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+109_2025-09-19,109,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+10_2025-09-05,10,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+10_2025-09-12,10,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+110_2025-09-19,110,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+111_2025-09-19,111,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+112_2025-09-19,112,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+113_2025-09-20,113,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+114_2025-09-20,114,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+114_2025-09-25,114,Mature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+115_2025-09-20,115,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+115_2025-09-23,115,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+116_2025-09-20,116,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+116_2025-09-23,116,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+117_2025-09-20,117,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+117_2025-09-23,117,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+118_2025-09-20,118,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+118_2025-09-23,118,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+119_2025-09-20,119,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+119_2025-09-25,119,Mature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+11_2025-09-05,11,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+120_2025-09-20,120,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+120_2025-09-25,120,Mature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+121_2025-09-20,121,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+121_2025-09-25,121,Mature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+122_2025-09-20,122,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Brown Than Green,False
+122_2025-09-25,122,Mature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Brown Than Green,False
+123_2025-09-20,123,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+123_2025-09-25,123,Mature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+124_2025-09-20,124,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+124_2025-09-25,124,Mature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+125_2025-09-20,125,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+125_2025-09-25,125,Mature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+126_2025-09-20,126,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+126_2025-09-25,126,Mature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+128_2025-09-23,128,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+129_2025-09-23,129,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Brown Than Green,False
+12_2025-09-05,12,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+12_2025-09-12,12,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+130_2025-09-23,130,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+131_2025-09-23,131,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+132_2025-09-23,132,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Brown Than Green,False
+133_2025-09-23,133,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+139_2025-09-24,139,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+139_2025-09-27,139,Overmature,Ripe,False,4,Ripe,False,False,log: on/after ripening day (±1 d),1.0,1.0,9.0,More Green Than Brown,False
+13_2025-09-05,13,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+13_2025-09-12,13,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+140_2025-09-24,140,Overmature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+140_2025-09-27,140,Overmature,Ripe,False,3,Ripe,False,False,log: on/after ripening day (±1 d),1.0,1.0,9.0,More Green Than Brown,False
+141_2025-09-24,141,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+141_2025-09-27,141,Overmature,Overripe,False,4,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+142_2025-09-24,142,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+142_2025-10-02,142,Overmature,Ripe,False,9,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+143_2025-09-24,143,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,4.0,3.0,8.0,More Green Than Brown,True
+143_2025-09-29,143,Overmature,Overripe,False,6,Overripe,True,True,unanimous file label,4.0,3.0,8.0,More Green Than Brown,False
+144_2025-09-24,144,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+144_2025-10-02,144,Overmature,Overripe,False,9,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+145_2025-09-24,145,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+145_2025-10-02,145,Overmature,Overripe,False,9,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+146_2025-09-24,146,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+146_2025-10-02,146,Overmature,Unripe,True,9,Overripe,False,False,log: on/after capsule splitting (±1 d),1.0,1.0,9.0,More Green Than Brown,False
+147_2025-09-24,147,Overmature,Unripe,True,1,Unripe,True,False,unanimous file label,3.0,4.0,8.0,More Brown Than Green,True
+147_2025-09-26,147,Overmature,Overripe,False,3,Overripe,True,False,unanimous file label,3.0,4.0,8.0,More Brown Than Green,False
+148_2025-09-24,148,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Dark/Jade Green,False
+149_2025-09-24,149,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,2.0,1.0,8.0,Dark Green,True
+14_2025-09-05,14,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+14_2025-09-12,14,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+150_2025-09-24,150,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Dark Green,False
+152_2025-09-24,152,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Dark Green,False
+153_2025-10-02,153,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+155_2025-09-24,155,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,4.0,1.0,8.0,Dark Green With Yellow Green Sutures,True
+156_2025-10-02,156,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+156_2025-10-06,156,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+157_2025-10-02,157,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+157_2025-10-06,157,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+158_2025-10-02,158,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Dark Green,False
+158_2025-10-06,158,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,7.0,Dark Green,False
+159_2025-10-02,159,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,2.0,1.0,6.0,Green,True
+159_2025-10-06,159,Overmature,Overripe,False,7,Overripe,True,False,unanimous file label,2.0,1.0,6.0,Green,False
+15_2025-09-05,15,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+160_2025-10-02,160,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+160_2025-10-06,160,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+162_2025-10-02,162,Overmature,Ripe,False,3,Ripe,True,False,unanimous file label,5.0,1.0,8.0,More Brown Than Green,False
+162_2025-10-06,162,Overmature,Overripe,False,7,Overripe,True,False,unanimous file label,5.0,1.0,8.0,More Brown Than Green,False
+162_2025-10-07,162,Overmature,Overripe,False,8,Overripe,False,False,log: on/after capsule splitting (±1 d),5.0,1.0,8.0,More Brown Than Green,False
+165_2025-10-03,165,Overmature,Ripe,False,4,Ripe,True,False,unanimous file label,2.0,3.0,7.0,More Green Than Brown With Yellow Sutures,False
+165_2025-10-07,165,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,2.0,3.0,7.0,More Green Than Brown With Yellow Sutures,False
+166_2025-10-02,166,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+166_2025-10-06,166,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+167_2025-10-02,167,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,,1.0,8.0,Green,False
+167_2025-10-09,167,Overmature,Overripe,False,10,Overripe,True,False,unanimous file label,,1.0,8.0,Green,False
+168_2025-10-02,168,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,2.0,2.0,7.0,Green,True
+168_2025-10-07,168,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,2.0,2.0,7.0,Green,False
+169_2025-09-24,169,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,2.0,2.0,3.0,More Green Than Brown,True
+16_2025-09-05,16,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+16_2025-09-15,16,Immature,Overripe,False,10,Overripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+170_2025-09-24,170,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+171_2025-09-24,171,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,2.0,1.0,7.0,More Brown Than Green,True
+172_2025-10-02,172,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+173_2025-09-24,173,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+175_2025-09-24,175,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+176_2025-10-02,176,Overmature,Unripe,True,3,Unripe,True,True,unanimous file label,1.0,1.0,8.0,Green,False
+176_2025-10-06,176,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+177_2025-09-24,177,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,3.0,4.0,7.0,More Green Than Yellow,True
+178_2025-09-24,178,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,2.0,3.0,7.0,More Dark Green Than Green,True
+179_2025-10-02,179,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+179_2025-10-06,179,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+17_2025-09-05,17,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+17_2025-09-15,17,Immature,Ripe,False,10,Ripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+180_2025-10-02,180,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,,1.0,9.0,Green,False
+180_2025-10-06,180,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,,1.0,9.0,Green,False
+181_2025-10-07,181,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+182_2025-10-02,182,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+182_2025-10-06,182,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+183_2025-09-24,183,Overmature,Unripe,True,-5,Unripe,True,False,unanimous file label,3.0,4.0,6.0,More Dark Green Than Brown,True
+184_2025-10-06,184,Overmature,Ripe,False,7,Ripe,True,False,unanimous file label,,1.0,7.0,More Green Than Brown,False
+185_2025-10-02,185,Overmature,Ripe,False,3,Ripe,True,False,unanimous file label,3.0,3.0,8.0,More Green Than Brown,False
+185_2025-10-07,185,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,3.0,3.0,8.0,More Green Than Brown,False
+186_2025-10-02,186,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,2.0,1.0,7.0,More Green Than Brown,True
+186_2025-10-07,186,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,2.0,1.0,7.0,More Green Than Brown,False
+187_2025-10-02,187,Overmature,Unripe,True,3,Unripe,True,False,unanimous file label,,1.0,7.0,More Green Than Brown,False
+187_2025-10-07,187,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,,1.0,7.0,More Green Than Brown,False
+188_2025-10-03,188,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+188_2025-10-07,188,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+189_2025-10-03,189,Overmature,Unripe,True,4,Unripe,True,False,unanimous file label,2.0,1.0,7.0,Green,True
+189_2025-10-07,189,Overmature,Overripe,False,8,Overripe,True,False,unanimous file label,2.0,1.0,7.0,Green,False
+18_2025-09-05,18,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+18_2025-09-17,18,Immature,Overripe,False,12,Overripe,False,False,log: on/after capsule splitting (±1 d),1.0,1.0,8.0,Green,False
+1_2025-09-05,1,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+20_2025-09-05,20,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+20_2025-09-12,20,Immature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+21_2025-09-05,21,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+21_2025-09-15,21,Immature,Ripe,False,10,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+22_2025-09-05,22,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+23_2025-09-05,23,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+24_2025-09-05,24,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+25_2025-09-05,25,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+26_2025-09-05,26,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+27_2025-09-05,27,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+29_2025-09-05,29,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+29_2025-09-12,29,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+2_2025-09-05,2,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+30_2025-09-05,30,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+30_2025-09-15,30,Immature,Ripe,False,10,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+31_2025-09-05,31,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+31_2025-09-15,31,Immature,Ripe,False,10,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+32_2025-09-05,32,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+32_2025-09-12,32,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+33_2025-09-05,33,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+33_2025-09-12,33,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+34_2025-09-05,34,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+34_2025-09-12,34,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+36_2025-09-05,36,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+36_2025-09-17,36,Immature,Overripe,False,12,Overripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+37_2025-09-05,37,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+37_2025-09-17,37,Immature,Ripe,False,12,Overripe,False,False,log: on/after capsule splitting (±1 d),1.0,1.0,9.0,Green,False
+38_2025-09-05,38,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+38_2025-09-17,38,Immature,Ripe,False,12,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+39_2025-09-05,39,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+3_2025-09-05,3,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+40_2025-09-05,40,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+40_2025-09-17,40,Immature,Overripe,False,12,Overripe,False,False,log: on/after capsule splitting (±1 d),1.0,1.0,8.0,Green,False
+41_2025-09-05,41,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+41_2025-09-17,41,Immature,Ripe,False,12,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+42_2025-09-05,42,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+42_2025-09-17,42,Immature,Ripe,False,12,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+43_2025-09-06,43,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,,Green,False
+44_2025-09-06,44,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,,Green,False
+45_2025-09-06,45,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,,Green,False
+46_2025-09-06,46,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,5.0,Green,False
+47_2025-09-06,47,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+48_2025-09-06,48,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,Green,False
+49_2025-09-06,49,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+50_2025-09-06,50,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+50_2025-09-12,50,Immature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+51_2025-09-06,51,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Brown Than Green,False
+51_2025-09-12,51,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,7.0,More Brown Than Green,False
+52_2025-09-06,52,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,More Brown Than Green,False
+53_2025-09-06,53,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+53_2025-09-12,53,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,7.0,More Green Than Brown,False
+54_2025-09-06,54,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,More Brown Than Green,False
+54_2025-09-12,54,Immature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,6.0,More Brown Than Green,False
+55_2025-09-06,55,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,Green,False
+55_2025-09-12,55,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,6.0,Green,False
+56_2025-09-06,56,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,More Green Than Brown,False
+57_2025-09-06,57,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,,More Green Than Brown,False
+57_2025-09-12,57,Immature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,,More Green Than Brown,False
+58_2025-09-06,58,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,5.0,More Green Than Brown,False
+58_2025-09-12,58,Immature,Overripe,False,7,Overripe,True,False,unanimous file label,1.0,1.0,5.0,More Green Than Brown,False
+59_2025-09-06,59,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,More Green Than Brown,False
+5_2025-09-05,5,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+60_2025-09-06,60,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,5.0,More Green Than Brown,False
+60_2025-09-12,60,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,5.0,More Green Than Brown,False
+61_2025-09-06,61,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,5.0,More Green Than Brown,False
+61_2025-09-15,61,Immature,Overripe,False,10,Overripe,True,False,unanimous file label,1.0,1.0,5.0,More Green Than Brown,False
+62_2025-09-06,62,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,More Green Than Brown,False
+62_2025-09-12,62,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,6.0,More Green Than Brown,False
+63_2025-09-06,63,Immature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,6.0,Green,False
+63_2025-09-15,63,Immature,Ripe,False,10,Ripe,True,False,unanimous file label,1.0,1.0,6.0,Green,False
+65_2025-09-19,65,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Brown Than Green,False
+67_2025-09-19,67,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+6_2025-09-05,6,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+70_2025-09-19,70,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+71_2025-09-19,71,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+71_2025-09-23,71,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+72_2025-09-19,72,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+72_2025-09-23,72,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+73_2025-09-19,73,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+73_2025-09-25,73,Mature,Ripe,False,7,Ripe,True,True,unanimous file label,1.0,1.0,9.0,Green,False
+74_2025-09-19,74,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+74_2025-09-23,74,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+75_2025-09-19,75,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+75_2025-09-23,75,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+76_2025-09-19,76,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+76_2025-09-24,76,Mature,Overripe,False,6,Overripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+77_2025-09-19,77,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+77_2025-09-23,77,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+78_2025-09-20,78,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+78_2025-09-23,78,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+79_2025-09-20,79,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,4.0,3.0,9.0,Green,True
+79_2025-09-26,79,Mature,Overripe,False,8,Overripe,True,False,unanimous file label,4.0,3.0,9.0,Green,False
+7_2025-09-05,7,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+80_2025-09-20,80,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+80_2025-09-26,80,Mature,Overripe,False,8,Overripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+81_2025-09-20,81,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+81_2025-09-26,81,Mature,Overripe,False,8,Overripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+82_2025-09-20,82,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+82_2025-09-27,82,Mature,Overripe,False,9,Overripe,False,False,log: on/after capsule splitting (±1 d),1.0,1.0,8.0,Green,False
+83_2025-09-20,83,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+83_2025-09-26,83,Mature,Overripe,False,8,Overripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+84_2025-09-20,84,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+84_2025-09-27,84,Mature,Overripe,False,9,Overripe,False,False,log: on/after capsule splitting (±1 d),1.0,1.0,8.0,Green,False
+89_2025-09-19,89,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+8_2025-09-05,8,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+8_2025-09-12,8,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+90_2025-09-19,90,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,3.0,2.0,9.0,More Green Than Brown,True
+91_2025-09-19,91,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+92_2025-09-20,92,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+92_2025-09-23,92,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,7.0,Green,False
+93_2025-09-20,93,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+93_2025-09-25,93,Mature,Overripe,False,7,Overripe,True,True,unanimous file label,1.0,1.0,8.0,More Green Than Brown,False
+94_2025-09-20,94,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+94_2025-09-23,94,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+95_2025-09-20,95,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+95_2025-09-23,95,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+96_2025-09-20,96,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+96_2025-09-23,96,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+97_2025-09-20,97,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+97_2025-09-23,97,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+98_2025-09-20,98,Mature,Unripe,True,2,Unripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+98_2025-09-23,98,Mature,Ripe,False,5,Ripe,True,False,unanimous file label,1.0,1.0,9.0,More Green Than Brown,False
+99_2025-09-19,99,Mature,Unripe,True,1,Unripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+99_2025-10-02,99,Mature,Overripe,False,14,Overripe,True,False,unanimous file label,1.0,1.0,9.0,Green,False
+9_2025-09-05,9,Immature,Unripe,True,0,Unripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False
+9_2025-09-12,9,Immature,Ripe,False,7,Ripe,True,False,unanimous file label,1.0,1.0,8.0,Green,False

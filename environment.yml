@@ -1,0 +1,30 @@
+# Analysis environment of the paper (conda-forge builds; Python 3.12.16 was used).
+# Exact versions of all 97 installed packages: audit/requirements_lock_cpu.txt; GPU stack: audit/SOFTWARE.md.
+# Create with:  conda env create -f environment.yml && conda activate durian
+# libsndfile comes from conda-forge; src/sound/knock_features.py locates it in $CONDA_PREFIX/lib (no DYLD/LD variables needed).
+name: durian
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - ffmpeg            # decodes the iPhone .m4a knock recordings (librosa/soundfile fall back to it)
+  - libsndfile        # required by python-soundfile
+  - pip
+  - pip:
+      - numpy==2.5.4
+      - pandas==3.1.0
+      - scipy==1.18.1
+      - scikit-learn==1.9.1
+      - lightgbm==4.7.0
+      - joblib==1.6.0
+      - pyarrow==25.0.0
+      - matplotlib==3.11.2
+      - torch==2.14.1
+      - torchvision==0.29.1
+      - librosa==1.0.0
+      - soundfile==0.14.0
+      - numba==0.68.0
+      - opencv-python-headless==5.0.0
+      - scikit-image==0.26.0
+      - tifffile==2026.10.15
+      - pillow==13.0.0

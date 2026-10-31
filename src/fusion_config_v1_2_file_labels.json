@@ -1,0 +1,158 @@
+{
+ "fruit_table": "data/durian_mm_fruit_table.csv",
+ "out_dir": "results",
+ "n_boot": 1000,
+ "batch_col": "Maturity_Stage",
+ "modalities": {
+  "thermal": {
+   "oof_fruit": "intermediate/oof/oof_thermal__svm_rbf__fold_fruit.csv",
+   "oof_random": "intermediate/oof/oof_thermal__svm_rbf__fold_random.csv",
+   "features": "intermediate/features/features_thermal.parquet",
+   "feature_exclude": [
+    "ambient_c",
+    "n_unique_vals",
+    "seg_fallback",
+    "otsu_thr_c"
+   ],
+   "best_model": "svm_rbf",
+   "lobo_refit_model": "svm_rbf"
+  },
+  "multispectral": {
+   "oof_fruit": "intermediate/oof/oof_multispectral__logreg__fold_fruit.csv",
+   "oof_random": "intermediate/oof/oof_multispectral__logreg__fold_random.csv",
+   "features": "intermediate/features/features_multispectral.parquet",
+   "feature_exclude": [
+    "bgmean_B1_720",
+    "bgmean_B2_760",
+    "bgmean_B3_800",
+    "bgmean_B4_840",
+    "bgmean_B5_860",
+    "bgmean_B6_900",
+    "bgmean_B7_940",
+    "bgmean_B8_980",
+    "otsu_thr",
+    "seg_band_idx",
+    "seg_ok"
+   ],
+   "best_model": "logreg",
+   "lobo_refit_model": "logreg"
+  },
+  "sound": {
+   "oof_fruit": "intermediate/oof_clean/oof_sound__cnn__fold_fruit.csv",
+   "oof_random": "intermediate/oof_clean/oof_sound__cnn__fold_random.csv",
+   "features": "intermediate/features/features_sound_recordings.parquet",
+   "feature_exclude": [],
+   "best_model": "cnn",
+   "lobo_probs_json": "intermediate/sound_clean/cnn_lobo_recprobs.json"
+  },
+  "rgb": {
+   "oof_fruit": "intermediate/oof/oof_rgb__efficientnetb0_probe__fold_fruit.csv",
+   "oof_random": "intermediate/oof/oof_rgb__efficientnetb0_probe__fold_random.csv",
+   "features": "intermediate/features/features_rgb.parquet",
+   "feature_exclude": [
+    "mask_frac",
+    "seg_ok"
+   ],
+   "best_model": "efficientnetb0_probe",
+   "lobo_refit_model": "embedding_logreg",
+   "embeddings": "intermediate/rgb/emb_efficientnetb0.npy",
+   "manifest": "intermediate/rgb/rgb512_manifest.csv",
+   "embedding_pca": 50
+  }
+ },
+ "leakage_models": {
+  "thermal": {
+   "svm_rbf": {
+    "fruit": "intermediate/oof/oof_thermal__svm_rbf__fold_fruit.csv",
+    "random": "intermediate/oof/oof_thermal__svm_rbf__fold_random.csv"
+   },
+   "lgbm": {
+    "fruit": "intermediate/oof/oof_thermal__lgbm__fold_fruit.csv",
+    "random": "intermediate/oof/oof_thermal__lgbm__fold_random.csv"
+   }
+  },
+  "multispectral": {
+   "logreg": {
+    "fruit": "intermediate/oof/oof_multispectral__logreg__fold_fruit.csv",
+    "random": "intermediate/oof/oof_multispectral__logreg__fold_random.csv"
+   },
+   "lightgbm": {
+    "fruit": "intermediate/oof/oof_multispectral__lightgbm__fold_fruit.csv",
+    "random": "intermediate/oof/oof_multispectral__lightgbm__fold_random.csv"
+   }
+  },
+  "sound": {
+   "cnn": {
+    "fruit": "intermediate/oof_clean/oof_sound__cnn__fold_fruit.csv",
+    "random": "intermediate/oof_clean/oof_sound__cnn__fold_random.csv"
+   },
+   "lgbm": {
+    "fruit": "intermediate/oof_clean/oof_sound__lgbm__fold_fruit.csv",
+    "random": "intermediate/oof_clean/oof_sound__lgbm__fold_random.csv"
+   }
+  },
+  "rgb": {
+   "efficientnetb0_probe": {
+    "fruit": "intermediate/oof/oof_rgb__efficientnetb0_probe__fold_fruit.csv",
+    "random": "intermediate/oof/oof_rgb__efficientnetb0_probe__fold_random.csv"
+   },
+   "hc_lgbm": {
+    "fruit": "intermediate/oof/oof_rgb__hc_lgbm__fold_fruit.csv",
+    "random": "intermediate/oof/oof_rgb__hc_lgbm__fold_random.csv"
+   }
+  }
+ },
+ "leakage_gbm_models": {
+  "thermal": "lgbm",
+  "multispectral": "lightgbm",
+  "sound": "lgbm",
+  "rgb": "hc_lgbm"
+ },
+ "ablation_refs": {
+  "thermal: quantization_only (n_unique_vals, LGBM)": "intermediate/oof/oof_thermal__quantization_only__fold_fruit.csv",
+  "thermal: ambient_only (LR)": "intermediate/oof/oof_thermal__ambient_only__fold_fruit.csv"
+ },
+ "lobo_track_files": {
+  "thermal": {
+   "path": "intermediate/lobo/lobo_thermal__svm_rbf.csv",
+   "model": "svm_rbf",
+   "model_filter": "svm_rbf",
+   "n_col": "n_sessions",
+   "acc_col": "session_accuracy",
+   "f1_col": "session_macro_f1",
+   "confusion_col": "session_confusion"
+  },
+  "multispectral": {
+   "path": "intermediate/lobo/lobo_multispectral__logreg.csv",
+   "model": "logreg",
+   "n_col": "n_sessions",
+   "acc_col": "session_acc",
+   "f1_col": "session_macro_f1"
+  },
+  "sound": {
+   "path": "intermediate/sound_clean/lobo_sound__cnn.csv",
+   "model": "cnn",
+   "n_col": "n_test_fruits",
+   "acc_col": "session_acc",
+   "f1_col": "session_macro_f1",
+   "confusion_col": "confusion"
+  },
+  "rgb": {
+   "path": "intermediate/lobo/lobo_rgb__efficientnetb0_probe.csv",
+   "model": "efficientnetb0_probe",
+   "n_col": "n_sessions",
+   "acc_col": "session_acc",
+   "f1_col": "session_macro_f1",
+   "confusion_col": "confusion_session"
+  }
+ },
+ "nested_stacking": {
+  "probs": "intermediate/nested_clean/nested_stacking_probs.npz",
+  "order": "intermediate/nested_clean/nested_session_order.csv"
+ },
+ "error_analysis_model": [
+  "thermal+multispectral+sound+rgb",
+  "stacking"
+ ],
+ "sound_exclude": "data/sound_exclude_wrong_session.txt"
+}

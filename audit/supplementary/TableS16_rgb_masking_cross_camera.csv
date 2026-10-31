@@ -1,0 +1,33 @@
+block,variant,acc_p0,f1_p0,acc_mean10,acc_min,acc_max,f1_mean10,recall_URO_p0,train,test,n_sess,acc,f1,recall_URO,majority,A,B,ref_only,cand_only,fruits_discordant,chi2,p
+fruit_grouped_cv_268_sessions_foldmean,original,0.827,0.778,0.802,0.764,0.827,0.735,"[0.918, 0.65, 0.755]",,,,,,,,,,,,,,
+fruit_grouped_cv_268_sessions_foldmean,fruit_only,0.784,0.717,0.774,0.75,0.803,0.696,"[0.899, 0.55, 0.714]",,,,,,,,,,,,,,
+fruit_grouped_cv_268_sessions_foldmean,fruit_body,0.761,0.681,0.772,0.757,0.783,0.693,"[0.893, 0.5, 0.653]",,,,,,,,,,,,,,
+fruit_grouped_cv_268_sessions_foldmean,context_only,0.736,0.658,0.735,0.716,0.758,0.651,"[0.855, 0.533, 0.592]",,,,,,,,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,original,,,,,,,,R50,R50,76.0,0.882,0.793,"[1.0, 0.826, 0.545]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,original,,,,,,,,R50,M50,213.0,0.634,0.455,"[0.841, 0.027, 0.474]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,original,,,,,,,,M50,R50,76.0,0.553,0.237,"[1.0, 0.0, 0.0]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,original,,,,,,,,M50,M50,213.0,0.784,0.679,"[0.899, 0.459, 0.684]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,original,,,,,,,,both,R50,76.0,0.908,0.847,"[1.0, 0.913, 0.545]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,original,,,,,,,,both,M50,213.0,0.817,0.735,"[0.906, 0.486, 0.816]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_only,,,,,,,,R50,R50,76.0,0.895,0.82,"[0.976, 0.913, 0.545]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_only,,,,,,,,R50,M50,213.0,0.657,0.478,"[0.826, 0.054, 0.632]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_only,,,,,,,,M50,R50,76.0,0.632,0.465,"[1.0, 0.0, 0.545]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_only,,,,,,,,M50,M50,213.0,0.765,0.659,"[0.884, 0.405, 0.684]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_only,,,,,,,,both,R50,76.0,0.868,0.814,"[0.976, 0.783, 0.636]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_only,,,,,,,,both,M50,213.0,0.775,0.67,"[0.884, 0.405, 0.737]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_body,,,,,,,,R50,R50,76.0,0.882,0.789,"[0.976, 0.913, 0.455]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_body,,,,,,,,R50,M50,213.0,0.681,0.493,"[0.862, 0.027, 0.658]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_body,,,,,,,,M50,R50,76.0,0.632,0.457,"[1.0, 0.0, 0.545]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_body,,,,,,,,M50,M50,213.0,0.732,0.636,"[0.833, 0.405, 0.684]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_body,,,,,,,,both,R50,76.0,0.829,0.751,"[0.976, 0.696, 0.545]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,fruit_body,,,,,,,,both,M50,213.0,0.756,0.643,"[0.877, 0.378, 0.684]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,context_only,,,,,,,,R50,R50,76.0,0.829,0.737,"[0.929, 0.826, 0.455]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,context_only,,,,,,,,R50,M50,213.0,0.549,0.237,"[0.848, 0.0, 0.0]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,context_only,,,,,,,,M50,R50,76.0,0.553,0.237,"[1.0, 0.0, 0.0]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,context_only,,,,,,,,M50,M50,213.0,0.718,0.62,"[0.812, 0.459, 0.632]",0.648,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,context_only,,,,,,,,both,R50,76.0,0.803,0.649,"[0.952, 0.826, 0.182]",0.553,,,,,,,
+cross_camera_fruit_disjoint_primary_partition_pooled,context_only,,,,,,,,both,M50,213.0,0.732,0.62,"[0.841, 0.351, 0.711]",0.648,,,,,,,
+fruit_clustered_mcnemar_primary_partition,,,,,,,,,,,,,,,,original,fruit_only,21.0,10.0,31.0,3.903225806451613,0.04819348829319077
+fruit_clustered_mcnemar_primary_partition,,,,,,,,,,,,,,,,original,fruit_body,29.0,11.0,39.0,8.526315789473685,0.003500475821755826
+fruit_clustered_mcnemar_primary_partition,,,,,,,,,,,,,,,,original,context_only,37.0,12.0,43.0,12.254901960784315,0.0004640375320753484
+fruit_clustered_mcnemar_primary_partition,,,,,,,,,,,,,,,,fruit_only,fruit_body,12.0,5.0,17.0,2.8823529411764706,0.08955507441364237

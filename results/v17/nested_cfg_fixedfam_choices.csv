@@ -1,0 +1,12 @@
+,chosen per fold
+p0cpu,"sound+rgb|product, thermal+multispectral+sound+rgb|product, sound+rgb|product, sound+rgb|mean, sound+rgb|mean"
+p0,"multispectral+sound+rgb|product, thermal+multispectral+sound+rgb|mean, sound+rgb|product, sound+rgb|mean, sound+rgb|mean"
+p1,"sound+rgb|mean, sound+rgb|mean, thermal+multispectral+sound|product, thermal+multispectral+sound+rgb|product, sound+rgb|product"
+p2,"thermal+sound|mean, sound+rgb|product, sound+rgb|mean, thermal+sound+rgb|product, thermal+multispectral+sound|product"
+p3,"sound+rgb|mean, sound|single, thermal+sound+rgb|product, sound+rgb|product, thermal+multispectral+sound+rgb|mean"
+p4,"sound+rgb|product, thermal+multispectral+sound+rgb|product, thermal+sound+rgb|mean, sound+rgb|product, thermal+sound+rgb|mean"
+p5,"thermal+sound+rgb|mean, sound+rgb|product, thermal+sound+rgb|mean, sound+rgb|mean, sound+rgb|product"
+p6,"sound+rgb|mean, thermal+sound+rgb|product, sound+rgb|product, thermal+sound+rgb|product, sound+rgb|mean"
+p7,"thermal+multispectral+sound|mean, thermal+rgb|product, sound+rgb|product, thermal+sound+rgb|mean, thermal+multispectral+sound|product"
+p8,"thermal+sound+rgb|mean, thermal+sound|mean, thermal+multispectral+sound+rgb|mean, sound+rgb|mean, sound+rgb|mean"
+p9,"sound|single, sound+rgb|product, thermal+multispectral+rgb|product, sound|single, thermal+sound+rgb|product"

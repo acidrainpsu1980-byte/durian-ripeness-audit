@@ -1,0 +1,190 @@
+fruit_id,Code,Maturity_Stage,Class,actual,excluded,n_linked_thermal,n_linked_multispectral,n_linked_sound,n_linked_rgb,status,reason,stratum,p0,p1,p2,p3,p4,p5,p6,p7,p8,p9
+1,IM_CA_UN_1,Immature,A,Unripe,False,6.0,13.0,2.0,12.0,analysis_set,,Immature_Unripe,4.0,0.0,2.0,3.0,1.0,0.0,1.0,0.0,3.0,0.0
+2,IM_CA_UN_2,Immature,A,Unripe,False,6.0,13.0,2.0,12.0,analysis_set,,Immature_Unripe,1.0,3.0,1.0,0.0,0.0,0.0,4.0,0.0,1.0,1.0
+3,IM_CA_UN_3,Immature,A,Unripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Unripe,4.0,1.0,3.0,0.0,4.0,2.0,0.0,1.0,4.0,1.0
+4,IM_CA_UN_4,Immature,A,Unripe,False,6.0,12.0,0.0,12.0,excluded,no fruit-linked capture for: sound,,,,,,,,,,,
+5,IM_CA_UN_5,Immature,A,Unripe,False,11.0,13.0,2.0,12.0,analysis_set,,Immature_Unripe,0.0,2.0,0.0,4.0,3.0,2.0,2.0,4.0,2.0,1.0
+6,IM_CA_UN_6,Immature,A,Unripe,False,6.0,18.0,2.0,11.0,analysis_set,,Immature_Unripe,0.0,0.0,2.0,1.0,1.0,1.0,2.0,0.0,1.0,4.0
+7,IM_CA_UN_7,Immature,A,Unripe,False,6.0,16.0,2.0,12.0,analysis_set,,Immature_Unripe,0.0,3.0,1.0,3.0,0.0,3.0,1.0,4.0,1.0,3.0
+8,IM_CA_RI_8,Immature,A,Ripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,3.0,0.0,3.0,4.0,2.0,2.0,1.0,4.0,0.0,3.0
+9,IM_CA_RI_9,Immature,A,Ripe,False,12.0,20.0,4.0,18.0,analysis_set,,Immature_Ripe,4.0,4.0,3.0,3.0,1.0,4.0,2.0,1.0,4.0,4.0
+10,IM_CA_RI_10,Immature,A,Ripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Ripe,1.0,0.0,0.0,2.0,4.0,0.0,3.0,3.0,4.0,4.0
+11,IM_CA_RI_11,Immature,A,Ripe,False,12.0,18.0,2.0,12.0,analysis_set,,Immature_Ripe,3.0,4.0,2.0,1.0,1.0,4.0,2.0,3.0,2.0,1.0
+12,IM_CA_RI_12,Immature,A,Ripe,False,18.0,19.0,4.0,18.0,analysis_set,,Immature_Ripe,0.0,3.0,2.0,1.0,4.0,4.0,3.0,4.0,4.0,0.0
+13,IM_CA_RI_13,Immature,A,Ripe,False,18.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,0.0,3.0,4.0,2.0,3.0,1.0,4.0,0.0,0.0,1.0
+14,IM_CA_RI_14,Immature,A,Ripe,False,18.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,2.0,1.0,0.0,3.0,4.0,0.0,0.0,0.0,4.0,1.0
+15,IM_CA_OR_15,Immature,A,Overripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Overripe,4.0,4.0,1.0,3.0,1.0,1.0,1.0,3.0,2.0,2.0
+16,IM_CA_OR_16,Immature,A,Overripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Overripe,1.0,0.0,4.0,3.0,1.0,2.0,1.0,0.0,4.0,3.0
+17,IM_CA_OR_17,Immature,A,Overripe,False,12.0,20.0,4.0,17.0,analysis_set,,Immature_Overripe,3.0,3.0,0.0,0.0,2.0,4.0,0.0,0.0,0.0,1.0
+18,IM_CA_OR_18,Immature,A,Overripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Overripe,3.0,3.0,1.0,3.0,1.0,0.0,2.0,2.0,0.0,1.0
+19,IM_CA_OR_19,Immature,A,Disease,True,6.0,17.0,2.0,12.0,excluded,endpoint recorded as 'Disease' (no ripeness endpoint),,,,,,,,,,,
+20,IM_CA_OR_20,Immature,A,Overripe,False,11.0,24.0,4.0,24.0,analysis_set,,Immature_Overripe,4.0,0.0,2.0,1.0,3.0,3.0,4.0,1.0,0.0,2.0
+21,IM_CA_OR_21,Immature,A,Overripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Overripe,1.0,1.0,0.0,0.0,3.0,1.0,4.0,2.0,0.0,0.0
+22,IM_CB_UN_22,Immature,B,Unripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Unripe,3.0,1.0,0.0,1.0,4.0,4.0,1.0,1.0,0.0,0.0
+23,IM_CB_UN_23,Immature,B,Unripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Unripe,1.0,4.0,0.0,1.0,3.0,4.0,3.0,2.0,3.0,1.0
+24,IM_CB_UN_24,Immature,B,Unripe,False,6.0,13.0,2.0,12.0,analysis_set,,Immature_Unripe,4.0,1.0,3.0,3.0,2.0,1.0,3.0,2.0,0.0,2.0
+25,IM_CB_UN_25,Immature,B,Unripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Unripe,3.0,0.0,1.0,2.0,4.0,1.0,0.0,2.0,3.0,2.0
+26,IM_CB_UN_26,Immature,B,Unripe,False,6.0,13.0,2.0,12.0,analysis_set,,Immature_Unripe,2.0,3.0,4.0,2.0,2.0,2.0,4.0,3.0,0.0,4.0
+27,IM_CB_UN_27,Immature,B,Unripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Unripe,3.0,0.0,4.0,4.0,2.0,2.0,0.0,2.0,3.0,2.0
+28,IM_CB_UN_28,Immature,B,Unripe,False,0.0,13.0,2.0,12.0,excluded,no fruit-linked capture for: thermal,,,,,,,,,,,
+29,IM_CB_RI_29,Immature,B,Ripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,3.0,2.0,4.0,0.0,4.0,3.0,1.0,2.0,3.0,0.0
+30,IM_CB_RI_30,Immature,B,Ripe,False,12.0,20.0,4.0,18.0,analysis_set,,Immature_Ripe,1.0,4.0,3.0,1.0,3.0,3.0,2.0,1.0,1.0,0.0
+31,IM_CB_RI_31,Immature,B,Ripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,0.0,1.0,0.0,3.0,0.0,2.0,4.0,4.0,2.0,3.0
+32,IM_CB_RI_32,Immature,B,Ripe,False,12.0,29.0,4.0,18.0,analysis_set,,Immature_Ripe,2.0,0.0,3.0,4.0,3.0,2.0,0.0,2.0,1.0,4.0
+33,IM_CB_RI_33,Immature,B,Ripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,2.0,4.0,4.0,4.0,1.0,0.0,3.0,2.0,1.0,3.0
+34,IM_CB_RI_34,Immature,B,Ripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Ripe,2.0,0.0,4.0,2.0,0.0,1.0,1.0,0.0,0.0,0.0
+35,IM_CB_RI_35,Immature,B,Disease,True,12.0,20.0,4.0,18.0,excluded,endpoint recorded as 'Disease' (no ripeness endpoint),,,,,,,,,,,
+36,IM_CB_OR_36,Immature,B,Overripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Overripe,1.0,2.0,4.0,4.0,1.0,0.0,2.0,1.0,1.0,0.0
+37,IM_CB_OR_37,Immature,B,Overripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Overripe,3.0,4.0,3.0,2.0,2.0,3.0,0.0,1.0,2.0,0.0
+38,IM_CB_OR_38,Immature,B,Overripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Overripe,3.0,0.0,4.0,1.0,2.0,2.0,0.0,4.0,2.0,4.0
+39,IM_CB_OR_39,Immature,B,Overripe,False,12.0,24.0,2.0,17.0,analysis_set,,Immature_Overripe,1.0,1.0,2.0,2.0,4.0,3.0,3.0,0.0,4.0,3.0
+40,IM_CB_OR_40,Immature,B,Overripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Overripe,0.0,1.0,3.0,2.0,0.0,4.0,0.0,2.0,1.0,3.0
+41,IM_CB_OR_41,Immature,B,Overripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Overripe,2.0,0.0,0.0,1.0,4.0,1.0,3.0,2.0,1.0,0.0
+42,IM_CB_OR_42,Immature,B,Ripe,False,11.0,21.0,4.0,18.0,analysis_set,,Immature_Ripe,4.0,2.0,4.0,1.0,2.0,1.0,0.0,0.0,2.0,2.0
+43,IM_CC_UN_43,Immature,C,Unripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Unripe,0.0,4.0,0.0,4.0,0.0,0.0,3.0,3.0,4.0,3.0
+44,IM_CC_UN_44,Immature,C,Unripe,False,6.0,15.0,2.0,12.0,analysis_set,,Immature_Unripe,2.0,4.0,2.0,3.0,3.0,4.0,3.0,3.0,2.0,0.0
+45,IM_CC_UN_45,Immature,C,Unripe,False,6.0,12.0,2.0,12.0,analysis_set,,Immature_Unripe,2.0,2.0,1.0,1.0,1.0,1.0,4.0,1.0,2.0,3.0
+46,IM_CC_UN_46,Immature,C,Unripe,False,6.0,13.0,2.0,12.0,analysis_set,,Immature_Unripe,3.0,2.0,4.0,0.0,2.0,3.0,1.0,4.0,1.0,3.0
+47,IM_CC_UN_47,Immature,C,Unripe,False,6.0,14.0,2.0,12.0,analysis_set,,Immature_Unripe,1.0,3.0,3.0,2.0,0.0,3.0,0.0,0.0,2.0,4.0
+48,IM_CC_UN_48,Immature,C,Unripe,False,6.0,14.0,2.0,12.0,analysis_set,,Immature_Unripe,2.0,2.0,3.0,0.0,1.0,3.0,2.0,1.0,4.0,2.0
+49,IM_CC_UN_49,Immature,C,Unripe,False,6.0,13.0,2.0,12.0,analysis_set,,Immature_Unripe,1.0,1.0,2.0,2.0,3.0,0.0,2.0,3.0,0.0,0.0
+50,IM_CC_RI_50,Immature,C,Overripe,False,11.0,18.0,4.0,18.0,analysis_set,,Immature_Overripe,4.0,1.0,2.0,1.0,2.0,4.0,3.0,3.0,3.0,2.0
+51,IM_CC_RI_51,Immature,C,Ripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,4.0,3.0,2.0,2.0,4.0,0.0,4.0,3.0,2.0,2.0
+52,IM_CC_RI_52,Immature,C,Ripe,False,12.0,18.0,2.0,12.0,analysis_set,,Immature_Ripe,4.0,1.0,2.0,0.0,3.0,2.0,4.0,4.0,3.0,3.0
+53,IM_CC_RI_53,Immature,C,Ripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Ripe,1.0,1.0,1.0,0.0,1.0,3.0,2.0,4.0,1.0,2.0
+54,IM_CC_RI_54,Immature,C,Overripe,False,11.0,18.0,4.0,18.0,analysis_set,,Immature_Overripe,2.0,4.0,1.0,0.0,3.0,0.0,2.0,1.0,4.0,4.0
+55,IM_CC_RI_55,Immature,C,Ripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Ripe,0.0,3.0,1.0,4.0,2.0,3.0,3.0,1.0,3.0,4.0
+56,IM_CC_RI_56,Immature,C,Ripe,False,6.0,24.0,4.0,18.0,analysis_set,,Immature_Ripe,0.0,2.0,0.0,0.0,0.0,4.0,1.0,3.0,4.0,4.0
+57,IM_CC_OR_57,Immature,C,Overripe,False,12.0,18.0,4.0,18.0,analysis_set,,Immature_Overripe,0.0,2.0,0.0,2.0,4.0,2.0,1.0,3.0,3.0,1.0
+58,IM_CC_OR_58,Immature,C,Overripe,False,12.0,20.0,4.0,18.0,analysis_set,,Immature_Overripe,0.0,2.0,2.0,4.0,0.0,0.0,1.0,4.0,3.0,3.0
+59,IM_CC_OR_59,Immature,C,Overripe,False,12.0,20.0,2.0,18.0,analysis_set,,Immature_Overripe,0.0,3.0,1.0,0.0,0.0,2.0,2.0,3.0,2.0,1.0
+60,IM_CC_OR_60,Immature,C,Ripe,False,12.0,20.0,4.0,18.0,analysis_set,,Immature_Ripe,1.0,2.0,1.0,4.0,0.0,1.0,0.0,1.0,0.0,2.0
+61,IM_CC_OR_61,Immature,C,Overripe,False,12.0,20.0,4.0,18.0,analysis_set,,Immature_Overripe,2.0,3.0,3.0,3.0,3.0,1.0,3.0,4.0,3.0,4.0
+62,IM_CC_OR_62,Immature,C,Ripe,False,11.0,20.0,4.0,18.0,analysis_set,,Immature_Ripe,3.0,4.0,1.0,3.0,2.0,4.0,4.0,2.0,3.0,1.0
+63,IM_CC_OR_63,Immature,C,Overripe,False,12.0,19.0,4.0,18.0,analysis_set,,Immature_Overripe,2.0,2.0,3.0,4.0,0.0,3.0,4.0,0.0,1.0,2.0
+64,M_CA_UN_64,Mature,A,Unripe,False,6.0,6.0,2.0,0.0,excluded,no fruit-linked capture for: rgb,,,,,,,,,,,
+65,M_CA_UN_65,Mature,A,Unripe,False,6.0,8.0,2.0,6.0,analysis_set,,Mature_Unripe,1.0,2.0,0.0,0.0,1.0,0.0,4.0,0.0,2.0,1.0
+66,M_CA_UN_66,Mature,A,Unripe,False,6.0,7.0,2.0,0.0,excluded,no fruit-linked capture for: rgb,,,,,,,,,,,
+67,M_CA_UN_67,Mature,A,Unripe,False,6.0,8.0,2.0,6.0,analysis_set,,Mature_Unripe,2.0,2.0,1.0,4.0,0.0,0.0,2.0,0.0,0.0,4.0
+68,M_CA_UN_68,Mature,A,Unripe,False,6.0,6.0,0.0,0.0,excluded,"no fruit-linked capture for: sound, rgb",,,,,,,,,,,
+69,M_CA_UN_69,Mature,A,Unripe,False,6.0,6.0,2.0,0.0,excluded,no fruit-linked capture for: rgb,,,,,,,,,,,
+70,M_CA_UN_70,Mature,A,Unripe,False,6.0,7.0,2.0,6.0,analysis_set,,Mature_Unripe,1.0,3.0,3.0,0.0,0.0,2.0,2.0,2.0,0.0,0.0
+71,M_CA_RI_71,Mature,A,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Ripe,1.0,2.0,1.0,2.0,0.0,0.0,0.0,4.0,1.0,3.0
+72,M_CA_RI_72,Mature,A,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Ripe,0.0,4.0,4.0,4.0,0.0,0.0,3.0,0.0,2.0,2.0
+73,M_CA_RI_73,Mature,A,Ripe,False,12.0,15.0,4.0,12.0,analysis_set,,Mature_Ripe,1.0,0.0,2.0,1.0,2.0,2.0,3.0,1.0,1.0,3.0
+74,M_CA_RI_74,Mature,A,Ripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Ripe,3.0,2.0,2.0,1.0,4.0,4.0,1.0,3.0,0.0,4.0
+75,M_CA_RI_75,Mature,A,Ripe,False,18.0,25.0,4.0,18.0,analysis_set,,Mature_Ripe,1.0,0.0,3.0,2.0,4.0,3.0,2.0,1.0,4.0,1.0
+76,M_CA_RI_76,Mature,A,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,1.0,1.0,1.0,3.0,3.0,4.0,0.0,0.0,1.0,3.0
+77,M_CA_RI_77,Mature,A,Ripe,False,12.0,17.0,4.0,12.0,analysis_set,,Mature_Ripe,4.0,3.0,3.0,0.0,4.0,4.0,4.0,3.0,1.0,1.0
+78,M_CA_OR_78,Mature,A,Ripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Ripe,0.0,0.0,4.0,4.0,3.0,1.0,0.0,1.0,0.0,0.0
+79,M_CA_OR_79,Mature,A,Overripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Overripe,4.0,2.0,0.0,0.0,1.0,3.0,4.0,0.0,4.0,3.0
+80,M_CA_OR_80,Mature,A,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,2.0,2.0,2.0,0.0,0.0,0.0,1.0,0.0,3.0,3.0
+81,M_CA_OR_81,Mature,A,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Mature_Overripe,3.0,3.0,0.0,2.0,4.0,1.0,3.0,3.0,0.0,3.0
+82,M_CA_OR_82,Mature,A,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,0.0,4.0,1.0,1.0,2.0,4.0,1.0,4.0,4.0,1.0
+83,M_CA_OR_83,Mature,A,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,1.0,2.0,3.0,1.0,2.0,4.0,4.0,1.0,2.0,2.0
+84,M_CA_OR_84,Mature,A,Overripe,False,12.0,16.0,4.0,12.0,analysis_set,,Mature_Overripe,4.0,0.0,3.0,3.0,3.0,0.0,3.0,4.0,3.0,2.0
+85,M_CB_UN_85,Mature,B,Unripe,False,6.0,12.0,2.0,0.0,excluded,no fruit-linked capture for: rgb,,,,,,,,,,,
+86,M_CB_UN_86,Mature,B,Unripe,False,6.0,7.0,2.0,0.0,excluded,no fruit-linked capture for: rgb,,,,,,,,,,,
+87,M_CB_UN_87,Mature,B,Unripe,False,6.0,8.0,2.0,0.0,excluded,no fruit-linked capture for: rgb,,,,,,,,,,,
+88,M_CB_UN_88,Mature,B,Unripe,False,0.0,0.0,0.0,0.0,excluded,no fruit-linked capture in any sensor,,,,,,,,,,,
+89,M_CB_UN_89,Mature,B,Unripe,False,12.0,14.0,2.0,6.0,analysis_set,,Mature_Unripe,3.0,4.0,2.0,4.0,4.0,1.0,0.0,3.0,4.0,3.0
+90,M_CB_UN_90,Mature,B,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Mature_Unripe,2.0,0.0,2.0,2.0,4.0,4.0,3.0,2.0,4.0,2.0
+91,M_CB_UN_91,Mature,B,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Mature_Unripe,0.0,4.0,0.0,2.0,2.0,2.0,0.0,3.0,1.0,4.0
+92,M_CB_RI_92,Mature,B,Ripe,False,12.0,15.0,4.0,12.0,analysis_set,,Mature_Ripe,2.0,1.0,0.0,2.0,0.0,1.0,1.0,1.0,2.0,1.0
+93,M_CB_RI_93,Mature,B,Overripe,False,11.0,11.0,4.0,11.0,analysis_set,,Mature_Overripe,0.0,4.0,3.0,2.0,0.0,2.0,0.0,2.0,0.0,0.0
+94,M_CB_RI_94,Mature,B,Ripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Ripe,4.0,4.0,1.0,1.0,1.0,4.0,3.0,1.0,3.0,2.0
+95,M_CB_RI_95,Mature,B,Ripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Ripe,3.0,4.0,0.0,3.0,1.0,2.0,4.0,4.0,2.0,1.0
+96,M_CB_RI_96,Mature,B,Ripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Ripe,2.0,1.0,4.0,4.0,2.0,4.0,1.0,3.0,3.0,4.0
+97,M_CB_RI_97,Mature,B,Ripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Ripe,4.0,2.0,4.0,0.0,3.0,1.0,2.0,2.0,4.0,1.0
+98,M_CB_RI_98,Mature,B,Ripe,False,12.0,12.0,4.0,12.0,analysis_set,,Mature_Ripe,3.0,1.0,0.0,3.0,1.0,2.0,4.0,3.0,0.0,3.0
+99,M_CB_OR_99,Mature,B,Overripe,False,12.0,15.0,4.0,12.0,analysis_set,,Mature_Overripe,0.0,1.0,3.0,3.0,4.0,0.0,1.0,1.0,1.0,2.0
+100,M_CB_OR_100,Mature,B,Overripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Overripe,1.0,1.0,1.0,1.0,1.0,3.0,3.0,2.0,2.0,2.0
+101,M_CB_OR_101,Mature,B,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Ripe,0.0,3.0,3.0,1.0,2.0,0.0,0.0,2.0,4.0,0.0
+102,M_CB_OR_102,Mature,B,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Mature_Overripe,0.0,1.0,4.0,2.0,1.0,1.0,2.0,1.0,2.0,4.0
+103,M_CB_OR_103,Mature,B,Overripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Overripe,1.0,2.0,2.0,4.0,3.0,1.0,2.0,4.0,0.0,1.0
+104,M_CB_OR_104,Mature,B,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,4.0,4.0,0.0,4.0,0.0,2.0,2.0,3.0,4.0,0.0
+105,M_CB_OR_105,Mature,B,Overripe,False,12.0,18.0,4.0,12.0,analysis_set,,Mature_Overripe,4.0,0.0,4.0,0.0,2.0,4.0,2.0,2.0,1.0,4.0
+106,M_CC_UN_106,Mature,C,Unripe,False,6.0,6.0,0.0,6.0,excluded,no fruit-linked capture for: sound,,,,,,,,,,,
+107,M_CC_UN_107,Mature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Mature_Unripe,0.0,4.0,3.0,0.0,4.0,3.0,0.0,4.0,4.0,4.0
+108,M_CC_UN_108,Mature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Mature_Unripe,1.0,3.0,4.0,3.0,0.0,4.0,4.0,4.0,0.0,2.0
+109,M_CC_UN_109,Mature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Mature_Unripe,4.0,0.0,0.0,1.0,3.0,3.0,1.0,1.0,3.0,1.0
+110,M_CC_UN_110,Mature,C,Unripe,False,6.0,7.0,2.0,6.0,analysis_set,,Mature_Unripe,0.0,1.0,1.0,1.0,3.0,0.0,3.0,1.0,1.0,0.0
+111,M_CC_UN_111,Mature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Mature_Unripe,4.0,0.0,4.0,4.0,1.0,1.0,1.0,0.0,3.0,0.0
+112,M_CC_UN_112,Mature,C,Unripe,False,6.0,7.0,2.0,6.0,analysis_set,,Mature_Unripe,3.0,1.0,4.0,3.0,2.0,4.0,4.0,4.0,2.0,3.0
+113,M_CC_RI_113,Mature,C,Ripe,False,12.0,13.0,2.0,12.0,analysis_set,,Mature_Ripe,4.0,3.0,3.0,0.0,1.0,1.0,2.0,0.0,0.0,0.0
+114,M_CC_RI_114,Mature,C,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,2.0,3.0,0.0,2.0,0.0,2.0,2.0,4.0,2.0,4.0
+115,M_CC_RI_115,Mature,C,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Ripe,2.0,3.0,1.0,4.0,0.0,0.0,2.0,2.0,3.0,0.0
+116,M_CC_RI_116,Mature,C,Ripe,False,12.0,12.0,4.0,12.0,analysis_set,,Mature_Ripe,0.0,4.0,1.0,3.0,2.0,3.0,0.0,2.0,4.0,3.0
+117,M_CC_RI_117,Mature,C,Ripe,False,12.0,12.0,4.0,12.0,analysis_set,,Mature_Ripe,1.0,0.0,2.0,1.0,1.0,1.0,1.0,0.0,2.0,4.0
+118,M_CC_RI_118,Mature,C,Ripe,False,12.0,15.0,4.0,12.0,analysis_set,,Mature_Ripe,3.0,2.0,0.0,3.0,3.0,2.0,4.0,4.0,3.0,2.0
+119,M_CC_RI_119,Mature,C,Ripe,False,12.0,15.0,4.0,12.0,analysis_set,,Mature_Ripe,0.0,1.0,1.0,0.0,3.0,3.0,1.0,0.0,1.0,2.0
+120,M_CC_OR_120,Mature,C,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Mature_Overripe,3.0,3.0,4.0,3.0,4.0,3.0,4.0,0.0,3.0,1.0
+121,M_CC_OR_121,Mature,C,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Ripe,2.0,1.0,2.0,2.0,4.0,3.0,3.0,4.0,1.0,4.0
+122,M_CC_OR_122,Mature,C,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Mature_Overripe,3.0,0.0,2.0,0.0,1.0,1.0,0.0,1.0,1.0,4.0
+123,M_CC_OR_123,Mature,C,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,2.0,0.0,2.0,1.0,2.0,2.0,0.0,3.0,4.0,2.0
+124,M_CC_OR_124,Mature,C,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Mature_Overripe,2.0,3.0,1.0,2.0,3.0,2.0,3.0,3.0,0.0,1.0
+125,M_CC_OR_125,Mature,C,Overripe,False,12.0,15.0,4.0,12.0,analysis_set,,Mature_Overripe,0.0,2.0,2.0,4.0,4.0,0.0,4.0,2.0,2.0,0.0
+126,M_CC_OR_126,Mature,C,Overripe,False,12.0,14.0,4.0,12.0,analysis_set,,Mature_Overripe,3.0,4.0,4.0,4.0,2.0,3.0,1.0,2.0,3.0,0.0
+127,OM_CA_UN_127,Overmature,A,Unripe,False,6.0,6.0,0.0,6.0,excluded,no fruit-linked capture for: sound,,,,,,,,,,,
+128,OM_CA_UN_128,Overmature,A,Unripe,False,6.0,7.0,2.0,6.0,analysis_set,,Overmature_Unripe,4.0,3.0,2.0,1.0,4.0,1.0,1.0,0.0,1.0,1.0
+129,OM_CA_UN_129,Overmature,A,Unripe,False,6.0,8.0,2.0,6.0,analysis_set,,Overmature_Unripe,3.0,0.0,1.0,0.0,0.0,4.0,2.0,4.0,1.0,3.0
+130,OM_CA_UN_130,Overmature,A,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,0.0,1.0,0.0,3.0,1.0,2.0,3.0,2.0,4.0,0.0
+131,OM_CA_UN_131,Overmature,A,Unripe,False,12.0,13.0,2.0,12.0,analysis_set,,Overmature_Unripe,4.0,1.0,3.0,2.0,4.0,3.0,3.0,1.0,2.0,4.0
+132,OM_CA_UN_132,Overmature,A,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,3.0,2.0,0.0,3.0,1.0,4.0,2.0,2.0,3.0,2.0
+133,OM_CA_UN_133,Overmature,A,Unripe,False,6.0,9.0,2.0,6.0,analysis_set,,Overmature_Unripe,2.0,2.0,4.0,3.0,3.0,3.0,0.0,3.0,4.0,1.0
+134,OM_CA_RI_134 (Tagak 2),Overmature,A,Ripe,False,0.0,0.0,0.0,0.0,excluded,"no numbered capture in any sensor; thermal/RGB files named TAGAK2 match its field tag but carry no fruit number, and no multispectral or knock file exists for it (would not qualify even if linked)",,,,,,,,,,,
+135,OM_CA_RI_135 (Tagak 3),Overmature,A,Ripe,False,0.0,0.0,0.0,0.0,excluded,"no numbered capture in any sensor; thermal/RGB files named TAGAK3 match its field tag but carry no fruit number, and no multispectral or knock file exists for it (would not qualify even if linked)",,,,,,,,,,,
+136,OM_CA_RI_136 (Tagak 4),Overmature,A,Ripe,False,0.0,0.0,0.0,0.0,excluded,"no numbered capture in any sensor; thermal/RGB files named TAGAK4 match its field tag but carry no fruit number, and no multispectral or knock file exists for it (would not qualify even if linked)",,,,,,,,,,,
+137,OM_CA_RI_137 (Tagak 5),Overmature,A,Ripe,False,0.0,0.0,0.0,0.0,excluded,"no numbered capture in any sensor; thermal/RGB files named TAGAK5 match its field tag but carry no fruit number, and no multispectral or knock file exists for it (would not qualify even if linked)",,,,,,,,,,,
+138,OM_CA_RI_138 (Tagak 6),Overmature,A,Ripe,False,0.0,0.0,0.0,0.0,excluded,"no numbered capture in any sensor; thermal/RGB files named TAGAK6 match its field tag but carry no fruit number, and no multispectral or knock file exists for it (would not qualify even if linked)",,,,,,,,,,,
+139,OM_CA_RI_139,Overmature,A,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Ripe,3.0,1.0,3.0,3.0,0.0,1.0,1.0,1.0,3.0,3.0
+140,OM_CA_RI_140,Overmature,A,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Ripe,2.0,4.0,0.0,0.0,2.0,2.0,2.0,3.0,0.0,1.0
+141,OM_CA_OR_141,Overmature,A,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,4.0,1.0,4.0,3.0,3.0,0.0,0.0,0.0,1.0,0.0
+142,OM_CA_OR_142,Overmature,A,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Overripe,4.0,0.0,1.0,3.0,1.0,3.0,2.0,1.0,0.0,2.0
+143,OM_CA_OR_143,Overmature,A,Overripe,False,12.0,14.0,4.0,12.0,analysis_set,,Overmature_Overripe,2.0,4.0,1.0,1.0,2.0,3.0,1.0,3.0,0.0,1.0
+144,OM_CA_OR_144,Overmature,A,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,3.0,2.0,0.0,0.0,0.0,4.0,1.0,0.0,0.0,0.0
+145,OM_CA_OR_145,Overmature,A,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,1.0,0.0,3.0,4.0,1.0,0.0,3.0,4.0,4.0,1.0
+146,OM_CA_OR_146,Overmature,A,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Overripe,2.0,1.0,0.0,2.0,0.0,1.0,0.0,0.0,4.0,2.0
+147,OM_CA_OR_147,Overmature,A,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,3.0,3.0,0.0,0.0,3.0,3.0,4.0,3.0,1.0,1.0
+148,OM_CB_UN_148,Overmature,B,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,2.0,0.0,0.0,2.0,1.0,3.0,0.0,4.0,2.0,2.0
+149,OM_CB_UN_149,Overmature,B,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,4.0,3.0,3.0,4.0,2.0,4.0,1.0,0.0,2.0,3.0
+150,OM_CB_UN_150,Overmature,B,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,0.0,0.0,2.0,3.0,2.0,3.0,4.0,2.0,0.0,4.0
+151,OM_CB_UN_151,Overmature,B,Unripe,False,6.0,0.0,2.0,6.0,excluded,no fruit-linked capture for: multispectral,,,,,,,,,,,
+152,OM_CB_UN_152,Overmature,B,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,0.0,4.0,1.0,4.0,0.0,0.0,4.0,0.0,0.0,4.0
+153,OM_CB_UN_153,Overmature,B,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,2.0,4.0,1.0,1.0,2.0,0.0,3.0,3.0,4.0,4.0
+154,OM_CB_UN_154,Overmature,B,Unripe,False,0.0,0.0,0.0,0.0,excluded,no fruit-linked capture in any sensor,,,,,,,,,,,
+155,OM_CB_RI_155 (Tagak 1),Overmature,B,Ripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Ripe,4.0,1.0,4.0,2.0,4.0,2.0,4.0,0.0,4.0,3.0
+156,OM_CB_RI_156,Overmature,B,Ripe,False,12.0,21.0,4.0,12.0,analysis_set,,Overmature_Ripe,2.0,0.0,1.0,1.0,1.0,3.0,0.0,2.0,3.0,1.0
+157,OM_CB_RI_157,Overmature,B,Ripe,False,12.0,14.0,4.0,12.0,analysis_set,,Overmature_Ripe,4.0,4.0,2.0,2.0,3.0,4.0,1.0,0.0,3.0,3.0
+158,OM_CB_RI_158,Overmature,B,Ripe,False,12.0,11.0,4.0,11.0,analysis_set,,Overmature_Ripe,4.0,4.0,4.0,4.0,1.0,2.0,3.0,2.0,2.0,1.0
+159,OM_CB_RI_159,Overmature,B,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,3.0,4.0,1.0,2.0,0.0,4.0,0.0,2.0,2.0,3.0
+160,OM_CB_RI_160,Overmature,B,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Ripe,2.0,3.0,4.0,1.0,1.0,4.0,2.0,4.0,1.0,0.0
+161,OM_CB_RI_161,Overmature,B,Ripe,False,0.0,0.0,0.0,0.0,excluded,no fruit-linked capture in any sensor,,,,,,,,,,,
+162,OM_CB_OR_162,Overmature,B,Overripe,False,18.0,22.0,6.0,18.0,analysis_set,,Overmature_Overripe,1.0,2.0,2.0,0.0,3.0,2.0,3.0,4.0,1.0,3.0
+163,OM_CB_OR_163,Overmature,B,,True,0.0,0.0,0.0,0.0,excluded,no endpoint recorded in the fruit log (actual missing),,,,,,,,,,,
+164,OM_CB_OR_164,Overmature,B,,True,0.0,0.0,0.0,0.0,excluded,no endpoint recorded in the fruit log (actual missing),,,,,,,,,,,
+165,OM_CB_OR_165,Overmature,B,Overripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Overripe,0.0,3.0,4.0,1.0,3.0,1.0,3.0,0.0,4.0,4.0
+166,OM_CB_OR_166,Overmature,B,Ripe,False,12.0,15.0,4.0,12.0,analysis_set,,Overmature_Ripe,0.0,2.0,0.0,1.0,4.0,0.0,1.0,4.0,2.0,0.0
+167,OM_CB_OR_167,Overmature,B,Overripe,False,10.0,16.0,4.0,12.0,analysis_set,,Overmature_Overripe,1.0,3.0,0.0,4.0,2.0,3.0,3.0,2.0,2.0,3.0
+168,OM_CB_OR_168,Overmature,B,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,0.0,4.0,3.0,1.0,1.0,1.0,2.0,1.0,0.0,0.0
+169,OM_CC_UN_169,Overmature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,1.0,2.0,3.0,4.0,4.0,2.0,0.0,3.0,3.0,3.0
+170,OM_CC_UN_170,Overmature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,1.0,4.0,2.0,1.0,3.0,0.0,1.0,3.0,0.0,0.0
+171,OM_CC_UN_171,Overmature,C,Unripe,False,6.0,7.0,2.0,6.0,analysis_set,,Overmature_Unripe,0.0,1.0,3.0,0.0,0.0,1.0,4.0,4.0,1.0,1.0
+172,OM_CC_UN_172,Overmature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,3.0,4.0,4.0,4.0,3.0,1.0,4.0,1.0,3.0,3.0
+173,OM_CC_UN_173,Overmature,C,Unripe,False,6.0,7.0,2.0,6.0,analysis_set,,Overmature_Unripe,1.0,3.0,4.0,2.0,4.0,2.0,2.0,1.0,4.0,2.0
+174,OM_CC_UN_174,Overmature,C,Unripe,False,6.0,0.0,2.0,6.0,excluded,no fruit-linked capture for: multispectral,,,,,,,,,,,
+175,OM_CC_UN_175,Overmature,C,Unripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Unripe,1.0,3.0,4.0,0.0,3.0,4.0,3.0,4.0,3.0,0.0
+176,OM_CC_RI_176 (Tagak 7),Overmature,C,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Ripe,1.0,0.0,2.0,4.0,4.0,3.0,0.0,3.0,0.0,2.0
+177,OM_CC_RI_177 (Tagak 8),Overmature,C,Ripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Ripe,1.0,0.0,3.0,0.0,3.0,3.0,0.0,1.0,1.0,4.0
+178,OM_CC_RI_178 (Tagak 10),Overmature,C,Ripe,False,6.0,7.0,2.0,6.0,analysis_set,,Overmature_Ripe,0.0,1.0,0.0,0.0,2.0,4.0,3.0,4.0,0.0,4.0
+179,OM_CC_RI_179,Overmature,C,Ripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Ripe,3.0,3.0,1.0,3.0,3.0,1.0,2.0,3.0,1.0,2.0
+180,OM_CC_RI_180,Overmature,C,Ripe,False,12.0,13.0,4.0,12.0,analysis_set,,Overmature_Ripe,3.0,2.0,1.0,2.0,0.0,0.0,4.0,2.0,4.0,4.0
+181,OM_CC_RI_181,Overmature,C,Overripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Overripe,2.0,2.0,2.0,4.0,2.0,1.0,0.0,3.0,2.0,3.0
+182,OM_CC_RI_182,Overmature,C,Ripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Ripe,0.0,3.0,3.0,3.0,0.0,1.0,4.0,0.0,4.0,2.0
+183,OM_CC_OR_183 (Tagak 9),Overmature,C,Overripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Overripe,0.0,0.0,2.0,0.0,4.0,2.0,4.0,4.0,3.0,2.0
+184,OM_CC_OR_184,Overmature,C,Ripe,False,6.0,6.0,2.0,6.0,analysis_set,,Overmature_Ripe,1.0,2.0,2.0,4.0,2.0,0.0,3.0,1.0,2.0,0.0
+185,OM_CC_OR_185,Overmature,C,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,1.0,1.0,3.0,2.0,4.0,2.0,2.0,3.0,1.0,2.0
+186,OM_CC_OR_186,Overmature,C,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,4.0,2.0,3.0,2.0,0.0,4.0,4.0,2.0,3.0,4.0
+187,OM_CC_OR_187,Overmature,C,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,3.0,0.0,2.0,1.0,1.0,2.0,1.0,1.0,3.0,1.0
+188,OM_CC_OR_188,Overmature,C,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,0.0,1.0,4.0,3.0,4.0,0.0,2.0,2.0,2.0,4.0
+189,OM_CC_OR_189,Overmature,C,Overripe,False,12.0,12.0,4.0,12.0,analysis_set,,Overmature_Overripe,2.0,3.0,1.0,3.0,2.0,0.0,1.0,1.0,3.0,0.0

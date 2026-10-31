@@ -1,0 +1,12 @@
+train,test_recordings,sess_acc_p0,sess_f1_p0,acc_mean10,acc_min,acc_max,f1_mean10
+dual-trained,iphone+android,0.914,0.845,0.895,0.878,0.914,0.828
+dual-trained,iphone,0.901,0.83,0.902,0.889,0.921,0.843
+dual-trained,android,0.882,0.811,0.871,0.847,0.902,0.799
+iPhone-trained,iphone,0.908,0.837,0.907,0.896,0.927,0.847
+iPhone-trained,android,0.825,0.74,0.828,0.792,0.847,0.752
+iPhone-trained,iphone+android,0.9,0.838,0.907,0.889,0.927,0.848
+iPhoneM-trained,iphone,0.887,0.806,0.889,0.877,0.914,0.824
+iPhoneM-trained,android,0.84,0.748,0.847,0.823,0.865,0.777
+Android-trained,android,0.849,0.767,0.861,0.847,0.878,0.792
+Android-trained,iphone,0.863,0.764,0.857,0.835,0.877,0.743
+Android-trained,iphone+android,0.88,0.813,0.876,0.829,0.902,0.806

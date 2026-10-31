@@ -1,0 +1,37 @@
+configuration,stratum,n_sessions,majority_rate,accuracy,macro_f1
+Sound,All sessions,268,0.5933,0.8993,0.8318
+Sound,Verified same day,145,0.5379,0.9034,0.8514
+Sound,"Verified, next-day harvest recording",18,1.0,1.0,
+Sound,Android recording removed (iPhone only),105,0.6,0.8762,0.7935
+Sound (iPhone only),All sessions,268,0.5933,0.8955,0.8277
+Sound (iPhone only),Verified same day,145,0.5379,0.8966,0.8443
+Sound (iPhone only),"Verified, next-day harvest recording",18,1.0,1.0,
+Sound (iPhone only),Android recording removed (iPhone only),105,0.6,0.8762,0.7935
+Thermal,All sessions,268,0.5933,0.8396,0.7581
+Thermal,Verified same day,145,0.5379,0.8138,0.7507
+Thermal,"Verified, next-day harvest recording",18,1.0,1.0,
+Thermal,Android recording removed (iPhone only),105,0.6,0.8476,0.7619
+RGB,All sessions,268,0.5933,0.8284,0.7797
+RGB,Verified same day,145,0.5379,0.7655,0.7542
+RGB,"Verified, next-day harvest recording",18,1.0,1.0,
+RGB,Android recording removed (iPhone only),105,0.6,0.8857,0.8089
+Multispectral,All sessions,268,0.5933,0.7425,0.6587
+Multispectral,Verified same day,145,0.5379,0.7034,0.6571
+Multispectral,"Verified, next-day harvest recording",18,1.0,0.9444,
+Multispectral,Android recording removed (iPhone only),105,0.6,0.7619,0.6346
+T+S+R mean,All sessions,268,0.5933,0.9104,0.8527
+T+S+R mean,Verified same day,145,0.5379,0.9103,0.8675
+T+S+R mean,"Verified, next-day harvest recording",18,1.0,1.0,
+T+S+R mean,Android recording removed (iPhone only),105,0.6,0.8952,0.8253
+T+S(iPhone)+R mean,All sessions,268,0.5933,0.9067,0.8468
+T+S(iPhone)+R mean,Verified same day,145,0.5379,0.9034,0.8578
+T+S(iPhone)+R mean,"Verified, next-day harvest recording",18,1.0,1.0,
+T+S(iPhone)+R mean,Android recording removed (iPhone only),105,0.6,0.8952,0.8253
+T+M+S+R mean,All sessions,268,0.5933,0.9067,0.8489
+T+M+S+R mean,Verified same day,145,0.5379,0.9034,0.8605
+T+M+S+R mean,"Verified, next-day harvest recording",18,1.0,1.0,
+T+M+S+R mean,Android recording removed (iPhone only),105,0.6,0.8952,0.8245
+T+M+S+R nested stacking,All sessions,268,0.5933,0.9104,0.8552
+T+M+S+R nested stacking,Verified same day,145,0.5379,0.9172,0.8759
+T+M+S+R nested stacking,"Verified, next-day harvest recording",18,1.0,1.0,
+T+M+S+R nested stacking,Android recording removed (iPhone only),105,0.6,0.8857,0.8141

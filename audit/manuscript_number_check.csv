@@ -1,0 +1,11 @@
+table,sources,numbers_checked,numbers_traced,untraced
+Table 3,results/v14/partition_sensitivity.csv; results/v17/matched_space_summary.csv; results/v17/matched_space_detail.csv,90,90,
+Table 4,results/v14/comparisons_v14.csv,36,36,
+Table 5,results/single_modality_common_denominator.csv; results/fusion_results.csv; results/leakage_table.csv,56,56,
+Table 6,results/fusion_results.csv; results/stats_tests.csv,126,126,
+Table 7,results/leakage_table.csv,84,84,
+Table 8,results/lobo_table.csv; results/fusion_results.csv; results/leakage_table.csv,60,60,
+Table 9,results/two_class_results.csv; results/fusion_results.csv,81,81,
+Table 10,results/sound_matching_sensitivity.csv; results/fusion_results.csv; results/label_policy_sensitivity.csv,67,67,
+Table 11,results/label_policy_sensitivity.csv,64,64,
+Table 12,results/v15/device_identical_sessions.csv; results/v15/device_paired_tests.csv; results/v15/fusion_with_ablated_inputs.csv; results/v15/ms_wavelength_ablation_detail.csv; results/v15/rgb_cross_camera.csv; results/v15/rgb_masking.csv; results/v15/rgb_paired_tests.csv; results/v15/thermal_ablation.csv; results/v14/partition_sensitivity.csv; results/v14/comparisons_v14.csv; results/v17/matched_space_summary.csv; results/lobo_table.csv,145,145,

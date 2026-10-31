@@ -1,0 +1,21 @@
+model,n_train,n_test,best_params,max_abs_diff_vs_shipped,sha256
+thermal__svm_rbf__outer0.joblib,1295,376,"{""clf__C"": 10, ""clf__gamma"": 0.003}",0.0,c11ae3a37a6338d11bc708807b3e519f460367c04de542a9501d316ca1897b71
+thermal__svm_rbf__outer1.joblib,1331,340,"{""clf__C"": 10, ""clf__gamma"": 0.003}",0.0,ba93edd73ac1bea916a139323fecca4ad1d614fba34f1efbdf6c6929fcdbe892
+thermal__svm_rbf__outer2.joblib,1342,329,"{""clf__C"": 10, ""clf__gamma"": ""scale""}",0.0,c76a3365faa7bfd3a9d796572a90fe5b5016ccc31a518262ef070e0ccc9f6d68
+thermal__svm_rbf__outer3.joblib,1336,335,"{""clf__C"": 10, ""clf__gamma"": 0.01}",0.0,f8be5cfd4c6307537dff49b483aaaf498857fcf1ea0961a67b5ac06a2b6f0ddc
+thermal__svm_rbf__outer4.joblib,1380,291,"{""clf__C"": 10, ""clf__gamma"": ""scale""}",0.0,dc2f04c8c2306fa57759c9ea23d9ea155b9e7cdd8e3c4aaeb4765d613689a9d2
+multispectral__logreg__outer0.joblib,1736,486,"{""clf__C"": 1.0}",0.0,6d1536a488df56fd76b892dbc8fe6193df54ee13b69833a36ed32aeac8ed062d
+multispectral__logreg__outer1.joblib,1759,463,"{""clf__C"": 10.0}",0.0,f98553a52ce93f99c7fc2270dc1632c18cd053abdec7076fc438787ff28972e9
+multispectral__logreg__outer2.joblib,1774,448,"{""clf__C"": 1.0}",0.0,c1e68e823150248a5813b5d00084494e40db1d36e1d85329f7928b71cfab8856
+multispectral__logreg__outer3.joblib,1791,431,"{""clf__C"": 0.1}",0.0,1465cb37f643652b13afa4729dbad41cd7250fa193dec1ee1153d076817b60ac
+multispectral__logreg__outer4.joblib,1828,394,"{""clf__C"": 0.1}",0.0,d2d1deffd00aa312e495e247b454000c9dc6471ffc7d98951e04c84ca594802a
+rgb__efficientnetb0_probe__outer0.joblib,1557,442,"{""logisticregression__C"": 0.01}",0.0,e3e063fb1911518be4340a492525320f87218a13095a8e0d30bcedbce57d39e9
+rgb__efficientnetb0_probe__outer1.joblib,1586,413,"{""logisticregression__C"": 0.1}",0.0,917989d6b2ebfcf33258dd5808b76fd7efee799530a5c2fa2cca2e9ceb9f4a27
+rgb__efficientnetb0_probe__outer2.joblib,1603,396,"{""logisticregression__C"": 0.01}",0.0,14a987bdd217f34bfda1add1ba551f83cb9229a6fe51b88f8e12a0c56bf013e0
+rgb__efficientnetb0_probe__outer3.joblib,1604,395,"{""logisticregression__C"": 0.01}",0.0,d6f67a190b56d9be29eff801c33c0a0e59247e45556641e17b3a9c5ce2d8d613
+rgb__efficientnetb0_probe__outer4.joblib,1646,353,"{""logisticregression__C"": 0.01}",0.0,33cfc2df658009e57af2b1a5b8d980c41e8bf0f5e668c871f8af2a8b37e027f2
+cnn_common_outer_0.pt,,3582,,0.0,ea097553b609630ce550b3a78d1811632cb336875c1f42b2b98e2c06532a33e2
+cnn_common_outer_1.pt,,3162,,0.0,eb32ad05625245cbfbfacf4207078c2ef8c2eb82abd45ac7f06abcb24d7a0a94
+cnn_common_outer_2.pt,,3162,,0.0,d272a93e8c153db4b1139af550442aad66a4136b941aff81612f7fc38e25bb26
+cnn_common_outer_3.pt,,3095,,0.0,ccca89b2f95d1eaeab40a80cc6fd12d721b8deb60b4033d651ac4355b18b1326
+cnn_common_outer_4.pt,,2708,,0.0,cfa1ab438cc1714a14ba4954104f5bac9b2fb43a377a14cbbe0b940a33484856

@@ -1,0 +1,8 @@
+table,rows_reextracted,rows_shipped,rows_matched,feature_columns,max_abs_diff,nan_mismatch,label_rows_differing
+features_thermal,1671,1671,1671,70,0.0,0,
+features_multispectral,2222,2222,2222,136,0.0,0,22.0
+features_sound_recordings,538,432,432,270,0.0,0,16.0
+features_sound_knocks,15709,15709,15709,137,0.0,0,0.0
+features_rgb,1999,1999,1999,100,0.0,0,18.0
+emb_mobilenetv2,1999,1999,1999,6400,0.0,0,
+emb_efficientnetb0,1999,1999,1999,6400,0.0,0,

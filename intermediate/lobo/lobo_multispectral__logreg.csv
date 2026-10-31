@@ -1,0 +1,4 @@
+held_out_batch,n_captures,n_sessions,capture_acc,capture_macro_f1,session_acc,session_macro_f1,session_recall_unripe,session_recall_ripe,session_recall_overripe,test_class_counts,params
+Immature,1025,138,0.31609756097560976,0.2742388027799302,0.2753623188405797,0.23586051880201686,0.2525,0.0714,1.0,"{""Unripe"": 765, ""Ripe"": 183, ""Overripe"": 77}","{""clf__C"": 0.1}"
+Mature,670,96,0.673134328358209,0.5241971294602873,0.6979166666666666,0.5588991698928274,0.9815,0.3636,0.3,"{""Unripe"": 386, ""Ripe"": 152, ""Overripe"": 132}","{""clf__C"": 0.1}"
+Overmature,527,81,0.4952561669829222,0.45705850561447087,0.5432098765432098,0.5095797549524791,0.5106,0.3529,0.8235,"{""Unripe"": 308, ""Ripe"": 114, ""Overripe"": 105}","{""clf__C"": 1.0}"
