@@ -1,4 +1,4 @@
-# Reproducing the paper (audit package v1.9.0)
+# Reproducing the paper (audit package v1.9.1)
 
 This package reproduces every table of *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and
 RGB Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* at three depths. Each depth regenerates its

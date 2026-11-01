@@ -29,7 +29,10 @@ T["S10_session_labels_common"] = lab
 T["S11_label_policy_sensitivity"] = r("label_policy_sensitivity.csv")
 T["S12_nested_selection_choices"] = r("v14/nested_choices.csv")
 T["S13_partition_sensitivity"] = r("v14/partition_sensitivity.csv")
-T["S14_dependence_aware_comparisons"] = r("v14/comparisons_v14.csv")
+# v1.9.1: H1-H3 are retrospectively designated primary comparisons (not confirmatory); the "primary" differences of v1.4 are
+# fold-mean differences on the primary partition, so the columns are renamed to say so (values unchanged)
+S14 = r("v14/comparisons_v14.csv"); S14["role"] = S14.role.replace({"confirmatory": "primary_retrospective"})
+T["S14_dependence_aware_comparisons"] = S14.rename(columns={"d_acc_pp_primary": "d_acc_pp_primary_foldmean", "d_f1_pp_primary": "d_f1_pp_primary_foldmean"})
 # S15 thermal quantization ablation
 lab15 = {"orig_all": "Original quantization, all 67 features", "orig_rel": "Original quantization, fruit-relative 52 features",
          "harm_all": "Harmonized 0.5 °C, all 67 features", "harm_rel": "Harmonized 0.5 °C, fruit-relative 52 features",

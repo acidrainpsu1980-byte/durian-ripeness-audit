@@ -4,7 +4,7 @@ For outer test fold k, every choice is made from inner out-of-fold predictions o
 the inner prediction of training fold j comes from the fit that excluded folds {k, j} (fold-pair refits, run_fits.py /
 cnn_common.py / cnn_part.py). The outer-test prediction of fold k comes from the fit on the four folds other than k.
 Selection criterion everywhere: pooled session macro-F1 on the inner predictions (ties: higher accuracy, then the
-earlier candidate in the pre-specified list).
+earlier candidate in the fixed candidate list).
 """
 import os, itertools
 import numpy as np, pandas as pd

@@ -1,4 +1,5 @@
-"""Pre-specified candidate model families per sensor (v1.4, reviewer comment 4).
+"""Candidate model families per sensor, fixed before the nested re-analysis (v1.4, reviewer comment 4); the candidates and their
+preprocessing were developed on this dataset, so nested estimates are conditional on this candidate set.
 
 Each family is re-implemented exactly as in the original track scripts (src/thermal/thermal_models.py,
 src/multispectral/ms_models.py, src/sound/train_classical.py, src/rgb/rgb_models.py), including its inner

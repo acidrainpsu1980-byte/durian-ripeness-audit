@@ -1,7 +1,7 @@
 {
- "title": "durian-ripeness-audit: reproducible audit package (v1.9.0) for fruit-grouped and batch-aware evaluation of thermal, multispectral, knocking-sound and RGB durian ripeness classification",
+ "title": "durian-ripeness-audit: reproducible audit package (v1.9.1) for fruit-grouped and batch-aware evaluation of thermal, multispectral, knocking-sound and RGB durian ripeness classification",
  "upload_type": "software",
- "version": "1.9.0",
+ "version": "1.9.1",
  "license": "MIT",
  "description": "Code, frozen fruit partitions, session labels with the rule applied, recording exclusions with evidence, raw-archive inventory, feature tables, out-of-fold predictions, fitted models, model registry with hyper-parameter searches, Supplementary Tables S1-S22 and verified commands reproducing every table of the paper from cached predictions, cached features or the raw Zenodo dataset (doi:10.5281/zenodo.18603796). Derived tables: CC BY 4.0 with attribution to the dataset authors.",
  "keywords": [

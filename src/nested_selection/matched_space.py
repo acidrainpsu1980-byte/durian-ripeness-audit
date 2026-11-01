@@ -7,7 +7,8 @@ Estimates per partition (primary partition with the CPU knock CNN, ten partition
                      then held fixed on all partitions
   nested_cfg_fixedfam   configuration chosen per outer fold from inner predictions, families fixed (v1.3)
   nested_cfg_nestedfam  configuration and families both chosen from inner predictions (v1.4 'nested_selected_configuration')
-  nestedfam_*        pre-specified fusions (mean rule, stacking) built on the nested family choices of each fold
+  nestedfam_*        fixed-configuration fusions (mean rule, stacking; designated during development, not pre-specified)
+                     built on the nested family choices of each fold
 Metric: session accuracy / macro-F1 on the 268 common sessions, mean over the five outer folds of the partition.
 usage (repo root): DURIAN_INTERMEDIATE=intermediate_common python src/nested_selection/matched_space.py"""
 import os, sys, itertools, warnings
@@ -66,7 +67,7 @@ def run(P, cnn_dir, cnn_fmt):
     res["nested_cfg_fixedfam"] = Psel
     res["nested_cfg_nestedfam"] = out["nested_selected_configuration"]; res["nested_single_nestedfam"] = out["nested_selected_single"]
     for mod in MODS: res[f"nestedfam_{mod}"] = out[f"{mod}|nested_family"]
-    # --- pre-specified fusions on the nested family choices
+    # --- fixed-configuration fusions on the nested family choices
     NF = {m: out[f"{m}|nested_family"] for m in MODS}
     for sub in [("thermal", "sound", "rgb"), tuple(MODS)]:
         res[f"nestedfam_{nm(sub, 'mean')}"] = nsel.combine([NF[m] for m in sub], "mean")

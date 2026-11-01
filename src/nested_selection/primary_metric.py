@@ -10,7 +10,9 @@ Output: $DURIAN_V19_OUT (default results/v19)
   comparisons_macro_f1.csv    paired comparisons: primary-partition pooled differences in macro-F1 and accuracy with a
                               fruit-cluster bootstrap 95% CI and a fruit-level permutation test; the 10 x 5-fold
                               corrected resampled test (Nadeau-Bengio) on fold differences; partition-level differences
-                              (mean, SD, min, max, partitions favouring the candidate); Holm across H1-H3
+                              (mean, SD, min, max, partitions favouring the candidate); Holm across H1-H3, the primary
+                              comparisons designated retrospectively during revision (role 'primary_retrospective'; all
+                              comparisons are interpreted as exploratory, and Holm controls multiplicity within H1-H3 only)
 Four kinds of summary are kept apart in every column name:
   fold-mean (mean over one partition's five outer folds), pooled (one value from all 268 out-of-fold predictions of one
   partition), across-partition (mean / SD / min-max of ten partition-level values; a range, not a confidence interval),
@@ -90,9 +92,9 @@ def fruit_perm(yt, pr_ref, pr_cand, cl, stat, n_perm=N_PERM, seed=SEED):
 
 
 acc_rows = lambda yt, P: (P == yt).mean(1)
-COMP = [("H1", "confirmatory", "fixed_thermal+sound+rgb|mean", "fixed_sound", "Thermal + sound + RGB mean vs sound (development pipelines)"),
-        ("H2", "confirmatory", "fixed_thermal+multispectral+sound+rgb|stacking", "fixed_sound", "All four, nested stacking vs sound (development pipelines)"),
-        ("H3", "confirmatory", "nested_cfg_nestedfam", "nested_single_nestedfam", "Nested-selected configuration vs nested-selected single sensor"),
+COMP = [("H1", "primary_retrospective", "fixed_thermal+sound+rgb|mean", "fixed_sound", "Thermal + sound + RGB mean vs sound (development pipelines)"),
+        ("H2", "primary_retrospective", "fixed_thermal+multispectral+sound+rgb|stacking", "fixed_sound", "All four, nested stacking vs sound (development pipelines)"),
+        ("H3", "primary_retrospective", "nested_cfg_nestedfam", "nested_single_nestedfam", "Nested-selected configuration vs nested-selected single sensor"),
         ("P1", "exploratory", "nestedfam_thermal+sound+rgb|mean", "nestedfam_sound", "Thermal + sound + RGB mean vs sound (selection procedures)"),
         ("P2", "exploratory", "nestedfam_thermal+multispectral+sound+rgb|stacking", "nestedfam_sound", "All four, nested stacking vs sound (selection procedures)"),
         ("P4", "exploratory", "nested_cfg_fixedfam", "fixed_sound", "Nested-selected configuration (families fixed) vs sound"),
@@ -132,7 +134,7 @@ for cid, role, cand, refe, lab in COMP:
                   f"partitions_favouring_cand_{key}": int((dpart > 0).sum()), f"partitions_tied_{key}": int((dpart == 0).sum())})
     crow.append(r)
 C = pd.DataFrame(crow)
-h = C.role == "confirmatory"
+h = C.role == "primary_retrospective"
 for col in ["p_perm_fruit_f1", "nb_p_f1", "p_perm_fruit_acc", "p_mcnemar_fruit_clustered", "nb_p_acc"]:
     C.loc[h, col + "_holm"] = stats4.holm(C.loc[h, col].values)
 C.to_csv(f"{OUT}/comparisons_macro_f1.csv", index=False)

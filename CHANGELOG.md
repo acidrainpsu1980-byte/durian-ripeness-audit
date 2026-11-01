@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.9.1 — comparison roles relabelled (third review round, comment 3)
+
+- H1–H3 are labelled `primary_retrospective` instead of `confirmatory` in `results/v19/comparisons_macro_f1.csv`, Table S22 and
+  Table S14: they were designated during revision after the data had been examined, so they are retrospectively designated primary
+  comparisons, interpreted as exploratory; Holm's adjustment controls multiplicity within H1–H3 only. Values are unchanged.
+- Table S14: the columns `d_acc_pp_primary` / `d_f1_pp_primary` are renamed `..._primary_foldmean` (they are fold-mean differences
+  on the primary partition; values unchanged). `results/v14/comparisons_v14.csv` is left as produced by v1.4.
+- Comments in `cands.py`, `nsel.py` and `matched_space.py` no longer call the candidate list or the two fixed-configuration fusions
+  "pre-specified": the candidates, their preprocessing and the two fusion configurations were developed on this dataset, so the
+  nested estimates are conditional on them.
+
 ## v1.9.0 — primary metric aligned with the estimates and comparisons (third review round, comment 2)
 
 - **Macro-F1 as the primary metric throughout Tables 3 and 4.** `src/nested_selection/matched_space.py` now also writes the
