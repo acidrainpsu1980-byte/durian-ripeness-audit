@@ -54,8 +54,10 @@ def run_fit(tr, te):
     mu, sd = MELS[tr].mean(), MELS[tr].std()
     Xtr = torch.tensor((MELS[tr] - mu) / sd).unsqueeze(1); ytr = torch.tensor(yk[tr])
     Xte = torch.tensor((MELS[te] - mu) / sd).unsqueeze(1)
-    cw = torch.tensor(len(ytr) / (3 * np.bincount(yk[tr], minlength=3)), dtype=torch.float32)
-    net = Net(); opt = torch.optim.AdamW(net.parameters(), lr=2e-3, weight_decay=1e-3)
+    K = 2 if BINARY else 3                                  # round 2 (docs/ANALYSIS_PLAN_round2.md, C3): Ripe-vs-Overripe network
+    if BINARY: ytr = torch.tensor(yk[tr] - 1)
+    cw = torch.tensor(len(ytr) / (K * np.bincount(yk[tr] - (1 if BINARY else 0), minlength=K)), dtype=torch.float32)
+    net = Net(K); opt = torch.optim.AdamW(net.parameters(), lr=2e-3, weight_decay=1e-3)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=3e-3, total_steps=EPOCHS * ((len(tr) + 127) // 128))
     for ep in range(EPOCHS):
         net.train(); perm = torch.randperm(len(tr))
@@ -69,8 +71,9 @@ def run_fit(tr, te):
     if os.environ.get("CNN_SAVE_WEIGHTS"):            # v1.8: optional export of the fitted network (does not touch the RNG)
         _d = os.environ["CNN_SAVE_WEIGHTS"]; os.makedirs(_d, exist_ok=True)
         torch.save({"state_dict": {k: v.detach().cpu() for k, v in net.state_dict().items()}, "mel_mean": float(mu), "mel_std": float(sd),
-                    "epochs": EPOCHS, "seed": 42, "job": JOB, "classes": ["Unripe", "Ripe", "Overripe"]}, f"{_d}/{JOB}.pt")
-    return np.concatenate(P)
+                    "epochs": EPOCHS, "seed": 42, "job": JOB, "classes": ["Ripe", "Overripe"] if BINARY else ["Unripe", "Ripe", "Overripe"]}, f"{_d}/{JOB}.pt")
+    P = np.concatenate(P)
+    return np.concatenate([np.zeros((len(P), 1), P.dtype), P], 1) if BINARY else P
 
 
 
@@ -89,6 +92,9 @@ kr_ = knock.file.map(rec2.set_index("file")["fold_random"]).values.astype(int)
 # usual global normalization. CNN_NORM=anchor: statistics from the knocks of each batch's anchor (intake) recordings listed in
 # CNN_ANCHOR_FILE; CNN_NORM=all: from all verified knocks of each batch. Labels are not used. Default: off (paper behaviour).
 _norm = os.environ.get("CNN_NORM", "")
+# round 2 (docs/ANALYSIS_PLAN_round2.md): CNN_BINARY=RO trains a Ripe-vs-Overripe network on the Ripe/Overripe training knocks only
+# (output columns: 0 for Unripe, then Ripe, Overripe); job kind bt:<train batch>><test batch> trains on one harvest batch. Default: off.
+BINARY = os.environ.get("CNN_BINARY", "") == "RO"
 if _norm:
     _bk = knock.Maturity_Stage.values
     _ref = keep.copy() if _norm == "all" else (keep & knock.file.isin(set(open(os.environ["CNN_ANCHOR_FILE"]).read().split())).values)
@@ -113,7 +119,10 @@ for job in sys.argv[1:]:
         trm = (kf_ != k) & (dev_k == a); tem = (kf_ == k) & (dev_k == b)
     elif kind == "lobo":
         trm = batch_k != arg; tem = batch_k == arg
+    elif kind == "bt":
+        a, b = arg.split(">"); trm = batch_k == a; tem = batch_k == b
     if kind != "repro": trm &= keep
+    if BINARY: trm &= np.isin(yk, [1, 2])
     tr = np.flatnonzero(trm); te = np.flatnonzero(tem)
     JOB = f"cnn_common_{kind}_{arg.replace('>','2')}"
     P = np.full((len(yk), 3), np.nan, np.float32); P[te] = run_fit(tr, te)
