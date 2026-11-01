@@ -1,0 +1,57 @@
+{
+ "features_thermal": {
+  "n": 67,
+  "forbidden": []
+ },
+ "features_rgb": {
+  "n": 1280,
+  "forbidden": []
+ },
+ "features_sound_lr": {
+  "n": 265,
+  "forbidden": []
+ },
+ "features_physics": {
+  "n": 7,
+  "forbidden": []
+ },
+ "features_phys_weight": {
+  "n": 1,
+  "cols": [
+   "harvest_weight_kg"
+  ],
+  "forbidden": []
+ },
+ "features_phys_fdom": {
+  "n": 1,
+  "cols": [
+   "f_dom"
+  ],
+  "forbidden": []
+ },
+ "features_phys_pcm": {
+  "n": 15,
+  "cols": [
+   "dom_freq__mean",
+   "centroid__mean",
+   "mfcc01_mean__mean",
+   "mfcc02_mean__mean",
+   "mfcc03_mean__mean",
+   "mfcc04_mean__mean",
+   "mfcc05_mean__mean",
+   "mfcc06_mean__mean",
+   "mfcc07_mean__mean",
+   "mfcc08_mean__mean",
+   "mfcc09_mean__mean",
+   "mfcc10_mean__mean",
+   "mfcc11_mean__mean",
+   "mfcc12_mean__mean",
+   "mfcc13_mean__mean"
+  ],
+  "forbidden": []
+ },
+ "anchor_rule_rederived_label_free": true,
+ "cnn_norm_block_uses_labels": false,
+ "adabn_uses_labels": false,
+ "standardize_uses_labels": false
+}

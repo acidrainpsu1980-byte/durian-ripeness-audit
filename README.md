@@ -1,4 +1,4 @@
-# durian-ripeness-audit (v1.9.1)
+# durian-ripeness-audit (v2.0.0)
 
 Reproducible audit package for *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and RGB
 Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* (submitted to *Computers*, MDPI, 2026).
@@ -13,7 +13,7 @@ capture-level leakage controls. This repository contains everything needed to au
 | Recording exclusions with the evidence for each | `audit/exclusion_ledger.csv`, `data/raw_file_inventory.csv`, `data/sound_recording_manifest.csv` (S7), `data/sound_session_evidence.csv` (S8), `data/sound_exclude_wrong_session.txt` |
 | Session identifiers, label decisions, the ten fruit partitions | `audit/sessions.csv`, `data/session_labels_common.csv` (S10), `audit/fruit_partitions.csv`, `audit/fruits.csv` |
 | Candidate models, hyper-parameter searches, software versions, training settings | `audit/model_registry.csv`, `audit/configuration_space.csv`, `audit/hyperparameter_search_p0.csv`, `audit/SOFTWARE.md`, `audit/requirements_lock_cpu.txt`, `models/primary_p0/` |
-| Out-of-fold predictions and scripts reproducing the principal tables | `audit/predictions/`, `audit/supplementary/` (S1–S22), `audit/table_map.csv`, `run_all.sh` |
+| Out-of-fold predictions and scripts reproducing the principal tables | `audit/predictions/`, `audit/supplementary/` (S1–S24), `audit/table_map.csv`, `run_all.sh` |
 | Commands from raw data and from cached features | `REPRODUCE.md` |
 
 Details: `audit/README.md`. Version history: `CHANGELOG.md`.
@@ -35,6 +35,16 @@ RGB 0.779, multispectral 0.745; no fusion gain over sound was significant. Under
 falls to about the majority rate. Development pipelines (families fixed after inspecting the primary partition) are reported
 separately in the paper (sound 0.899 on the primary partition, 0.885 held fixed over ten partitions). All numbers are read from
 `results/` (see `audit/table_map.csv`).
+
+## Pre-registered cross-batch adaptation (v2.0)
+
+Three rounds of label-free adaptation to a held-out harvest batch, each pre-registered before fitting (`docs/ANALYSIS_PLAN_anchor_physics.md`,
+`docs/ANALYSIS_PLAN_round2.md`, `docs/ANALYSIS_PLAN_round3.md`; tags `prereg-anchor-physics`, `prereg-round2`, `prereg-round3`) and evaluated
+once after the code and deviation lists were tagged (`pre-evaluation-anchor-physics`, `pre-evaluation-round2`, `pre-evaluation-round3`).
+No round was beneficial under its decision rule; on the 106 leave-one-batch-out endpoint sessions the capture-day rule scored 0.656
+(endpoint macro-F1 over Ripe/Overripe) against 0.464 for the unadapted knock CNN, and no adaptation exceeded it by a margin distinguishable
+from zero. Code: `src/anchor_physics/`; results, deviations and summaries: `results/v21/` (round 1), `results/round2/`, `results/round3/`;
+Supplementary Table S24. The label-policy retraining analysis (reviewer comment, Table 11, S23) is in `src/label_sensitivity/` and `results/v20/`.
 
 ## Repository layout
 

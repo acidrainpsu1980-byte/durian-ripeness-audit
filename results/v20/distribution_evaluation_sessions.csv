@@ -1,0 +1,17 @@
+session_set,batch,sessions,fruits,Unripe,Ripe,Overripe
+all,Immature,93,59,59,23,11
+all,Mature,95,54,54,21,20
+all,Overmature,80,51,46,16,18
+all,All,268,164,159,60,49
+excl_disputed,Immature,90,59,59,23,8
+excl_disputed,Mature,93,54,54,21,18
+excl_disputed,Overmature,76,51,46,14,16
+excl_disputed,All,259,164,159,58,42
+excl_loginc,Immature,90,59,59,23,8
+excl_loginc,Mature,88,54,54,20,14
+excl_loginc,Overmature,74,51,45,14,15
+excl_loginc,All,252,164,158,57,37
+excl_harvest,Immature,90,59,59,23,8
+excl_harvest,Mature,86,53,52,20,14
+excl_harvest,Overmature,61,43,32,14,15
+excl_harvest,All,237,155,143,57,37

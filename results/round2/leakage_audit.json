@@ -1,0 +1,5 @@
+{
+ "adabn_reference_uses_labels": false,
+ "gating_uses_labels": false,
+ "selection_reads_outer_batch_scores": false
+}

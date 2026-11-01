@@ -1,0 +1,13 @@
+modality,session_set,captures,sessions,Unripe,Ripe,Overripe
+thermal,all,1671,275,969,396,306
+thermal,excl_disputed,1599,263,969,372,258
+thermal,excl_loginc,1557,256,963,366,228
+thermal,excl_harvest,1467,241,873,366,228
+sound,all,432,269,255,104,73
+sound,excl_disputed,416,260,255,100,61
+sound,excl_loginc,404,253,253,98,53
+sound,excl_harvest,375,238,224,98,53
+rgb,all,1999,312,1304,384,311
+rgb,excl_disputed,1928,300,1304,360,264
+rgb,excl_loginc,1886,293,1298,354,234
+rgb,excl_harvest,1796,278,1208,354,234

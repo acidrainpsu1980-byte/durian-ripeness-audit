@@ -7,7 +7,7 @@ import os, sys, json, re
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, ".."))
 import evaluate as ev, round2 as r2
-V21, R2, R3 = "results/v21", "results/round2", "results/round3"
+V21 = os.environ.get("ROUND_V21", "results/v21"); R2 = os.environ.get("ROUND2_DIR", "results/round2"); R3 = os.environ.get("ROUND3_DIR", "results/round3")   # v2.0: path overrides
 PC = ev.PC; B = ev.BATCHES; CANDS = ["C2", "C4", "D1", "D2", "D3", "D4"]
 
 

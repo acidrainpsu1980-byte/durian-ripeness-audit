@@ -4,7 +4,7 @@ preprocessing were developed on this dataset, so nested estimates are conditiona
 Each family is re-implemented exactly as in the original track scripts (src/thermal/thermal_models.py,
 src/multispectral/ms_models.py, src/sound/train_classical.py, src/rgb/rgb_models.py), including its inner
 fruit-grouped hyper-parameter search, and trained on the v1.3 common label (intermediate_common/).
-Excluded a priori and disclosed: the thermal CNN (CPU-bounded, 15 epochs) and the RGB fine-tunes.
+Excluded after outer-fold results had been seen, and disclosed: the thermal CNN (CPU-bounded, 15 epochs) and the RGB fine-tunes.
 The knock CNN is not refitted here; its outer and fold-pair predictions come from cnn_common.py.
 """
 import os

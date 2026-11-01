@@ -1,4 +1,4 @@
-# Reproducing the paper (audit package v1.9.1)
+# Reproducing the paper (audit package v2.0.0)
 
 This package reproduces every table of *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and
 RGB Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* at three depths. Each depth regenerates its
@@ -53,7 +53,7 @@ conda env create -f environment.yml && conda activate durian      # Python 3.12,
 | 3 | `src/nested_selection/evaluate_v14.py` (`nsel.py`, `stats4.py`) | `results/v14/` | Tables 3 (selection procedures, ten partitions), 4; S12–S14 |
 | 4 | `src/ablations/evaluate_v15.py`, `src/ablations/ms_wavelength_ablation.py` | `results/v15/` | Table 12; S15–S17, S19 |
 | 5 | `src/nested_selection/matched_space.py`; `src/nested_selection/primary_metric.py` | `results/v17/` (incl. `matched_space_session_oof.parquet`); `results/v19/` | Tables 3 and 4 (fold-mean, pooled and across-partition macro-F1 / accuracy, class recall, paired comparisons); S20–S22 |
-| 6 | `src/audit/build_supplementary_tables.py` | `audit/supplementary/` | Supplementary Tables S1–S22 as files |
+| 6 | `src/audit/build_supplementary_tables.py` | `audit/supplementary/` | Supplementary Tables S1–S24 as files |
 | 7 | `src/audit/build_audit_tables.py`, `model_registry.py`, `export_predictions.py`, `export_models.py check` | `audit/` | exclusion ledger, sessions, partitions, registry, predictions, saved models |
 
 One cached input is a fixed earlier computation rather than a stage output: the v1.3 nested-stacking probabilities
@@ -107,6 +107,21 @@ label differs is reported separately and equals the documented relabelling (22 m
 The per-modality model comparisons that preceded the common-label refits (the `make thermal|multispectral|sound|rgb` targets,
 file-label OOF in `intermediate/`) are kept for provenance; the literal interactive cells are in `src/session_traces/`.
 
-## 5. Where each reviewer-requested item is
+## 5. Optional stages added in v2.0
+
+```bash
+LABELSENS=1 ./run_all.sh        # label-policy retraining (results/v20 -> results_repro/v20); LABELSENS_REFIT=1 also refits thermal/RGB
+ANCHOR=1 ./run_all.sh           # pre-registered adaptation, rounds 1-3 (results/v21, round2, round3 -> results_repro/...), ~25 min
+ANCHOR=1 ANCHOR_CNN=1 ./run_all.sh   # also retrains the 17 round-1 knock CNNs on CPU (~2.5 h on 9 cores; needs work/raw/sound)
+```
+
+Each stage regenerates its outputs from the shipped knock-CNN predictions (`results/v20/cnn`, `results/v21/cnn`,
+`results/round2/cnn_sessions.parquet`) and compares every CSV/parquet with the shipped file. The round-2 knock CNNs (6 three-class and 6
+two-class single-batch fits, 3 two-class LOBO fits) are documented in `docs/ANALYSIS_PLAN_round2.md` and `src/anchor_physics/round2_cnn.py`;
+their weights are shipped in `results/round2/cnn/*_weights/`. Plans, deviations and the tags that fix them before evaluation are listed in
+`README.md`. After the pre-evaluation tags, only output-path overrides (`ROUND_V21`, `ROUND2_DIR`, `ROUND3_DIR`, `ANCHOR_OUT`) were added to
+the round scripts; the defaults reproduce the tagged behaviour.
+
+## 6. Where each reviewer-requested item is
 
 See `audit/README.md`.

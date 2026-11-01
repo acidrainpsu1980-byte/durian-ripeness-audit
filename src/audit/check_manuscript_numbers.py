@@ -20,7 +20,8 @@ MAP = {3: r("v19/estimates_summary.csv"),
        8: r("lobo_table.csv", "fusion_results.csv", "leakage_table.csv"),
        9: r("two_class_results.csv", "fusion_results.csv"),
        10: r("sound_matching_sensitivity.csv", "fusion_results.csv", "label_policy_sensitivity.csv"),
-       11: r("label_policy_sensitivity.csv"),
+       11: r("label_policy_sensitivity.csv", "v20/results.csv", "v20/comparisons.csv", "v20/distribution_evaluation_sessions.csv"),
+       13: r("v21/scores.csv", "round2/scores.csv", "round3/scores.csv"),
        12: sorted(glob.glob(os.path.join(RES, "v15", "*.csv"))) + r("v14/partition_sensitivity.csv", "v14/comparisons_v14.csv",
                                                                     "v17/matched_space_summary.csv", "lobo_table.csv")}
 def strings(files):

@@ -10,7 +10,7 @@ import numpy as np, pandas as pd
 from sklearn.model_selection import GroupKFold, GridSearchCV
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, ".."))
 import lobo_classical as lc, baselines as bl, evaluate as ev
-V21, R2 = "results/v21", "results/round2"; lc.OUT = V21
+V21 = os.environ.get("ROUND_V21", "results/v21"); R2 = os.environ.get("ROUND2_DIR", "results/round2"); lc.OUT = V21   # v2.0: path overrides for run_all.sh
 PC = ev.PC; B = ev.BATCHES; CANDS = ["C1", "C2", "C3", "C4", "C5"]
 
 
