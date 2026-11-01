@@ -74,7 +74,10 @@ def run_fit(tr, te):
 
 
 
-EXCL = set(open("handoff/exclude_recordings.txt").read().split())
+# v1.10: CNN_EXCLUDE_FILE / CNN_OUT_DIR (optional) retrain without further recordings, e.g. the label-policy sessions of
+# src/label_sensitivity/retrain_without_questionable.py; the defaults reproduce the paper exactly and the RNG stream is untouched
+EXCL = set(open(os.environ.get("CNN_EXCLUDE_FILE", "handoff/exclude_recordings.txt")).read().split())
+OUTDIR = os.environ.get("CNN_OUT_DIR", "handoff"); os.makedirs(OUTDIR, exist_ok=True)
 # v1.3: one common session label for every modality (data/session_labels_common.csv)
 _fy = pd.read_csv("handoff/file_label_common.csv").set_index("file").iloc[:, 0]
 _new = knock.file.map(_fy)
@@ -82,10 +85,23 @@ yk = np.where(_new.notna(), _new.fillna(-1).values, yk).astype(int)
 print("knock labels changed:", int((yk != knock.y.values).sum()), flush=True)
 keep = ~knock.file.isin(EXCL).values
 kr_ = knock.file.map(rec2.set_index("file")["fold_random"]).values.astype(int)
+# v1.10 (docs/ANALYSIS_PLAN_anchor_physics.md, M1/M2): optional per-batch, per-mel-band standardization of the inputs before the
+# usual global normalization. CNN_NORM=anchor: statistics from the knocks of each batch's anchor (intake) recordings listed in
+# CNN_ANCHOR_FILE; CNN_NORM=all: from all verified knocks of each batch. Labels are not used. Default: off (paper behaviour).
+_norm = os.environ.get("CNN_NORM", "")
+if _norm:
+    _bk = knock.Maturity_Stage.values
+    _ref = keep.copy() if _norm == "all" else (keep & knock.file.isin(set(open(os.environ["CNN_ANCHOR_FILE"]).read().split())).values)
+    MELS = MELS.astype(np.float32, copy=True)
+    for _b in np.unique(_bk):
+        _r = _bk == _b; _m = MELS[_r & _ref]
+        _mu = _m.mean(axis=(0, 2), keepdims=True); _sd = _m.std(axis=(0, 2), keepdims=True); _sd[_sd == 0] = 1.0
+        MELS[_r] = (MELS[_r] - _mu) / _sd
+    print("CNN_NORM", _norm, "reference knocks", int(_ref.sum()), flush=True)
 dev_k = knock.device.values; batch_k = knock.Maturity_Stage.values
 for job in sys.argv[1:]:
     kind, arg = job.split(":")
-    out = f"handoff/cnn_common_{kind}_{arg.replace('>','2')}.npy"
+    out = f"{OUTDIR}/cnn_common_{kind}_{arg.replace('>','2')}.npy"
     if os.path.exists(out): print("skip", out, flush=True); continue
     t = time.time()
     if kind in ("outer", "pair", "repro"):
