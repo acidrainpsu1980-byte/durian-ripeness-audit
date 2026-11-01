@@ -1,4 +1,4 @@
-# Reproducing the paper (audit package v1.8.0)
+# Reproducing the paper (audit package v1.9.0)
 
 This package reproduces every table of *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and
 RGB Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* at three depths. Each depth regenerates its
@@ -6,7 +6,7 @@ outputs in a scratch directory and compares them with the shipped files; nothing
 
 | Level | Starts from | Command | Wall time* | What is verified |
 |---|---|---|---|---|
-| A. Cached predictions | shipped out-of-fold predictions (`intermediate_*`) | `./run_all.sh` | 34 min | Every result table (`results/`, `results/v14`, `v15`, `v17`), Supplementary Tables S1–S20, the audit tables, the prediction export and the 15 saved classical models; max \|diff\| ≤ 1e-9 required |
+| A. Cached predictions | shipped out-of-fold predictions (`intermediate_*`) | `./run_all.sh` | 34 min | Every result table (`results/`, `results/v14`, `v15`, `v17`, `v19`), Supplementary Tables S1–S22, the audit tables, the prediction export and the 15 saved classical models; max \|diff\| ≤ 1e-9 required |
 | B. Cached features | shipped feature tables and embeddings | `REFIT=1 ./run_all.sh` | 7 min more | The 20 classical candidates refitted on the primary partition (5 outer + 10 fold-pair fits each, 300 fits) reproduce the shipped predictions |
 | C. Raw data | the four Zenodo archives (23.4 GB) | `DURIAN_DATA_ROOT=/path/to/zips RAW=1 CNN=1 ./run_all.sh` | 74 min (raw extraction 26 min, CNN retraining 48 min) more | Every feature table, the RGB cache and masks, both CNN embeddings and the log-mel arrays re-extracted from the archives; the five primary-partition knock CNNs retrained on CPU with weight export, reproducing the shipped predictions |
 
@@ -52,8 +52,8 @@ conda env create -f environment.yml && conda activate durian      # Python 3.12,
 | 2 | `src/fusion_figures.py` | `figures/` | diagnostic plots of the data behind Figures 3, 5, 6 (the composed paper figures are not part of the verified package) |
 | 3 | `src/nested_selection/evaluate_v14.py` (`nsel.py`, `stats4.py`) | `results/v14/` | Tables 3 (selection procedures, ten partitions), 4; S12–S14 |
 | 4 | `src/ablations/evaluate_v15.py`, `src/ablations/ms_wavelength_ablation.py` | `results/v15/` | Table 12; S15–S17, S19 |
-| 5 | `src/nested_selection/matched_space.py` | `results/v17/` | Table 3 (development vs procedure rows); S20 |
-| 6 | `src/audit/build_supplementary_tables.py` | `audit/supplementary/` | Supplementary Tables S1–S20 as files |
+| 5 | `src/nested_selection/matched_space.py`; `src/nested_selection/primary_metric.py` | `results/v17/` (incl. `matched_space_session_oof.parquet`); `results/v19/` | Tables 3 and 4 (fold-mean, pooled and across-partition macro-F1 / accuracy, class recall, paired comparisons); S20–S22 |
+| 6 | `src/audit/build_supplementary_tables.py` | `audit/supplementary/` | Supplementary Tables S1–S22 as files |
 | 7 | `src/audit/build_audit_tables.py`, `model_registry.py`, `export_predictions.py`, `export_models.py check` | `audit/` | exclusion ledger, sessions, partitions, registry, predictions, saved models |
 
 One cached input is a fixed earlier computation rather than a stage output: the v1.3 nested-stacking probabilities

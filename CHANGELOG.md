@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.9.0 — primary metric aligned with the estimates and comparisons (third review round, comment 2)
+
+- **Macro-F1 as the primary metric throughout Tables 3 and 4.** `src/nested_selection/matched_space.py` now also writes the
+  session-level outer-fold probabilities of every estimate (`results/v17/matched_space_session_oof.parquet`; its other outputs are
+  unchanged). The new stage `src/nested_selection/primary_metric.py` (`results/v19/`) summarizes every development pipeline and
+  selection procedure as fold-mean, pooled and across-partition (mean, SD, range) macro-F1 and accuracy with pooled class recall,
+  and tests the paired comparisons in macro-F1 and accuracy: pooled primary-partition differences with a fruit-cluster bootstrap
+  and a fruit-level permutation test (macro-F1), fruit-clustered McNemar (accuracy), the corrected resampled test over 10 x 5
+  folds, partition-level ranges and Holm across H1-H3. The bootstrap and corrected resampled values reproduce
+  `results/v14/comparisons_v14.csv`.
+- **Supplementary Tables S21 and S22** (`audit/supplementary/`); `audit/table_map.csv` updated.
+- **Number check.** `src/audit/check_manuscript_numbers.py` now traces the one- and two-decimal numbers of Tables 3 and 4 as well.
+- `CITATION.cff`: the placeholder DOI is removed (the package is cited by its GitHub release).
+
 ## v1.8.0 — reproducible audit package (second review round)
 
 Everything the paper depends on is now a versioned file regenerated and checked by `run_all.sh` (see `REPRODUCE.md`, `audit/README.md`).

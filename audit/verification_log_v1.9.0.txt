@@ -1,0 +1,208 @@
+# v1.9.0 verification: ./run_all.sh (level A, cached predictions) in a fresh copy of the package
+# date: 2026-11-01; wall time 2043 s (34 min); OMP_NUM_THREADS=4; exit status 0
+
+[1/7] fusion pipeline and sensitivity tables -> results_repro/ (Tables 5-11; S1-S6, S9, S11)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+fusion_results.csv                         rows= 996  max|diff|=0  text-mismatches=0
+fusion_results_per_fold.csv                rows= 830  max|diff|=0  text-mismatches=0
+single_modality_common_denominator.csv     rows=  48  max|diff|=0  text-mismatches=0
+two_class_results.csv                      rows= 498  max|diff|=0  text-mismatches=0
+stats_tests.csv                            rows=  12  max|diff|=0  text-mismatches=0
+leakage_table.csv                          rows=  28  max|diff|=0  text-mismatches=0
+lobo_table.csv                             rows=  65  max|diff|=0  text-mismatches=0
+error_analysis.csv                         rows=  57  max|diff|=0  text-mismatches=0
+session_table.csv                          rows= 315  max|diff|=0  text-mismatches=0
+MAX ABS DIFF over all numeric columns: 0.0 | exact: True
+label_sets (268, 15) | sound strata 36 | label-policy rows 36
+ok       label_sets.csv                                               rows=   268 max|diff|=0
+ok       sound_matching_sensitivity.csv                               rows=    36 max|diff|=0
+ok       label_policy_sensitivity.csv                                 rows=    36 max|diff|=0
+ok       nested_vs_global_stacking.csv                                rows=    22 max|diff|=0
+4/4 tables identical
+[2/7] figures -> figures/
+[3/7] nested selection, ten partitions, dependence-aware tests -> results_repro/v14 (Tables 3-4, S12-S14)
+written results_repro/v14
+ok       comparisons_v14.csv                                          rows=    10 max|diff|=0
+ok       family_selection_frequency.csv                               rows=    18 max|diff|=0
+ok       nested_choices.csv                                           rows=  2695 max|diff|=0
+ok       partition_per_fold.csv                                       rows=   935 max|diff|=0
+ok       partition_sensitivity.csv                                    rows=    17 max|diff|=0
+5/5 tables identical
+[4/7] targeted ablations -> results_repro/v15 (Table 12, S15-S17, S19)
+fixed families loaded
+thermal done
+rgb done
+devices done
+done
+assumed done
+no_wavelength done
+alt_centres done
+permutations done
+                 acc                   f1              
+                mean    min    max   mean    min    max
+variant                                                
+alt_centres    0.751  0.732  0.765  0.676  0.648  0.695
+assumed        0.750  0.736  0.765  0.675  0.652  0.695
+no_wavelength  0.753  0.729  0.765  0.678  0.642  0.695
+perm_00        0.747  0.747  0.747  0.661  0.661  0.661
+perm_01        0.762  0.762  0.762  0.677  0.677  0.677
+perm_02        0.747  0.747  0.747  0.663  0.663  0.663
+perm_03        0.737  0.737  0.737  0.654  0.654  0.654
+perm_04        0.744  0.744  0.744  0.663  0.663  0.663
+perm_05        0.752  0.752  0.752  0.675  0.675  0.675
+perm_06        0.747  0.747  0.747  0.661  0.661  0.661
+perm_07        0.740  0.740  0.740  0.652  0.652  0.652
+perm_08        0.732  0.732  0.732  0.646  0.646  0.646
+perm_09        0.756  0.756  0.756  0.670  0.670  0.670
+perm_10        0.744  0.744  0.744  0.656  0.656  0.656
+perm_11        0.752  0.752  0.752  0.674  0.674  0.674
+perm_12        0.751  0.751  0.751  0.664  0.664  0.664
+perm_13        0.741  0.741  0.741  0.651  0.651  0.651
+perm_14        0.754  0.754  0.754  0.673  0.673  0.673
+perm_15        0.747  0.747  0.747  0.661  0.661  0.661
+perm_16        0.744  0.744  0.744  0.656  0.656  0.656
+perm_17        0.747  0.747  0.747  0.661  0.661  0.661
+perm_18        0.745  0.745  0.745  0.657  0.657  0.657
+perm_19        0.748  0.748  0.748  0.663  0.663  0.663
+plsda_raw8     0.728  0.717  0.743  0.563  0.541  0.592
+ok       device_identical_sessions.csv                                rows=    11 max|diff|=0
+ok       device_paired_tests.csv                                      rows=     6 max|diff|=0
+ok       fusion_with_ablated_inputs.csv                               rows=     8 max|diff|=0
+ok       ms_wavelength_ablation_detail.csv                            rows=    60 max|diff|=0
+ok       rgb_cross_camera.csv                                         rows=    24 max|diff|=0
+ok       rgb_masking.csv                                              rows=     4 max|diff|=0
+ok       rgb_paired_tests.csv                                         rows=     4 max|diff|=0
+ok       thermal_ablation.csv                                         rows=    10 max|diff|=0
+8/8 tables identical
+[5/7] development pipelines vs selection procedures, matched candidate space -> results_repro/v17; macro-F1 summaries and paired comparisons -> results_repro/v19 (Tables 3-4, S20-S22)
+partition 0
+partition 1
+partition 2
+partition 3
+partition 4
+partition 5
+partition 6
+partition 7
+partition 8
+partition 9
+post hoc best C26: fixed_sound+rgb|mean | C37: fixed_sound+rgb|stacking
+                                                      acc     f1   mean    min    max
+estimate                                                                             
+fixed_thermal                                       0.840  0.760  0.834  0.799  0.855
+fixed_multispectral                                 0.740  0.652  0.750  0.736  0.765
+fixed_sound                                         0.899  0.828  0.885  0.870  0.899
+fixed_rgb                                           0.827  0.778  0.802  0.764  0.827
+fixed_sound+rgb|mean                                0.908  0.852  0.893  0.881  0.908
+fixed_thermal+sound+rgb|mean                        0.909  0.850  0.898  0.888  0.907
+fixed_thermal+sound+rgb|product                     0.910  0.851  0.893  0.878  0.910
+fixed_thermal+multispectral+sound+rgb|mean          0.905  0.843  0.888  0.874  0.903
+fixed_thermal+multispectral+sound+rgb|product       0.899  0.834  0.887  0.869  0.903
+fixed_sound+rgb|stacking                            0.924  0.876  0.901  0.888  0.920
+fixed_thermal+sound+rgb|stacking                    0.913  0.861  0.896  0.881  0.911
+fixed_thermal+multispectral+sound+rgb|stacking      0.909  0.850  0.900  0.881  0.921
+nested_cfg_fixedfam                                 0.897  0.839  0.881  0.859  0.903
+nested_cfg_nestedfam                                0.897  0.837  0.874  0.848  0.898
+nested_single_nestedfam                             0.899  0.828  0.874  0.848  0.895
+nestedfam_thermal                                   0.803  0.713  0.824  0.794  0.851
+nestedfam_multispectral                             0.748  0.656  0.745  0.733  0.761
+nestedfam_sound                                     0.899  0.828  0.874  0.848  0.895
+nestedfam_rgb                                       0.774  0.712  0.779  0.739  0.809
+nestedfam_thermal+sound+rgb|mean                    0.905  0.845  0.888  0.873  0.903
+nestedfam_thermal+sound+rgb|stacking                0.913  0.858  0.889  0.870  0.903
+nestedfam_thermal+multispectral+sound+rgb|mean      0.904  0.846  0.884  0.869  0.901
+nestedfam_thermal+multispectral+sound+rgb|stacking  0.905  0.845  0.894  0.874  0.919
+posthoc_C26                                         0.908  0.852  0.893  0.881  0.908
+posthoc_C37                                         0.924  0.876  0.901  0.888  0.920
+   id                                           candidate                reference  d_acc_pp_primary  ref_only  cand_only  p_mcnemar_fruit_clustered  nb_d_acc_pp  nb_ci_lo  nb_ci_hi   nb_p  partitions_cand_better
+0  P1                    nestedfam_thermal+sound+rgb|mean          nestedfam_sound               0.7         6          8                      0.593          1.5      -2.1       5.0  0.413                       9
+1  P2  nestedfam_thermal+multispectral+sound+rgb|stacking          nestedfam_sound               0.7         7          9                      0.617          2.0      -1.8       5.9  0.299                      10
+2  P3                                nested_cfg_nestedfam  nested_single_nestedfam               0.0         7          7                      1.000          0.0      -3.8       3.8  0.992                       5
+3  P4                                 nested_cfg_fixedfam              fixed_sound               0.0         7          7                      1.000         -0.3      -3.9       3.2  0.844                       4
+ok       matched_space_detail.csv                                     rows=   550 max|diff|=0
+ok       matched_space_per_fold.csv                                   rows=  2640 max|diff|=0
+ok       matched_space_summary.csv                                    rows=    50 max|diff|=0
+ok       nested_cfg_fixedfam_choices.csv                              rows=    11 max|diff|=0
+ok       procedure_level_comparisons.csv                              rows=     4 max|diff|=0
+ok       matched_space_session_oof.parquet                            rows=147400 max|diff|=0
+6/6 tables identical
+ok       comparisons_macro_f1.csv                                     rows=    13 max|diff|=0
+ok       estimates_by_partition.csv                                   rows=   550 max|diff|=0
+ok       estimates_summary.csv                                        rows=    50 max|diff|=0
+3/3 tables identical
+[6/7] Supplementary Tables S1-S22 from the regenerated results -> results_repro/supplementary
+22 tables -> results_repro/supplementary
+ok       TableS10_session_labels_common.csv                           rows=   315 max|diff|=0
+ok       TableS11_label_policy_sensitivity.csv                        rows=    36 max|diff|=0
+ok       TableS12_nested_selection_choices.csv                        rows=  2695 max|diff|=0
+ok       TableS13_partition_sensitivity.csv                           rows=    17 max|diff|=0
+ok       TableS14_dependence_aware_comparisons.csv                    rows=    10 max|diff|=0
+ok       TableS15_thermal_quantization_ablation.csv                   rows=    10 max|diff|=0
+ok       TableS16_rgb_masking_cross_camera.csv                        rows=    32 max|diff|=0
+ok       TableS17_device_identical_sessions.csv                       rows=    17 max|diff|=0
+ok       TableS18_literature_design_extraction.csv                    rows=    21 max|diff|=0
+ok       TableS19_multispectral_wavelength_ablation.csv               rows=     5 max|diff|=0
+ok       TableS1_fusion_ablation_all_subsets.csv                      rows=   166 max|diff|=0
+ok       TableS20_development_vs_procedure_matched_space.csv          rows=    54 max|diff|=0
+ok       TableS21_estimates_by_summary_type.csv                       rows=    50 max|diff|=0
+ok       TableS22_paired_comparisons_macro_f1.csv                     rows=    13 max|diff|=0
+ok       TableS2_per_fold_scores.csv                                  rows=   830 max|diff|=0
+ok       TableS3_leave_one_batch_out.csv                              rows=    65 max|diff|=0
+ok       TableS4_label_disagreement_sessions.csv                      rows=    12 max|diff|=0
+ok       TableS5_error_analysis.csv                                   rows=    57 max|diff|=0
+ok       TableS6_nested_vs_global_stacking.csv                        rows=    22 max|diff|=0
+ok       TableS7_sound_recording_manifest.csv                         rows=   562 max|diff|=0
+ok       TableS8_sound_session_evidence.csv                           rows=   269 max|diff|=0
+ok       TableS9_sound_matching_sensitivity.csv                       rows=    36 max|diff|=0
+22/22 tables identical
+[7/7] audit tables, model registry, out-of-fold prediction export, saved-model check -> results_repro/audit
+level           reason_code                 
+archive_member  archive_metadata                   4
+                fruit_not_in_analysis            408
+                macos_resource_fork             2348
+                tree_code_unlinked              1467
+fruit           fruit_excluded                    25
+recording       recording_from_other_session     106
+session         session_missing_sensor            47
+fruits: {'analysis_set': 164, 'excluded': 25} | sessions: 315 evaluation: 268
+p0cpu done
+p0 done
+p1 done
+p2 done
+p3 done
+p4 done
+p5 done
+p6 done
+p7 done
+p8 done
+p9 done
+capture rows 358633 | session rows 188672 | configurations 64 | max |diff| vs results/v14/partition_per_fold.csv over 935 rows = 0.0
+ok       fruits.csv                                                   rows=   189 max|diff|=0
+ok       sessions.csv                                                 rows=   315 max|diff|=0
+ok       fruit_partitions.csv                                         rows=   164 max|diff|=0
+ok       exclusion_ledger.csv                                         rows=  4405 max|diff|=0
+ok       model_registry.csv                                           rows=    21 max|diff|=0
+ok       configuration_space.csv                                      rows=    37 max|diff|=0
+ok       table1_dataset_structure.csv                                 rows=     4 max|diff|=0
+ok       hyperparameter_search_p0.csv                                 rows=   370 max|diff|=0
+ok       predictions/selection_choices.csv                            rows=  2695 max|diff|=0
+ok       predictions/session_oof_primary.csv                          rows= 17152 max|diff|=0
+ok       predictions/capture_oof.parquet                              rows=358633 max|diff|=0
+ok       predictions/session_oof.parquet                              rows=188672 max|diff|=0
+12/12 tables identical
+                                       model  n_train  n_test                            best_params  max_abs_diff_vs_shipped
+0            thermal__svm_rbf__outer0.joblib     1295     376    {"clf__C": 10, "clf__gamma": 0.003}                      0.0
+1            thermal__svm_rbf__outer1.joblib     1331     340    {"clf__C": 10, "clf__gamma": 0.003}                      0.0
+2            thermal__svm_rbf__outer2.joblib     1342     329  {"clf__C": 10, "clf__gamma": "scale"}                      0.0
+3            thermal__svm_rbf__outer3.joblib     1336     335     {"clf__C": 10, "clf__gamma": 0.01}                      0.0
+4            thermal__svm_rbf__outer4.joblib     1380     291  {"clf__C": 10, "clf__gamma": "scale"}                      0.0
+5       multispectral__logreg__outer0.joblib     1736     486                        {"clf__C": 1.0}                      0.0
+6       multispectral__logreg__outer1.joblib     1759     463                       {"clf__C": 10.0}                      0.0
+7       multispectral__logreg__outer2.joblib     1774     448                        {"clf__C": 1.0}                      0.0
+8       multispectral__logreg__outer3.joblib     1791     431                        {"clf__C": 0.1}                      0.0
+9       multispectral__logreg__outer4.joblib     1828     394                        {"clf__C": 0.1}                      0.0
+10  rgb__efficientnetb0_probe__outer0.joblib     1557     442        {"logisticregression__C": 0.01}                      0.0
+11  rgb__efficientnetb0_probe__outer1.joblib     1586     413         {"logisticregression__C": 0.1}                      0.0
+12  rgb__efficientnetb0_probe__outer2.joblib     1603     396        {"logisticregression__C": 0.01}                      0.0
+13  rgb__efficientnetb0_probe__outer3.joblib     1604     395        {"logisticregression__C": 0.01}                      0.0
+14  rgb__efficientnetb0_probe__outer4.joblib     1646     353        {"logisticregression__C": 0.01}                      0.0
+done: all regenerated tables are identical to the shipped ones

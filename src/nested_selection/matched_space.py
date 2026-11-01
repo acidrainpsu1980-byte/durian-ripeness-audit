@@ -95,6 +95,14 @@ for p in PS:
     for lab, k in [("posthoc_C26", best26), ("posthoc_C37", best37)]:
         f1, acc = foldmean(R[p][k], F[p]); rows.append(dict(partition=p, estimate=lab, acc=acc, f1=f1, config=k))
 D = pd.DataFrame(rows); D.to_csv(f"{OUT}/matched_space_detail.csv", index=False)
+# v1.9 (round-3 comment 2): session-level outer-fold probabilities of every estimate, for pooled metrics, class recall
+# and paired macro-F1 inference (src/nested_selection/primary_metric.py)
+so = []
+for p in PS:
+    for k, v in list(R[p].items()) + [("posthoc_C26", R[p][best26]), ("posthoc_C37", R[p][best37])]:
+        so.append(pd.DataFrame(dict(partition=p, estimate=k, session_id=sid, fruit_id=ST.fruit_id.values, outer_fold=F[p].astype(int), y=y,
+                                    p_Unripe=v[:, 0], p_Ripe=v[:, 1], p_Overripe=v[:, 2])))
+pd.concat(so, ignore_index=True).to_parquet(f"{OUT}/matched_space_session_oof.parquet", index=False)
 pd.Series({p: ", ".join(PICK[p]) for p in PS}).to_csv(f"{OUT}/nested_cfg_fixedfam_choices.csv", header=["chosen per fold"])
 prim = D[D.partition == "p0cpu"].set_index("estimate")[["acc", "f1"]]
 ten = D[D.partition.isin([f"p{i}" for i in range(10)])].groupby("estimate").acc.agg(["mean", "min", "max"])

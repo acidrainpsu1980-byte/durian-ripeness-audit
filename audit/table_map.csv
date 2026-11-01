@@ -1,8 +1,8 @@
 paper_item,content,source_files,script,run_all_stage,check
 Table 1,Dataset and confound structure,audit/fruits.csv; audit/sessions.csv; intermediate_common/features/features_thermal.parquet; intermediate_common/rgb/rgb512_manifest.csv,src/audit/table1.py,check (not in run_all),audit/table1_dataset_structure.csv
 Table 2,Per-modality pipelines (description),audit/model_registry.csv,src/nested_selection/cands.py; src/common_label/cnn_common.py,-,no computed values
-Table 3,Development pipelines vs selection procedures,results/v14/partition_sensitivity.csv; results/v17/matched_space_summary.csv; results/v17/matched_space_detail.csv,src/nested_selection/evaluate_v14.py; src/nested_selection/matched_space.py,"3, 5",audit/manuscript_number_check.csv
-Table 4,Confirmatory and exploratory comparisons,results/v14/comparisons_v14.csv,src/nested_selection/evaluate_v14.py (stats4.py),3,
+Table 3,"Development pipelines vs selection procedures: fold-mean, pooled and across-partition macro-F1 and accuracy, class recall",results/v19/estimates_summary.csv (from results/v17/matched_space_session_oof.parquet),src/nested_selection/matched_space.py; src/nested_selection/primary_metric.py,5,audit/manuscript_number_check.csv
+Table 4,Paired comparisons in macro-F1 (primary) and accuracy (secondary),results/v19/comparisons_macro_f1.csv,src/nested_selection/primary_metric.py (stats4.py),5,audit/manuscript_number_check.csv
 Table 5,Single-sensor results,results/single_modality_common_denominator.csv; results/fusion_results.csv; results/leakage_table.csv,src/fusion_pipeline.py,1,
 Table 6,Late and early fusion,results/fusion_results.csv; results/stats_tests.csv,src/fusion_pipeline.py,1,
 Table 7,Leakage: fruit-grouped vs random split,results/leakage_table.csv,src/fusion_pipeline.py,1,
@@ -38,3 +38,5 @@ Table S17,device-specific sound models,audit/supplementary/TableS17_device_ident
 Table S18,literature design extraction (curated),audit/supplementary/TableS18_literature_design_extraction.csv,src/audit/build_supplementary_tables.py,6,byte-identical to the submitted file
 Table S19,multispectral wavelength ablation,audit/supplementary/TableS19_multispectral_wavelength_ablation.csv,src/audit/build_supplementary_tables.py,6,byte-identical to the submitted file
 Table S20,"development vs procedure, matched space",audit/supplementary/TableS20_development_vs_procedure_matched_space.csv,src/audit/build_supplementary_tables.py,6,byte-identical to the submitted file
+Table S21,estimates by summary type with class recall,audit/supplementary/TableS21_estimates_by_summary_type.csv,src/audit/build_supplementary_tables.py,6,new in v1.9.0
+Table S22,"paired comparisons, macro-F1 and accuracy",audit/supplementary/TableS22_paired_comparisons_macro_f1.csv,src/audit/build_supplementary_tables.py,6,new in v1.9.0

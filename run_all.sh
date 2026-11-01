@@ -27,10 +27,12 @@ echo "[4/7] targeted ablations -> results_repro/v15 (Table 12, S15-S17, S19)"
 DURIAN_V15_OUT=results_repro/v15 python src/ablations/evaluate_v15.py
 DURIAN_V15_OUT=results_repro/v15 python src/ablations/ms_wavelength_ablation.py
 $CMP results/v15 results_repro/v15
-echo "[5/7] development pipelines vs selection procedures, matched candidate space -> results_repro/v17 (Table 3 rows, S20)"
+echo "[5/7] development pipelines vs selection procedures, matched candidate space -> results_repro/v17; macro-F1 summaries and paired comparisons -> results_repro/v19 (Tables 3-4, S20-S22)"
 DURIAN_V17_OUT=results_repro/v17 python src/nested_selection/matched_space.py
-$CMP results/v17 results_repro/v17
-echo "[6/7] Supplementary Tables S1-S20 from the regenerated results -> results_repro/supplementary"
+$CMP results/v17 results_repro/v17 "*.csv" "*.parquet"
+DURIAN_V17_IN=results_repro/v17 DURIAN_V19_OUT=results_repro/v19 python src/nested_selection/primary_metric.py > /dev/null
+$CMP results/v19 results_repro/v19
+echo "[6/7] Supplementary Tables S1-S22 from the regenerated results -> results_repro/supplementary"
 DURIAN_RESULTS=results_repro python src/audit/build_supplementary_tables.py results_repro/supplementary
 $CMP audit/supplementary results_repro/supplementary
 echo "[7/7] audit tables, model registry, out-of-fold prediction export, saved-model check -> results_repro/audit"

@@ -1,4 +1,4 @@
-# durian-ripeness-audit (v1.8.0)
+# durian-ripeness-audit (v1.9.0)
 
 Reproducible audit package for *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and RGB
 Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* (submitted to *Computers*, MDPI, 2026).
@@ -13,7 +13,7 @@ capture-level leakage controls. This repository contains everything needed to au
 | Recording exclusions with the evidence for each | `audit/exclusion_ledger.csv`, `data/raw_file_inventory.csv`, `data/sound_recording_manifest.csv` (S7), `data/sound_session_evidence.csv` (S8), `data/sound_exclude_wrong_session.txt` |
 | Session identifiers, label decisions, the ten fruit partitions | `audit/sessions.csv`, `data/session_labels_common.csv` (S10), `audit/fruit_partitions.csv`, `audit/fruits.csv` |
 | Candidate models, hyper-parameter searches, software versions, training settings | `audit/model_registry.csv`, `audit/configuration_space.csv`, `audit/hyperparameter_search_p0.csv`, `audit/SOFTWARE.md`, `audit/requirements_lock_cpu.txt`, `models/primary_p0/` |
-| Out-of-fold predictions and scripts reproducing the principal tables | `audit/predictions/`, `audit/supplementary/` (S1–S20), `audit/table_map.csv`, `run_all.sh` |
+| Out-of-fold predictions and scripts reproducing the principal tables | `audit/predictions/`, `audit/supplementary/` (S1–S22), `audit/table_map.csv`, `run_all.sh` |
 | Commands from raw data and from cached features | `REPRODUCE.md` |
 
 Details: `audit/README.md`. Version history: `CHANGELOG.md`.
@@ -53,7 +53,7 @@ intermediate_common/    v1.3 common-label features, embeddings, out-of-fold pred
 intermediate_v14/       refits of all candidates on ten partitions (fits/), knock-CNN refits (cnn/ GPU, cnn_cpu_p0/ CPU)
 intermediate_v15/       ablation inputs (harmonized thermal features, masked-crop embeddings, device-specific CNNs)
 intermediate/           v1.0-v1.2 file-label outputs still read by the fusion stage (leave-one-batch-out tables)
-results/                result tables (v14, v15, v17 subfolders by revision); results_v1_* = superseded versions
+results/                result tables (v14, v15, v17, v19 subfolders by revision); results_v1_* = superseded versions
 ```
 
 ## Data
