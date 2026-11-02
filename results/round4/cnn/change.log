@@ -1,0 +1,9 @@
+change lobo:Immature: train 3390 endpoint knocks (4920 baseline knocks), test 1474, 466s
+change lobo:Mature: train 2472 endpoint knocks (5637 baseline knocks), test 2392, 334s
+change lobo:Overmature: train 3866 endpoint knocks (4643 baseline knocks), test 998, 523s
+change outer:0: train 3757 endpoint knocks (5824 baseline knocks), test 1107, 509s
+change outer:1: train 3980 endpoint knocks (5984 baseline knocks), test 884, 536s
+change outer:2: train 3816 endpoint knocks (6188 baseline knocks), test 1048, 516s
+change outer:3: train 3833 endpoint knocks (6175 baseline knocks), test 1031, 518s
+change outer:4: train 4070 endpoint knocks (6229 baseline knocks), test 794, 540s
+DONE

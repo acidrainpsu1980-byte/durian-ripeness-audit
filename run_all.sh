@@ -35,7 +35,7 @@ DURIAN_V17_OUT=results_repro/v17 python src/nested_selection/matched_space.py
 $CMP results/v17 results_repro/v17 "*.csv" "*.parquet"
 DURIAN_V17_IN=results_repro/v17 DURIAN_V19_OUT=results_repro/v19 python src/nested_selection/primary_metric.py > /dev/null
 $CMP results/v19 results_repro/v19
-echo "[6/7] Supplementary Tables S1-S24 from the regenerated results -> results_repro/supplementary"
+echo "[6/7] Supplementary Tables S1-S25 from the regenerated results -> results_repro/supplementary"
 DURIAN_RESULTS=results_repro python src/audit/build_supplementary_tables.py results_repro/supplementary
 $CMP audit/supplementary results_repro/supplementary
 echo "[7/7] audit tables, model registry, out-of-fold prediction export, saved-model check -> results_repro/audit"
@@ -121,5 +121,11 @@ if [ "${ANCHOR:-0}" = "1" ]; then
   $CMP results/round2 $O2 "*.csv" "*.parquet"
   ROUND_V21=$O ROUND2_DIR=$O2 ROUND3_DIR=$O3 python src/anchor_physics/round3.py evaluate > /dev/null
   $CMP results/round3 $O3 "*.csv"
+  # round 4 (docs/ANALYSIS_PLAN_round4.md): fruit-specific baseline, from the shipped knock-CNN predictions (results/round4/cnn;
+  # 48 CPU fits of src/anchor_physics/paired_cnn.py, ~2.5 h on 9 cores, not rerun here)
+  O4=results_repro/round4; rm -rf $O4; mkdir -p $O4; cp -R results/round4/cnn $O4/
+  ROUND_V21=$O ROUND4_DIR=$O4 python src/anchor_physics/round4.py classical > /dev/null
+  ROUND_V21=$O ROUND4_DIR=$O4 python src/anchor_physics/round4.py evaluate > /dev/null
+  $CMP results/round4 $O4 "*.csv" "*.parquet"
 fi
 echo "done: all regenerated tables are identical to the shipped ones"
