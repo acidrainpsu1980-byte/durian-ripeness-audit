@@ -1,0 +1,399 @@
+{
+ "env_name": "durian-fm",
+ "env_prefix": "/root/miniconda3/envs/durian-fm",
+ "python": "3.12.16",
+ "packages": {
+  "torch": "2.8.0+cu128",
+  "torchaudio": "2.8.0+cu128",
+  "torchvision": "0.23.0+cu128",
+  "transformers": "4.57.6",
+  "timm": "1.0.30",
+  "open_clip_torch": "3.3.0",
+  "librosa": "1.0.0",
+  "soundfile": "0.14.0",
+  "soxr": "1.1.0",
+  "numpy": "2.5.4",
+  "pandas": "3.1.0",
+  "pyarrow": "26.0.0",
+  "scipy": "1.18.1",
+  "pillow": "13.0.0",
+  "huggingface_hub": "0.36.2",
+  "opencv-python-headless": "5.0.0.93",
+  "tifffile": "2026.10.15",
+  "scikit-image": "0.26.0",
+  "panns_inference": "0.1.1",
+  "torchlibrosa": "0.1.0",
+  "safetensors": "0.8.0",
+  "numba": "0.68.1",
+  "tokenizers": "0.22.2",
+  "sentencepiece": "0.2.2",
+  "imagecodecs": "2026.10.10"
+ },
+ "ffmpeg": [
+  "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+ ],
+ "gpu": "NVIDIA GeForce RTX 3090 Ti, 595.99.02",
+ "torch_cuda": "12.8",
+ "cudnn": 91002,
+ "hf_models": {
+  "ast": {
+   "repo": "MIT/ast-finetuned-audioset-10-10-0.4593",
+   "commit_sha": "f826b80d28226b62986cc218e5cec390b1096902",
+   "files": {
+    "README.md": {
+     "md5": "4b473632e18244536512edaf0010717c",
+     "bytes": 1165
+    },
+    "config.json": {
+     "md5": "2a7b8c773140af72c5d6075c3698a6d3",
+     "bytes": 26763
+    },
+    "model.safetensors": {
+     "md5": "92e55df47c837a105e48289a12a13c86",
+     "bytes": 346404948
+    },
+    "preprocessor_config.json": {
+     "md5": "05a8604d8858d3c7b3c5ca904b2d8afb",
+     "bytes": 297
+    },
+    "pytorch_model.bin": {
+     "md5": "e227b19c9bf040ec95c2334537e5aad4",
+     "bytes": 346445675
+    }
+   }
+  },
+  "clap": {
+   "repo": "laion/clap-htsat-unfused",
+   "commit_sha": "8fa0f1c6d0433df6e97c127f64b2a1d6c0dcda8a",
+   "files": {
+    "README.md": {
+     "md5": "6816fd1a273280bba8e930a929c11cd5",
+     "bytes": 4454
+    },
+    "config.json": {
+     "md5": "8959ff51a76024ed18f32e6a31f5d209",
+     "bytes": 5390
+    },
+    "merges.txt": {
+     "md5": "093ecf3f30371012f2e96fcfb10ea6ab",
+     "bytes": 456356
+    },
+    "preprocessor_config.json": {
+     "md5": "86f9b6619a5382395ab0254bb33c5554",
+     "bytes": 541
+    },
+    "pytorch_model.bin": {
+     "md5": "a2922ac57f7fd877a8275e1ff1390c12",
+     "bytes": 614525833
+    },
+    "special_tokens_map.json": {
+     "md5": "7b49a313ead23cad7e31f414fce47f91",
+     "bytes": 280
+    },
+    "tokenizer.json": {
+     "md5": "34d7bfca5d3f85ed317b8c68689ea362",
+     "bytes": 2108746
+    },
+    "tokenizer_config.json": {
+     "md5": "ab79133bc0d0e21692cbe1b2d79db680",
+     "bytes": 384
+    },
+    "vocab.json": {
+     "md5": "ae624417bd6052f85847a28e07d13467",
+     "bytes": 798293
+    }
+   }
+  },
+  "wav2vec2": {
+   "repo": "facebook/wav2vec2-base",
+   "commit_sha": "0b5b8e868dd84f03fd87d01f9c4ff0f080fecfe8",
+   "files": {
+    "README.md": {
+     "md5": "61c0e26e9d2c109ff73acef146f7842b",
+     "bytes": 1997
+    },
+    "config.json": {
+     "md5": "8f60812d1c131482da27df918ba85055",
+     "bytes": 1842
+    },
+    "preprocessor_config.json": {
+     "md5": "ea6d51e883964416937c4139d916e8df",
+     "bytes": 159
+    },
+    "pytorch_model.bin": {
+     "md5": "53c49c11c93e64fa91d749b54def15fd",
+     "bytes": 380267417
+    },
+    "special_tokens_map.json": {
+     "md5": "1ac61986e1bc63da965f06d7f0523760",
+     "bytes": 85
+    },
+    "tokenizer_config.json": {
+     "md5": "f7d2c2d7fbb972107048f920fc2c0692",
+     "bytes": 163
+    },
+    "vocab.json": {
+     "md5": "9bec9477e95b7d7faad8ba88799de4c8",
+     "bytes": 291
+    }
+   }
+  },
+  "hubert": {
+   "repo": "facebook/hubert-base-ls960",
+   "commit_sha": "dba3bb02fda4248b6e082697eee756de8fe8aa8a",
+   "files": {
+    "README.md": {
+     "md5": "dcd28a8694ee1c559c6548cdfe25ef47",
+     "bytes": 2596
+    },
+    "config.json": {
+     "md5": "50338b802a4ebd561c852e3839ff9c60",
+     "bytes": 1385
+    },
+    "preprocessor_config.json": {
+     "md5": "32af96ecde5ddcb7ce323cf431971f9a",
+     "bytes": 213
+    },
+    "pytorch_model.bin": {
+     "md5": "74df4f01a0f1326e3f6c23819c64868c",
+     "bytes": 377569754
+    }
+   }
+  },
+  "dinov2": {
+   "repo": "facebook/dinov2-base",
+   "commit_sha": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+   "files": {
+    "README.md": {
+     "md5": "9d2bf2dd2da937d7bd77be1bc320298a",
+     "bytes": 3047
+    },
+    "config.json": {
+     "md5": "306ea30d56cf4eff553ea105885b0dd9",
+     "bytes": 548
+    },
+    "model.safetensors": {
+     "md5": "b367a12c904f568e9327e726f700cde6",
+     "bytes": 346345912
+    },
+    "preprocessor_config.json": {
+     "md5": "e40d527806779cbf0c7fd6fca552eddb",
+     "bytes": 436
+    },
+    "pytorch_model.bin": {
+     "md5": "e7cb4901f36b139e63b452d53c058c27",
+     "bytes": 346392713
+    }
+   }
+  },
+  "siglip": {
+   "repo": "google/siglip-base-patch16-224",
+   "commit_sha": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+   "files": {
+    "README.md": {
+     "md5": "e514bd873633a72427bdce7f921f3321",
+     "bytes": 4116
+    },
+    "config.json": {
+     "md5": "dfee7e5d67a855959dff71646c16eda2",
+     "bytes": 432
+    },
+    "model.safetensors": {
+     "md5": "dd6834d080a44f92b06a77115122251c",
+     "bytes": 812672320
+    },
+    "preprocessor_config.json": {
+     "md5": "fa42015ceaddeed2becda965328187c1",
+     "bytes": 368
+    },
+    "pytorch_model.bin": {
+     "md5": "39d4b7c02588e6684fad94b77f082ec0",
+     "bytes": 812762989
+    },
+    "special_tokens_map.json": {
+     "md5": "4e70ed986c77e52c2efe61ffa6964522",
+     "bytes": 409
+    },
+    "spiece.model": {
+     "md5": "558797bd124531bb04fdce0755277b29",
+     "bytes": 798330
+    },
+    "tokenizer.json": {
+     "md5": "0a529ab166506b1eb54b0dc6d8a98e66",
+     "bytes": 2399357
+    },
+    "tokenizer_config.json": {
+     "md5": "026a5f975d8b2d5e837106462c8e12ca",
+     "bytes": 711
+    }
+   }
+  }
+ },
+ "open_clip_checkpoints": [
+  {
+   "path": "hf/open_clip/models--timm--vit_base_patch16_clip_224.openai/snapshots/977e3dd0ec55ab8da155f2fbeb6b5f54948b6e3d/open_clip_model.safetensors",
+   "md5": "dd7baedf694104c3373edf34f67a29b8",
+   "bytes": 598516980
+  }
+ ],
+ "other_checkpoints": {
+  "beats_code": {
+   "repo": "github.com/microsoft/unilm",
+   "path": "beats/",
+   "commit_sha": "732d834db70ee0fc3886b4bcbcfb4ce7fb829be2",
+   "files_md5": {
+    "BEATs.py": "b0dce33d0aafdbefb5336686ccc62dee",
+    "backbone.py": "aff44e05490d5a1a982319a95a2a2ddf",
+    "modules.py": "773c376d16fadcbdadd3d81189e30dc3"
+   }
+  },
+  "beats_ckpt": {
+   "file": "BEATs_iter3_plus_AS2M.pt",
+   "note": "official unilm links (OneDrive/Azure SAS) are not scriptable; third-party HF mirrors of the unchanged MIT file",
+   "mirrors": [
+    {
+     "repo": "Bencr/beats-checkpoints",
+     "repo_type": "dataset",
+     "path_in_repo": "BEATs_iter3_plus_AS2M.pt",
+     "commit_sha": "082fb1849d55bef1ee52ee8d8910b3adc69d4bc8",
+     "md5": "e455a4b81e5d4aa1d257fefb2efb770f",
+     "bytes": 361499833
+    },
+    {
+     "repo": "tsinghua-ee/WAVE-7B",
+     "repo_type": "model",
+     "path_in_repo": "BEATs_iter3_plus_AS2M.pt",
+     "commit_sha": "7d51cdaecfaabb9c529a447249cd4c2a6df8ce5b",
+     "md5": "3e6a432ff1daaeab6a7b6d3e4a94e330",
+     "bytes": 363145291
+    }
+   ],
+   "md5": "e455a4b81e5d4aa1d257fefb2efb770f",
+   "mirrors_agree": false,
+   "cfg": {
+    "encoder_layers": 12,
+    "encoder_embed_dim": 768,
+    "encoder_ffn_embed_dim": 3072,
+    "encoder_attention_heads": 12,
+    "activation_fn": "gelu",
+    "dropout": 0.1,
+    "attention_dropout": 0.1,
+    "activation_dropout": 0.0,
+    "encoder_layerdrop": 0.05,
+    "dropout_input": 0.1,
+    "layer_norm_first": false,
+    "conv_bias": false,
+    "conv_pos": 128,
+    "conv_pos_groups": 16,
+    "relative_position_embedding": true,
+    "num_buckets": 320,
+    "max_distance": 800,
+    "gru_rel_pos": true,
+    "deep_norm": true,
+    "input_patch_size": 16,
+    "layer_wise_gradient_decay_ratio": 1.0,
+    "embed_dim": 512
+   }
+  },
+  "panns_ckpt": {
+   "file": "Cnn14_mAP=0.431.pth",
+   "zenodo_record": 3987831,
+   "zenodo_checksum": "md5:541141fa2ee191a88f24a3219fff024e",
+   "md5": "541141fa2ee191a88f24a3219fff024e",
+   "md5_ok": true
+  },
+  "hf_snapshots": {
+   "MIT/ast-finetuned-audioset-10-10-0.4593": {
+    "commit_sha": "f826b80d28226b62986cc218e5cec390b1096902",
+    "files": [
+     ".gitattributes",
+     "README.md",
+     "config.json",
+     "model.safetensors",
+     "preprocessor_config.json",
+     "pytorch_model.bin"
+    ]
+   },
+   "laion/clap-htsat-unfused": {
+    "commit_sha": "8fa0f1c6d0433df6e97c127f64b2a1d6c0dcda8a",
+    "files": [
+     ".gitattributes",
+     "README.md",
+     "config.json",
+     "merges.txt",
+     "preprocessor_config.json",
+     "pytorch_model.bin",
+     "special_tokens_map.json",
+     "tokenizer.json",
+     "tokenizer_config.json",
+     "vocab.json"
+    ]
+   },
+   "facebook/wav2vec2-base": {
+    "commit_sha": "0b5b8e868dd84f03fd87d01f9c4ff0f080fecfe8",
+    "files": [
+     ".gitattributes",
+     "README.md",
+     "config.json",
+     "preprocessor_config.json",
+     "pytorch_model.bin",
+     "special_tokens_map.json",
+     "tokenizer_config.json",
+     "vocab.json"
+    ]
+   },
+   "facebook/hubert-base-ls960": {
+    "commit_sha": "dba3bb02fda4248b6e082697eee756de8fe8aa8a",
+    "files": [
+     ".gitattributes",
+     "README.md",
+     "config.json",
+     "preprocessor_config.json",
+     "pytorch_model.bin"
+    ]
+   },
+   "facebook/dinov2-base": {
+    "commit_sha": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+    "files": [
+     ".gitattributes",
+     "README.md",
+     "config.json",
+     "model.safetensors",
+     "preprocessor_config.json",
+     "pytorch_model.bin"
+    ]
+   },
+   "google/siglip-base-patch16-224": {
+    "commit_sha": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "files": [
+     ".gitattributes",
+     "README.md",
+     "config.json",
+     "model.safetensors",
+     "preprocessor_config.json",
+     "pytorch_model.bin",
+     "special_tokens_map.json",
+     "spiece.model",
+     "tokenizer.json",
+     "tokenizer_config.json"
+    ]
+   }
+  },
+  "open_clip": {
+   "model": "ViT-B-16-quickgelu",
+   "pretrained": "openai",
+   "version": "3.3.0",
+   "pretrained_cfg": "{'url': 'https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt', 'hf_hub': 'timm/vit_base_patch16_clip_224.openai/', 'mean': (0.48145466, 0.4578275, 0.40821073), 'std': (0.26862954, 0.26130258, 0.27577711), 'interpolation': 'bicubic', 'resize_mode': 'shortest', 'quick_gelu': True}"
+  }
+ },
+ "determinism": {
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "tf32": false,
+  "use_deterministic_algorithms": "True (warn_only)",
+  "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+  "attn_implementation": "eager where supported",
+  "dtype": "float32"
+ },
+ "gpu_memory_budget_gb": 7.0
+}

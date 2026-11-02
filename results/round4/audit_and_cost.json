@@ -1,0 +1,16 @@
+{
+ "audit": {
+  "paired_cnn_uses_storage_or_weight": false,
+  "round4_features_use_storage_or_weight": false,
+  "baseline_from_label_free_intake_rule": true
+ },
+ "cost": {
+  "fruits": 103,
+  "intake_recordings_median": 1.0,
+  "intake_knocks_median": 31.0
+ },
+ "population": 104,
+ "fruit_specific_condition_met": false,
+ "intake_within_fruit_sd_log_fdom_median": 0.3422430775652658,
+ "intake_to_endpoint_abs_log_fdom_change_median": 0.5718285650536898
+}
