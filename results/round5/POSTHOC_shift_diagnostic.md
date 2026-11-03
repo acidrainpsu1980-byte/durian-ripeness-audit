@@ -17,7 +17,7 @@ Computed 2026-11-03 after the round-5 evaluation, from `results/round5/probe_ses
 | V-rgb DINO | 0.71 | 0.66 | 0.59 | 0.51 | 0.58 | 0.84 |
 | V-thermal DINO | 0.49 | 0.72 | 0.44 | 0.34 | 0.57 | 0.70 |
 
-Reading: the task-specific CNNs carry no ranking information in the Overmature batch (AUC < 0.5); the foundation embeddings do (AUC 0.75–0.90), but their scores are shifted towards Overripe (mean p ≈ 0.8), so the 0.5 threshold assigns almost everything to Overripe. The Immature batch is the opposite case: AUC 0.6–0.75 for every arm, so even an oracle threshold gives only 0.62–0.75.
+Reading: the task-specific CNNs carry no ranking information in the Overmature batch (AUC 0.39–0.45). The audio foundation arms (A1, A1ft, A5), the multispectral DINO arm and the two fusions do (AUC 0.75–0.90), but their scores are shifted towards Overripe (mean p 0.67–0.87), so the 0.5 threshold assigns almost everything to Overripe. The single-modality thermal (AUC 0.44) and RGB (0.59) DINO arms carry little or no Overmature signal. In the Immature batch every arm ranks weakly (AUC 0.49–0.75), so even an oracle threshold gives only 0.57–0.75.
 
 ## 2. Label-free score-shift rules applied within the held-out batch (pooled macro-F1, Δ vs CDR-RO 0.661)
 
@@ -29,4 +29,4 @@ Reading: the task-specific CNNs carry no ranking information in the Overmature b
 | F1 | 0.73 (+7.0) | 0.70 (+4.1) | 0.67 (+1.1) | 0.57 |
 | F3 | 0.69 (+3.2) | 0.72 (+6.0 [−6.1, 17.4]) | 0.71 (+4.9) | 0.65 |
 
-Per batch, median-centering moves F3's Overmature F1 from 0.53 to 0.79 (Ripe recall 0.17 → 0.83) and F1's from 0.37 to 0.72, but costs 5–16 pp in the Immature batch, whose true prior (68 % Ripe) is far from 0.5. EM diverges to one class, as in round 3. No rule brings the pooled CI above zero at n = 104.
+Per batch, median-centering moves F3's Overmature F1 from 0.53 to 0.79 (Ripe recall 0.17 → 0.83) and F1's from 0.37 to 0.72. In the Immature batch, whose true prior (68 % Ripe) is far from 0.5, its effect is mixed: −16 pp for F1 and −8 pp for A1ft, but +14 pp for A1, +3 pp for A5 and 0 for F3. EM diverges to one class, as in round 3. No rule brings the pooled CI above zero at n = 104.

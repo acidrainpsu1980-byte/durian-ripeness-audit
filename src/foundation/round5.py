@@ -3,6 +3,10 @@
   python src/foundation/round5.py fit        frozen probes A1-A6, A1c/A1p/A1s/A1b/A1w, vision V-T/V-M/V-R, fusion F3 (LOBO + p0)
   python src/foundation/round5.py diagnose   batch decodability of each frozen embedding on intake units (label-free outcome)
   python src/foundation/round5.py evaluate   F1/F2/F4/F5 (probability means), A1ft (beats_ft.py outputs), references; Q1/Q2 + Holm
+Round 6 (docs/ANALYSIS_PLAN_round6.md, tag prereg-round6; outputs results/round6/, override ROUND6_DIR):
+  python src/foundation/round5.py fit6       refit F3, A1, A5, V-{thermal,ms,rgb}-DINO with the same probe; also predict intake sessions;
+                                             assert endpoint probabilities identical to results/round5/probe_sessions.parquet
+  python src/foundation/round5.py evaluate6  round-1 M3 anchored logit shift (R6 = anchored F3), references, R6 vs CDR-RO; secondaries
 Embeddings: R5_EMB (default work/r5_embeddings; layout in README_embeddings.md). Outputs: results/round5/ (override ROUND5_DIR).
 Population, gating and training data as round 4 (104 endpoint sessions). Fitting prints only sizes and run times.
 """
@@ -103,19 +107,30 @@ def splits(units, ff):
     return [("lobo", b, bt != b, bt == b) for b in B] + [("p0", str(k), fo != k, fo == k) for k in range(5)]
 
 
-def probe(X, units, sel, ff, name):
-    """train on endpoint units (non-intake, fruit with a baseline, label R/O) of training fruits; predict selected test units"""
+def probe(X, units, sel, ff, name, intake_rows=False):
+    """train on endpoint units (non-intake, fruit with a baseline, label R/O) of training fruits; predict selected test units
+    intake_rows=True (round 6 only): additionally predict the label-free intake units of ALL batches with the same fitted model
+    (intake units are never training rows); each output row then carries `role` (endpoint | intake_test | intake_train)."""
     ep = (~units.intake & units.has_base).values & sel
     y = units.label.map({"Ripe": 1, "Overripe": 2}); trainable = ep & y.notna().values; y = y.fillna(0).astype(int).values
     rows = []
     for sp, arg, trm, tem in splits(units, ff):
         tr = trainable & trm; te = ep & tem
+        if intake_rows: te = te | (units.intake.values & sel)
         est, grid = lc.estimator("embedding_logreg")
         gs = GridSearchCV(est, grid, cv=GroupKFold(3), scoring="f1_macro", n_jobs=1).fit(X[tr], y[tr], groups=units.fruit_id.values[tr])
         q = gs.predict_proba(X[te]); assert list(gs.classes_) == [1, 2]
         t = pd.DataFrame({"session_id": units.session_id.values[te], "p_Ripe": q[:, 0], "p_Overripe": q[:, 1]})
-        s = t.groupby("session_id")[["p_Ripe", "p_Overripe"]].mean().reset_index(); s["model"] = name; s["split"] = sp; rows.append(s)
+        keys = ["session_id"]
+        if intake_rows: t["role"] = _roles(units, te, tem); keys = ["session_id", "role"]
+        s = t.groupby(keys)[["p_Ripe", "p_Overripe"]].mean().reset_index(); s["model"] = name; s["split"] = sp
+        if intake_rows: s["held_out"] = arg                                 # which model (held-out batch / fold) produced the row
+        rows.append(s)
     return rows
+
+
+def _roles(units, te, tem):
+    r = np.where(units.intake.values, np.where(tem, "intake_test", "intake_train"), "endpoint"); return r[te]
 
 
 def fit():
@@ -150,17 +165,20 @@ def fit():
     print("fit written", f"{time.time()-t0:.0f}s")
 
 
-def probe_blocks(blocks, su, ff, name):
+def probe_blocks(blocks, su, ff, name, intake_rows=False):
     rows = []; ep = (~su.intake & su.has_base).values
     y = su.label.map({"Ripe": 1, "Overripe": 2}); trainable = ep & y.notna().values; y = y.fillna(0).astype(int).values
     for sp, arg, trm, tem in splits(su, ff):
         tr = trainable & trm; te = ep & tem; Xs = []
+        if intake_rows: te = te | su.intake.values                       # round 6: also score the label-free intake sessions
         for Bk in blocks:
             mu = Bk[tr].mean(0); sd = Bk[tr].std(0) + 1e-8; Xs.append((Bk - mu) / sd / np.sqrt(Bk.shape[1]))
         X = np.hstack(Xs); est, grid = lc.estimator("embedding_logreg")
         gs = GridSearchCV(est, grid, cv=GroupKFold(3), scoring="f1_macro", n_jobs=1).fit(X[tr], y[tr], groups=su.fruit_id.values[tr])
         q = gs.predict_proba(X[te])
-        rows.append(pd.DataFrame({"session_id": su.session_id.values[te], "p_Ripe": q[:, 0], "p_Overripe": q[:, 1], "model": name, "split": sp}))
+        t = pd.DataFrame({"session_id": su.session_id.values[te], "p_Ripe": q[:, 0], "p_Overripe": q[:, 1], "model": name, "split": sp})
+        if intake_rows: t["role"] = _roles(su, te, tem); t["held_out"] = arg
+        rows.append(t)
     return rows
 
 
@@ -264,5 +282,142 @@ def evaluate():
     print("written: scores, primary_contrasts, audio_family_contrasts, secondary_contrasts, baseline_only_diagnostic, audit")
 
 
+# ---------------------------------------------------------------- round 6 (docs/ANALYSIS_PLAN_round6.md): intake-anchored logit shift
+R6 = os.environ.get("ROUND6_DIR", "results/round6")
+R6_ARMS = ["A1", "A5", "V-thermal-DINO", "V-ms-DINO", "V-rgb-DINO", "F3"]      # the only arms refitted; identical estimator, seeds and training rows
+R6_SHIFTED = ["F3", "A1", "A5", "F1"]                                        # R6 = anchored F3 (primary); the others are exploratory secondaries
+EPS = 1e-12
+
+
+def fit6():
+    """Refit R6_ARMS with the round-5 probe (same training rows, estimator, grid, inner CV), predicting the endpoint units of the test split
+    AND the label-free intake sessions of every batch. Control: the endpoint-session probabilities must reproduce results/round5/probe_sessions.parquet."""
+    t0 = time.time(); d, T, A, pop, lab, fb, ff = context(); rows = []
+    au = d[["session_id", "fruit_id", "batch", "label", "intake", "has_base"]].copy(); allsel = np.ones(len(au), bool); SESS = {}
+    for code in ["A1", "A5"]:
+        Z = audio_recordings(code, d); rows += probe(Z, au, allsel, ff, code, intake_rows=True)
+        if code == "A1": SESS["A1"] = pd.DataFrame(Z).groupby(d.session_id.values).mean()
+        print(code, "done", f"{time.time()-t0:.0f}s", flush=True)
+    for mod in ["thermal", "ms", "rgb"]:
+        X, u = image_embeddings(mod, "DINO", d, T, A, lab)
+        rows += probe(X, u, np.ones(len(u), bool), ff, f"V-{mod}-DINO", intake_rows=True)
+        SESS[mod] = pd.DataFrame(X).groupby(u.session_id.values).mean(); print(mod, "DINO done", f"{time.time()-t0:.0f}s", flush=True)
+    S = sorted(set.intersection(*[set(v.index) for v in SESS.values()]))                          # as fit(): sessions with all four modalities
+    su = pd.DataFrame({"session_id": S}); su["fruit_id"] = su.session_id.str.split("_").str[0].astype(int)
+    su["batch"] = su.fruit_id.map(fb); su["label"] = su.session_id.map(lab); su["intake"] = su.session_id.map(A.anchor).fillna(False).astype(bool)
+    su["has_base"] = su.fruit_id.isin(set(d.fruit_id[d.intake]))
+    blocks = [SESS[k].loc[S].values for k in ["A1", "thermal", "ms", "rgb"]]
+    rows += probe_blocks(blocks, su, ff, "F3", intake_rows=True)
+    P6 = pd.concat(rows, ignore_index=True)
+    bt = pd.read_csv("data/durian_mm_capture_folds.csv").groupby("fruit_id").Maturity_Stage.first()
+    P6["batch"] = P6.session_id.str.split("_").str[0].astype(int).map(bt).values
+    # control: endpoint rows identical to round 5
+    P5 = pd.read_parquet(f"{R5}/probe_sessions.parquet"); chk = {}
+    for (m, sp), g in P6[P6.role == "endpoint"].groupby(["model", "split"]):
+        ref = P5[(P5.model == m) & (P5.split == sp)].set_index("session_id"); g = g.set_index("session_id")
+        assert set(g.index) == set(ref.index), (m, sp, len(g), len(ref))
+        dmax = float(np.abs(g.loc[ref.index, ["p_Ripe", "p_Overripe"]].values - ref[["p_Ripe", "p_Overripe"]].values).max())
+        chk[f"{m}|{sp}"] = dmax; assert dmax < 1e-9, (m, sp, dmax)
+    os.makedirs(R6, exist_ok=True); P6.to_parquet(f"{R6}/probe_sessions_with_intake.parquet", index=False)
+    n = P6.groupby(["model", "split", "role"]).size().rename("n").reset_index()
+    json.dump({"identity_max_abs_diff_vs_round5": chk, "rows": int(len(P6)),
+               "counts": n.to_dict(orient="records")}, open(f"{R6}/fit6_identity_check.json", "w"), indent=1)
+    print("fit6 written", len(P6), "rows; endpoint identity max|diff|", f"{max(chk.values()):.1e}", f"{time.time()-t0:.0f}s")
+
+
+def _logit(q):
+    q = np.clip(np.asarray(q, float), EPS, 1 - EPS); return np.log(q[:, 1]) - np.log(q[:, 0])        # R/O logit = log p(Overripe) / p(Ripe)
+
+
+def _anchored(P6, model, pop, bat):
+    """round-1 M3 rule on session scores. For held-out batch b: shifted logit = logit + (mean R/O logit of the intake sessions of the two
+    training batches - mean R/O logit of the intake sessions of b), all three quantities from the model trained for split b (training
+    batches only). Intake sessions are label-free (anchor_sessions.csv anchor == True). Gated prediction: Overripe if shifted logit > 0."""
+    pred = np.zeros(len(pop), int); info = {}; L = P6[(P6.model == model) & (P6.split == "lobo")]
+    for b in B:
+        g = L[L.held_out == b]; k = bat == b
+        ep = g[g.role == "endpoint"].set_index("session_id"); assert set(np.asarray(pop)[k]) <= set(ep.index), (model, b)
+        it = g[g.role == "intake_test"]; tr = g[g.role == "intake_train"]
+        assert (it.batch == b).all() and (tr.batch != b).all() and len(it) > 0 and len(tr) > 0, (model, b, len(it), len(tr))
+        sh = float(_logit(tr[["p_Ripe", "p_Overripe"]].values).mean() - _logit(it[["p_Ripe", "p_Overripe"]].values).mean())
+        z = _logit(ep.loc[np.asarray(pop)[k], ["p_Ripe", "p_Overripe"]].values) + sh
+        pred[k] = np.where(z > 0, 2, 1); info[b] = dict(shift_logit=sh, n_intake_test=int(len(it)), n_intake_train=int(len(tr)))
+    return pred, info
+
+
+def _median_centred(prob, bat):
+    """post-hoc rule already seen in round 5 (exploratory): within each held-out batch, Overripe if the R/O logit exceeds the batch median"""
+    z = _logit(prob); pred = np.zeros(len(z), int)
+    for b in B:
+        k = bat == b; pred[k] = np.where(z[k] > np.median(z[k]), 2, 1)
+    return pred
+
+
+def _f1_rows(P6):
+    """F1 (equal-weight probability mean of A1 and the three DINO arms) as session rows with role/held_out, for the sessions all four have"""
+    L = P6[P6.split == "lobo"]; keys = ["session_id", "role", "held_out", "batch"]; parts = []
+    for m in ["A1", "V-thermal-DINO", "V-ms-DINO", "V-rgb-DINO"]:
+        parts.append(L[L.model == m].set_index(keys)[["p_Ripe", "p_Overripe"]])
+    idx = parts[0].index
+    for q in parts[1:]: idx = idx.intersection(q.index)
+    F = sum(q.loc[idx] for q in parts) / 4; F = F.reset_index(); F["model"] = "F1"; F["split"] = "lobo"; return F
+
+
+def _references_lobo(pop, y):
+    """CDR-RO (round-1 M0) and K1 (round-4 current-knock CNN) gated predictions, asserted equal to the round-4 pooled scores"""
+    L1 = pd.read_parquet(f"{V21}/lobo_cnn_sessions.parquet"); pr = lambda S_: 1 + S_.loc[pop, ["p_Ripe", "p_Overripe"]].values.argmax(1)
+    refs = {"CDR_RO": pr(L1[L1.variant == "M0"].set_index("session_id")), "K1": pr(r4.knock_sessions([f"{R4}/cnn/current/paired_lobo_{b}.npy" for b in B]))}
+    S4 = pd.read_csv(f"{R4}/scores.csv").query("split == 'lobo' and batch == 'pooled'").set_index("model").macro_f1_RO
+    for n in refs: assert abs(ev.endpoint_scores(y, refs[n])["macro_f1_RO"] - S4[n]) < 1e-9, n
+    return refs
+
+
+def evaluate6():
+    d, T, A, pop, lab, fb, ff = context()
+    y = T.loc[pop, "y"].values.astype(int); assert set(y) <= {1, 2}
+    fruit = T.loc[pop, "fruit_id"].values.astype(int); bat = T.loc[pop, "Maturity_Stage"].values
+    P6 = pd.read_parquet(f"{R6}/probe_sessions_with_intake.parquet"); P6 = pd.concat([P6, _f1_rows(P6)], ignore_index=True)
+    # controls: (i) endpoint rows of the refitted arms reproduce round 5; (ii) the unshifted arms reproduce the round-5 LOBO scores
+    P5 = pd.read_parquet(f"{R5}/probe_sessions.parquet"); S5 = pd.read_csv(f"{R5}/scores.csv").query("split == 'lobo' and batch == 'pooled'").set_index("model").macro_f1_RO
+    E = P6[(P6.role == "endpoint") & (P6.split == "lobo")]; prob = {}; ident = {}
+    for m in R6_ARMS + ["F1"]:
+        g = E[E.model == m].set_index("session_id"); assert set(pop) <= set(g.index), m; prob[m] = g.loc[pop, ["p_Ripe", "p_Overripe"]].values
+        if m in R6_ARMS:
+            ref = P5[(P5.model == m) & (P5.split == "lobo")].set_index("session_id").loc[pop, ["p_Ripe", "p_Overripe"]].values
+            ident[m] = float(np.abs(prob[m] - ref).max()); assert ident[m] < 1e-9, (m, ident[m])
+    preds = {m: 1 + prob[m].argmax(1) for m in prob}
+    for m in R6_SHIFTED: assert abs(ev.endpoint_scores(y, preds[m])["macro_f1_RO"] - S5[m]) < 1e-9, m
+    preds.update(_references_lobo(pop, y))
+    shifts = {}
+    for m in R6_SHIFTED:
+        nm = "R6" if m == "F3" else f"{m}-anch"; preds[nm], shifts[nm] = _anchored(P6, m, pop, bat)
+        preds[f"{m}-med"] = _median_centred(prob[m], bat)
+    rows = []
+    for m, p in preds.items():
+        rows.append(dict(split="lobo", model=m, batch="pooled", **ev.endpoint_scores(y, p)))
+        for b in B:
+            k = bat == b; rows.append(dict(split="lobo", model=m, batch=b, **ev.endpoint_scores(y[k], p[k])))
+    SC = pd.DataFrame(rows); os.makedirs(R6, exist_ok=True); SC.to_csv(f"{R6}/scores.csv", index=False)
+    # primary: single contrast, Holm is the identity
+    r = ev.paired(y, preds["CDR_RO"], preds["R6"], fruit); r.update(contrast="R6", candidate="R6", reference="CDR_RO")
+    PR = pd.DataFrame([r]); PR["p_holm"] = ev.holm(PR.p_perm.values)
+    PR["beneficial"] = (PR.d_f1_pp >= 3) & (PR.ci_f1_lo_pp > 0) & (PR.p_holm < 0.05); PR.to_csv(f"{R6}/primary_contrast.csv", index=False)
+    pairs = [("R6", "F3"), ("R6", "K1"), ("A1-anch", "CDR_RO"), ("A1-anch", "A1"), ("A5-anch", "CDR_RO"), ("A5-anch", "A5"), ("F1-anch", "CDR_RO"),
+             ("F1-anch", "F1"), ("R6", "F1-anch"), ("R6", "F3-med"), ("F3-med", "CDR_RO"), ("A1-med", "CDR_RO"), ("A5-med", "CDR_RO"), ("F1-med", "CDR_RO")]
+    sec = []
+    for cand, ref in pairs:
+        r = ev.paired(y, preds[ref], preds[cand], fruit); r.update(split="lobo", candidate=cand, reference=ref, status="exploratory_unadjusted"); sec.append(r)
+    SE = pd.DataFrame(sec); SE.to_csv(f"{R6}/secondary_contrasts.csv", index=False)
+    s6 = SE[(SE.candidate == "R6") & (SE.reference == "F3")].iloc[0]; ove = SC[(SC.model == "R6") & (SC.batch == "Overmature")].macro_f1_RO.iloc[0]
+    wording = {"shift_correction_recovers_overmature": bool(ove >= 0.70 and s6.d_f1_pp >= 3 and s6.ci_f1_lo_pp > 0)}
+    me = open(__file__).read(); sec6 = me[me.index("# ---------------------------------------------------------------- round 6"):me.index("    me = open(__file__).read(); sec6")]
+    au = {"round6_uses_storage_or_weight": bool(re.search(r"storage|weight_loss|end_of|days_from|elapsed", sec6)),
+          "endpoint_identity_max_abs_diff_vs_round5": ident, "p0": "not evaluated for anchored arms (plan Section 4)"}
+    assert not au["round6_uses_storage_or_weight"]
+    json.dump({"audit": au, "shifts": shifts, "wording_conditions": wording, "population": len(pop),
+               "primary_beneficial": bool(PR.beneficial.iloc[0])}, open(f"{R6}/audit.json", "w"), indent=1)
+    print("written: scores, primary_contrast, secondary_contrasts, audit;", len(SC), "score rows")
+
+
 if __name__ == "__main__":
-    {"fit": fit, "diagnose": diagnose, "evaluate": evaluate}[sys.argv[1]]()
+    {"fit": fit, "diagnose": diagnose, "evaluate": evaluate, "fit6": fit6, "evaluate6": evaluate6}[sys.argv[1]]()
