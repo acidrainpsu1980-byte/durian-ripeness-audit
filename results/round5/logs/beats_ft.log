@@ -1,0 +1,43 @@
+== A1ft BEATs LP-FT run (prereg-round5 kit) ==
+start 2026-11-03T05:16:23+07:00  host sakon-System-Product-Name
+kit tgz md5 513a1aadc902ee7602dc57748566e8c5; beats_ft.py tagged md5 d5c531dc05841ad00d6c7b3e8de37001, patched md5 99e1112246aa7fbdd17f83fc78a761fe (crash fix: sys.modules registration of extract_r5); extract_r5.py md5 1f089bb8b17f7f20520522798b2bbe72
+python 3.12.16 torch 2.8.0+cu128 cuda 12.8 cudnn 91002 device NVIDIA GeForce RTX 3090 Ti
+595.99.02, 4273 MiB, 24564 MiB, 74 %
+cmd: R5_EXTRACT=$HOME/durian_r5/extract_r5.py python src/foundation/beats_ft.py /root/durian_r5/fitkit /root/durian_r5/ft lobo:Immature lobo:Mature lobo:Overmature outer:0 outer:1 outer:2 outer:3 outer:4
+19a20
+> sys.modules["extract_r5"] = X5  # crash fix (round-5 run): register module so multiprocessing can pickle _audio_worker
+05:16:31 decoded 50/538 files 5s
+05:16:34 decoded 100/538 files 8s
+05:16:36 decoded 150/538 files 10s
+05:16:39 decoded 200/538 files 12s
+05:16:42 decoded 250/538 files 15s
+05:16:44 decoded 300/538 files 18s
+05:16:47 decoded 350/538 files 21s
+05:16:50 decoded 400/538 files 23s
+05:16:53 decoded 450/538 files 26s
+05:16:56 decoded 500/538 files 29s
+waveforms (15709, 16000) in 39s
+/root/miniconda3/envs/durian-fm/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/root/miniconda3/envs/durian-fm/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+A1ft lobo:Immature: train 3390 knocks, test 1474, 3 seeds, 316s
+A1ft lobo:Mature: train 2472 knocks, test 2392, 3 seeds, 235s
+A1ft lobo:Overmature: train 3866 knocks, test 998, 3 seeds, 349s
+A1ft outer:0: train 3757 knocks, test 1107, 3 seeds, 356s
+A1ft outer:1: train 3980 knocks, test 884, 3 seeds, 363s
+A1ft outer:2: train 3816 knocks, test 1048, 3 seeds, 343s
+A1ft outer:3: train 3833 knocks, test 1031, 3 seeds, 343s
+A1ft outer:4: train 4070 knocks, test 794, 3 seeds, 363s
+exit code 0
+wall time 2712 s (python process incl. decode)
+peak GPU memory of the beats_ft process (nvidia-smi per-process used_memory, sampled every 5 s): 2496 MiB over 531 samples
+end 2026-11-03T06:01:36+07:00
+-rw-r--r-- 1 root root 377144 Nov  3 05:22 beats_ft_lobo_Immature.npy
+-rw-r--r-- 1 root root 377144 Nov  3 05:26 beats_ft_lobo_Mature.npy
+-rw-r--r-- 1 root root 377144 Nov  3 05:32 beats_ft_lobo_Overmature.npy
+-rw-r--r-- 1 root root 377144 Nov  3 05:38 beats_ft_outer_0.npy
+-rw-r--r-- 1 root root 377144 Nov  3 05:44 beats_ft_outer_1.npy
+-rw-r--r-- 1 root root 377144 Nov  3 05:49 beats_ft_outer_2.npy
+-rw-r--r-- 1 root root 377144 Nov  3 05:55 beats_ft_outer_3.npy
+-rw-r--r-- 1 root root 377144 Nov  3 06:01 beats_ft_outer_4.npy

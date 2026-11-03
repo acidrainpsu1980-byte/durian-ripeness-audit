@@ -17,6 +17,7 @@ import numpy as np, pandas as pd, torch, torch.nn as nn, torch.nn.functional as 
 
 REPO = os.path.abspath(sys.argv[1]); OUTDIR = os.path.abspath(sys.argv[2]); JOBS = sys.argv[3:]; os.makedirs(OUTDIR, exist_ok=True)
 spec = importlib.util.spec_from_file_location("extract_r5", os.environ["R5_EXTRACT"]); X5 = importlib.util.module_from_spec(spec)
+sys.modules["extract_r5"] = X5  # crash fix (round-5 run): register module so multiprocessing can pickle _audio_worker
 spec.loader.exec_module(X5)
 SEEDS = [0, 1, 2]; LP_EPOCHS = 20; FT_EPOCHS = 8; BS = 64; LR_ENC = 2e-5; LR_HEAD = 1e-3; WD = 0.01; N_TOP = 2; PAD = 16000
 

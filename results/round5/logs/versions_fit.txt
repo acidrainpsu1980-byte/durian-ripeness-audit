@@ -1,0 +1,18 @@
+python 3.12.16
+scikit-learn 1.9.1
+numpy 2.5.4
+pandas 3.1.0
+scipy 1.18.1
+pyarrow 26.0.0
+  blas:
+    detection method: pkgconfig
+    found: true
+    include directory: /opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include
+    lib directory: /opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib
+    name: scipy-openblas
+    openblas configuration: OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY
+      SkylakeX MAX_THREADS=64
+    pc file directory: /project/.openblas
+    version: 0.3.34.106.0
+  lapack:
+    detection method: pkgconfig

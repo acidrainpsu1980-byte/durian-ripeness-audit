@@ -1,0 +1,31 @@
+== A1ft BEATs LP-FT run (prereg-round5 kit) ==
+start 2026-11-03T05:14:04+07:00  host sakon-System-Product-Name
+kit tgz md5 513a1aadc902ee7602dc57748566e8c5; beats_ft.py md5 d5c531dc05841ad00d6c7b3e8de37001; extract_r5.py md5 1f089bb8b17f7f20520522798b2bbe72
+python 3.12.16 torch 2.8.0+cu128 cuda 12.8 cudnn 91002 device NVIDIA GeForce RTX 3090 Ti
+595.99.02, 4293 MiB, 24564 MiB, 82 %
+cmd: R5_EXTRACT=$HOME/durian_r5/extract_r5.py python src/foundation/beats_ft.py /root/durian_r5/fitkit /root/durian_r5/ft lobo:Immature lobo:Mature lobo:Overmature outer:0 outer:1 outer:2 outer:3 outer:4
+Traceback (most recent call last):
+  File "/root/durian_r5/fitkit/src/foundation/beats_ft.py", line 41, in <module>
+    XW, idx, fr, NV = X5.load_audio_segments(None)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/durian_r5/extract_r5.py", line 328, in load_audio_segments
+    for n, (rec, segs) in enumerate(pool.imap(_audio_worker, jobs, chunksize=2)):
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/durian-fm/lib/python3.12/multiprocessing/pool.py", line 423, in <genexpr>
+    return (item for chunk in result for item in chunk)
+                              ^^^^^^
+  File "/root/miniconda3/envs/durian-fm/lib/python3.12/multiprocessing/pool.py", line 873, in next
+    raise value
+  File "/root/miniconda3/envs/durian-fm/lib/python3.12/multiprocessing/pool.py", line 540, in _handle_tasks
+    put(task)
+  File "/root/miniconda3/envs/durian-fm/lib/python3.12/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/durian-fm/lib/python3.12/multiprocessing/reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)
+_pickle.PicklingError: Can't pickle <function _audio_worker at 0x741e2e8c5a80>: it's not the same object as extract_r5._audio_worker
+exit code 1
+wall time 6 s (python process incl. decode)
+peak GPU memory of the beats_ft process (nvidia-smi per-process used_memory, sampled every 5 s): NA MiB over 0 samples
+end 2026-11-03T05:14:11+07:00
+ls: cannot access 'beats_ft_*.npy': No such file or directory

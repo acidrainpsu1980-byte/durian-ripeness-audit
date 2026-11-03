@@ -1,0 +1,42 @@
+A1 done 4s
+A2 done 5s
+A3 done 6s
+A4 done 7s
+A5 done 8s
+A6 done 8s
+A1w done 9s
+thermal DINO done 10s
+thermal SIGLIP done 11s
+thermal CLIP done 12s
+thermal_mm DINO done 13s
+ms DINO done 21s
+ms SIGLIP done 29s
+ms CLIP done 34s
+rgb DINO done 35s
+rgb SIGLIP done 36s
+rgb CLIP done 37s
+fit written 39s
+	Command being timed: "python src/foundation/round5.py fit"
+	User time (seconds): 216.49
+	System time (seconds): 0.75
+	Percent of CPU this job got: 547%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.70
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 903460
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 34
+	Minor (reclaiming a frame) page faults: 116179
+	Voluntary context switches: 1992
+	Involuntary context switches: 8232
+	Swaps: 0
+	File system inputs: 10832
+	File system outputs: 512
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+=== fit exit 0 wall 39s end 2026-11-03T05:15:35+07:00

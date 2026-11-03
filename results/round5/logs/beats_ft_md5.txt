@@ -1,0 +1,9 @@
+30b61a46046027e8c445ddfa6aa19c39  /root/durian_r5/ft/beats_ft_lobo_Immature.npy
+c20eaa4527d1114b16f1c093e5d2d425  /root/durian_r5/ft/beats_ft_lobo_Mature.npy
+407948d14fc47834ee6aa3699efe8f29  /root/durian_r5/ft/beats_ft_lobo_Overmature.npy
+d867ba47fd998c4ab50776db9f4f61b0  /root/durian_r5/ft/beats_ft_outer_0.npy
+0203696845a083b9edc8de5c64b389ce  /root/durian_r5/ft/beats_ft_outer_1.npy
+d39fbab4fce193a5e7b9b3122ead2485  /root/durian_r5/ft/beats_ft_outer_2.npy
+e8043e6fc364aaf1f76c704f18c0c098  /root/durian_r5/ft/beats_ft_outer_3.npy
+3005d688d7b693682c03a42b3c0f4d7f  /root/durian_r5/ft/beats_ft_outer_4.npy
+b6523a4932c818eb8f17e0bbb345745a  /root/durian_r5/ft/r5_beats_ft.tgz
