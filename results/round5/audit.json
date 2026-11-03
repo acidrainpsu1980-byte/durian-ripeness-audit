@@ -1,0 +1,13 @@
+{
+ "audit": {
+  "round5_uses_storage_or_weight": false,
+  "beats_ft_uses_storage_or_weight": false,
+  "beats_ft_asserts_fruit_disjoint": true
+ },
+ "wording_conditions": {
+  "transfers_better_than_task_cnn": false,
+  "within_fruit_change": false,
+  "fine_tuning_helps": true
+ },
+ "population": 104
+}

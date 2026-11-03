@@ -27,4 +27,10 @@ Written before `src/foundation/round5.py evaluate` was first run.
 ## Information seen before evaluation
 
 6. **Printed output.** The fitting scripts printed only arm names and run times. The fusion track checked only the row count and the model/split names of `probe_sessions.parquet`, and did not read `batch_decodability.csv`. No probability or score was inspected before evaluation.
+8. **Evaluate runtime fix (added after the pre-evaluation commit 6ab67cb, before any score was written).** The first `evaluate` call stopped with `FileNotFoundError`, before any output was written.
+   - Cause: the per-camera step loaded the RGB embedding array, which is not present locally, although it needs only the RGB index (camera column).
+   - Fix: `image_embeddings(..., index_only=True)` now reads only `rgb_dinov2_padsq_index.parquet`, copied from the shipped index set to `work/r5_embeddings/`.
+   - Effect: no model, prediction or contrast changed.
+   - Push status: `pre-evaluation-round5` exists as a local commit/tag only. The push was not made because the user did not answer "Yes".
+
 7. **Structural smoke test.** Before the tag, the full pipeline (`fit`, `diagnose`, `evaluate`) was run once locally on random embeddings of the real shapes. Its purpose was to check the code path, the coverage counts and the reference assertions (CDR-RO and K1 reproduce the round-4 values). Its scores are meaningless and were not inspected.

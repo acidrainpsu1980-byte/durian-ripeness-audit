@@ -73,10 +73,11 @@ def donors(d, ff, fb):
     return DON
 
 
-def image_embeddings(mod, enc, d, T, A, lab):
+def image_embeddings(mod, enc, d, T, A, lab, index_only=False):
     """image-level embeddings of the analysis images (rows of data/durian_mm_capture_folds.csv), keyed to sessions by zip_member"""
     prefix, feat = VISION[(mod, enc)]
-    ix = pd.read_parquet(os.path.join(EMB, f"{prefix}_index.parquet")); X = _load(prefix, feat); assert len(X) == len(ix)
+    ix = pd.read_parquet(os.path.join(EMB, f"{prefix}_index.parquet"))
+    X = np.zeros((len(ix), 1)) if index_only else _load(prefix, feat); assert len(X) == len(ix)
     cf = pd.read_csv("data/durian_mm_capture_folds.csv"); cf = cf[cf.modality != "sound"]
     sid = dict(zip(cf.zip_member, cf.fruit_id.astype(int).astype(str) + "_" + cf.date_captured.astype(str)))
     m = ix.zip_member.isin(sid).values; ix = ix[m].reset_index(drop=True); X = X[m].reshape(m.sum(), -1)
@@ -218,7 +219,7 @@ def evaluate():
             for b in B:
                 k = bat == b; rows.append(dict(split=sp, model=m, batch=b, **ev.endpoint_scores(y[k], p[k])))
     # per-camera scores for RGB-containing arms (camera of a session = majority camera of its RGB images)
-    _, u = image_embeddings("rgb", "DINO", d, T, A, lab)
+    _, u = image_embeddings("rgb", "DINO", d, T, A, lab, index_only=True)
     if "camera" in u:
         cam = u.groupby("session_id").camera.agg(lambda v: v.value_counts().index[0]).reindex(pop).values
         for sp in preds:
