@@ -30,7 +30,10 @@ for p, (o, fo) in res.items():
         for j in range(5):
             m = fo == j; rows.append(dict(partition=p, config=k, fold=j, n=int(m.sum()), accuracy=accuracy_score(y[m], pred[m]), macro_f1=f1_score(y[m], pred[m], average="macro")))
 PF = pd.DataFrame(rows); PF.to_csv(f"{OUT}/partition_per_fold.csv", index=False)
-gp = PF[PF.partition.isin([f"p{i}" for i in range(10)])]
+# v2.2 (single manifest): the ten partitions are the primary CPU run of partition 0 (p0cpu) and the GPU refits of partitions 1-9;
+# the GPU refit of partition 0 ("p0") is kept only as a hardware-reproducibility check.
+TEN = ["p0cpu"] + [f"p{i}" for i in range(1, 10)]
+gp = PF[PF.partition.isin(TEN)]
 o0 = res["p0cpu"][0]
 conf = [("H1", "thermal+sound+rgb|mean", "sound|fixed"), ("H2", "thermal+multispectral+sound+rgb|stacking", "sound|fixed"), ("H3", "nested_selected_configuration", "nested_selected_single")]
 expl = [("E1", "sound+rgb|stacking", "sound|fixed"), ("E2", "thermal+sound+rgb|stacking", "sound|fixed"), ("E3", "thermal+multispectral+sound+rgb|mean", "sound|fixed"),
@@ -63,5 +66,5 @@ TS = pd.DataFrame([dict(config=k, primary_acc_mean=pcpu.loc[k, ("accuracy", "mea
                         partitions10_f1_mean=agg.loc[k, ("macro_f1", "mean")], partitions10_f1_min=agg.loc[k, ("macro_f1", "min")], partitions10_f1_max=agg.loc[k, ("macro_f1", "max")]) for k in KEY])
 TS.to_csv(f"{OUT}/partition_sensitivity.csv", index=False)
 fam = CH[CH.level == "family"].reset_index(drop=True).sort_values(["inner_f1", "inner_acc"], ascending=False).drop_duplicates(["partition", "cnn", "modality", "fold"])
-fam[fam.cnn == "gpu"].groupby(["modality", "candidate"]).size().rename("folds_selected").reset_index().to_csv(f"{OUT}/family_selection_frequency.csv", index=False)
+fam[(fam.cnn == "cpu") | (fam.partition != "p0")].groupby(["modality", "candidate"]).size().rename("folds_selected").reset_index().to_csv(f"{OUT}/family_selection_frequency.csv", index=False)
 print("written", OUT)

@@ -1,5 +1,36 @@
 # Changelog
 
+## v2.2.0 — second pre-submission review (5 Nov 2026)
+
+Includes the rounds 4–6 material of v2.0.x (plans `prereg-round4` … `prereg-round6`). v2.1.0 was prepared but never published: its local
+commit and the local tag `pre-evaluation-round6` were lost before they were pushed (disclosed in `results/round6/DEVIATIONS.md`, item 7);
+the round-6 results were restored from archived copies and are regenerated exactly by `round5.py evaluate6`.
+
+- **One partition manifest for every ten-partition summary.** Partition 0 now uses the CPU knock CNN of the primary partition
+  (`intermediate_v14/cnn_cpu_p0`), partitions 1–9 the GPU refits; the GPU refit of partition 0 is a hardware check only (it changed 31 of
+  50 summary estimates by up to 2.6 pp macro-F1). `evaluate_v14.py`, `evaluate_v15.py`, `matched_space.py` and `primary_metric.py` are
+  updated; S13, S14, S20–S22 and `results/v14`, `v15/fusion_with_ablated_inputs.csv`, `v17`, `v19` are regenerated. Every primary-partition
+  value now lies within its ten-partition range (asserted). Sound procedure 0.802 -> 0.803 macro-F1; no conclusion changes.
+- **LightGBM comparison models on the reconstructed label.** `src/common_label/lgbm_common_leakage.py` refits the four LightGBM models of
+  the single-sensor and leakage tables on the common label (same features, settings and folds; a validation pass reproduces the shipped
+  file-label rows and fold statistics exactly) -> `results/common_label/` (`leakage_lgbm_common.csv`, `leakage_table_v22.csv`, refit OOF).
+- **Rounds 5–6 in `run_all.sh` (ANCHOR stage)**, with the post hoc diagnostics `posthoc_shift.py`, `posthoc_auc_ci.py` and the new
+  `per_batch_ci.py` (per-batch endpoint macro-F1 with fruit-cluster bootstrap CIs; post hoc).
+- **Planning files.** `src/protocol/power_analysis.py` (recovered analysis cell; reproduces `docs/protocol/power_analysis.csv` and
+  `power_halfwidth_scaling.csv` exactly; figure title now "fruit-level illustration") and `src/protocol/harvest_scenarios.py`
+  (`harvest_variance_scenarios.csv`: sessions needed when the true gain varies between harvests). Protocol section 5.5 added.
+- **Supplementary Tables S26 (round 5) and S27 (round 6)** in `build_supplementary_tables.py`.
+- **Third review.** `src/nested_selection/fold_ranking.py` (`results/v19/single_sensor_fold_ranking*.csv`): the inner selection
+- Figures: the manuscript figures are now shipped in `figures/paper/` (Figure1-6, PDF and PNG). The three plots drawn by `src/fusion_figures.py` moved to `figures/diagnostic/` and are labelled as diagnostic (the leakage plot uses the earlier, pre-refit table); the LOBO plot title is now descriptive. `run_all.sh` stage 2 and `make figures` write to `figures/diagnostic/`.
+  chose sound in all 50 outer fits, but sound had the highest outer-fold macro-F1 in 34 of 50 folds (selection procedures).
+  `primary_metric.py` accepts `DURIAN_P0_PLATFORM=gpu` (GPU refit of partition 0; `results/v19/p0_gpu_check/`, identical to the v2.0
+  summaries) and `p0_platform_sensitivity.py` compares the two manifests (means change <= 0.3 pp; 13/13 comparisons unchanged); both run in
+  stage 5. `harvest_scenarios.py` now uses the Figure 6 convention (exact z, 104/103 sessions per fruit, nearest session) and defines the
+  minimum number of harvests strictly (7 pp: 5 harvests for tau = 5 pp, 17 for tau = 10 pp; previously 4 and 16 at the boundary).
+  `audit/table_map.csv` adds the predictions, platform and reproduction level of every item.
+- **`check_manuscript_numbers.py`** rewritten for the v2.2 table map (main Tables 3–7, Supplementary A1–D5; 1,320 numbers traced);
+  `audit/table_map.csv` renumbered.
+
 ## v1.9.1 — comparison roles relabelled (third review round, comment 3)
 
 - H1–H3 are labelled `primary_retrospective` instead of `confirmatory` in `results/v19/comparisons_macro_f1.csv`, Table S22 and

@@ -1,8 +1,8 @@
 configuration,acc_p0_cpu,f1_p0_cpu,acc_mean10,acc_min,acc_max,f1_mean10
-T+S+R (original),0.909,0.85,0.898,0.888,0.907,0.831
-"T+S+R, fruit-only RGB",0.916,0.86,0.897,0.888,0.909,0.829
+T+S+R (original),0.909,0.85,0.898,0.888,0.909,0.832
+"T+S+R, fruit-only RGB",0.916,0.86,0.898,0.888,0.916,0.83
 "T+S+R, context-only RGB",0.891,0.818,0.886,0.88,0.895,0.816
-"T+S+R, stalk-removed fruit RGB",0.905,0.84,0.897,0.885,0.906,0.829
+"T+S+R, stalk-removed fruit RGB",0.905,0.84,0.897,0.885,0.905,0.829
 "T+S+R, harmonized fruit-relative thermal",0.917,0.868,0.901,0.892,0.917,0.84
 "T+S+R, both ablations",0.92,0.866,0.907,0.892,0.92,0.846
 both ablations (stalk-removed),0.916,0.862,0.902,0.892,0.916,0.839

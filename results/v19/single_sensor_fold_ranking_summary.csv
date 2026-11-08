@@ -1,0 +1,10 @@
+quantity,folds,of
+inner selection chose sound,50,50
+procedure: highest outer-fold macro-F1 = thermal,11,50
+procedure: highest outer-fold macro-F1 = multispectral,2,50
+procedure: highest outer-fold macro-F1 = sound,34,50
+procedure: highest outer-fold macro-F1 = rgb,3,50
+development: highest outer-fold macro-F1 = thermal,12,50
+development: highest outer-fold macro-F1 = multispectral,0,50
+development: highest outer-fold macro-F1 = sound,32,50
+development: highest outer-fold macro-F1 = rgb,6,50

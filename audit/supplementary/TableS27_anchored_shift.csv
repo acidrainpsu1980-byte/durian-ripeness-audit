@@ -1,0 +1,116 @@
+part,split,model,batch,n,macro_f1_RO,accuracy,false_unripe,recall_R,recall_O,d_f1_pp,ci_f1_lo_pp,ci_f1_hi_pp,p_perm,d_acc_pp,ci_acc_lo_pp,ci_acc_hi_pp,p_mcnemar_clustered,d_false_unripe_pp,ci_fu_lo_pp,ci_fu_hi_pp,sessions_changed,contrast,candidate,reference,p_holm,beneficial,status,arm,n_ripe,n_overripe,n_fruits,ci_lo,ci_hi
+round 6 scores,lobo,A1,pooled,104.0,0.6492,0.6538,0.0,0.7143,0.5833,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1,Immature,34.0,0.4279,0.5882,0.0,0.8261,0.0909,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1,Mature,41.0,0.7147,0.7317,0.0,0.9524,0.5,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1,Overmature,29.0,0.4547,0.6207,0.0,0.0833,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5,pooled,104.0,0.7392,0.7404,0.0,0.625,0.875,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5,Immature,34.0,0.6092,0.6176,0.0,0.5652,0.7273,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5,Mature,41.0,0.8778,0.878,0.0,0.8095,0.95,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5,Overmature,29.0,0.6478,0.6897,0.0,0.4167,0.8824,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-thermal-DINO,pooled,104.0,0.4891,0.5288,0.0,0.2321,0.875,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-thermal-DINO,Immature,34.0,0.4288,0.4412,0.0,0.2174,0.9091,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-thermal-DINO,Mature,41.0,0.59,0.6098,0.0,0.381,0.85,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-thermal-DINO,Overmature,29.0,0.3409,0.5172,0.0,0.0,0.8824,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-ms-DINO,pooled,104.0,0.6402,0.6442,0.0,0.5,0.8125,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-ms-DINO,Immature,34.0,0.4706,0.4706,0.0,0.3478,0.7273,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-ms-DINO,Mature,41.0,0.7805,0.7805,0.0,0.7619,0.8,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-ms-DINO,Overmature,29.0,0.5972,0.6552,0.0,0.3333,0.8824,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-rgb-DINO,pooled,104.0,0.625,0.625,0.0,0.5714,0.6875,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-rgb-DINO,Immature,34.0,0.4035,0.6765,0.0,1.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-rgb-DINO,Mature,41.0,0.5591,0.5854,0.0,0.3333,0.85,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,V-rgb-DINO,Overmature,29.0,0.5054,0.6207,0.0,0.1667,0.9412,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3,pooled,104.0,0.6922,0.6923,0.0,0.6607,0.7292,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3,Immature,34.0,0.6386,0.6765,0.0,0.7391,0.5455,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3,Mature,41.0,0.7258,0.7317,0.0,0.8571,0.6,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3,Overmature,29.0,0.5292,0.6552,0.0,0.1667,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1,pooled,104.0,0.7307,0.7308,0.0,0.6607,0.8125,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1,Immature,34.0,0.6713,0.7353,0.0,0.8696,0.4545,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1,Mature,41.0,0.8293,0.8293,0.0,0.8095,0.85,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1,Overmature,29.0,0.3696,0.5862,0.0,0.0,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,CDR_RO,pooled,104.0,0.6605,0.6731,0.0,0.4464,0.9375,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,CDR_RO,Immature,34.0,0.5584,0.5588,0.0,0.3913,0.9091,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,CDR_RO,Mature,41.0,0.8289,0.8293,0.0,0.7619,0.9,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,CDR_RO,Overmature,29.0,0.3696,0.5862,0.0,0.0,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,K1,pooled,104.0,0.5673,0.6058,0.0,0.2857,0.9792,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,K1,Immature,34.0,0.4632,0.4706,0.0,0.2609,0.9091,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,K1,Mature,41.0,0.7147,0.7317,0.0,0.4762,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,K1,Overmature,29.0,0.3696,0.5862,0.0,0.0,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,R6,pooled,104.0,0.7594,0.7596,0.0,0.7321,0.7917,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,R6,Immature,34.0,0.6978,0.7647,0.0,0.913,0.4545,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,R6,Mature,41.0,0.756,0.7561,0.0,0.7143,0.8,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,R6,Overmature,29.0,0.7088,0.7586,0.0,0.4167,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3-med,pooled,104.0,0.7205,0.7212,0.0,0.7143,0.7292,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3-med,Immature,34.0,0.6357,0.6471,0.0,0.6087,0.7273,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3-med,Mature,41.0,0.756,0.7561,0.0,0.7619,0.75,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F3-med,Overmature,29.0,0.7575,0.7586,0.0,0.8333,0.7059,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-anch,pooled,104.0,0.6597,0.6635,0.0,0.5179,0.8333,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-anch,Immature,34.0,0.5467,0.6471,0.0,0.8261,0.2727,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-anch,Mature,41.0,0.7147,0.7317,0.0,0.4762,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-anch,Overmature,29.0,0.3696,0.5862,0.0,0.0,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-med,pooled,104.0,0.7012,0.7019,0.0,0.6964,0.7083,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-med,Immature,34.0,0.575,0.5882,0.0,0.5652,0.6364,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-med,Mature,41.0,0.8048,0.8049,0.0,0.8095,0.8,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A1-med,Overmature,29.0,0.6882,0.6897,0.0,0.75,0.6471,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-anch,pooled,104.0,0.7374,0.7404,0.0,0.7857,0.6875,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-anch,Immature,34.0,0.5983,0.6765,0.0,0.8261,0.3636,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-anch,Mature,41.0,0.8255,0.8293,0.0,0.9524,0.7,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-anch,Overmature,29.0,0.6478,0.6897,0.0,0.4167,0.8824,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-med,pooled,104.0,0.7398,0.7404,0.0,0.7321,0.75,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-med,Immature,34.0,0.6357,0.6471,0.0,0.6087,0.7273,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-med,Mature,41.0,0.8536,0.8537,0.0,0.8571,0.85,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,A5-med,Overmature,29.0,0.6882,0.6897,0.0,0.75,0.6471,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-anch,pooled,104.0,0.7271,0.7308,0.0,0.7857,0.6667,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-anch,Immature,34.0,0.4035,0.6765,0.0,1.0,0.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-anch,Mature,41.0,0.8038,0.8049,0.0,0.8571,0.75,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-anch,Overmature,29.0,0.5953,0.6897,0.0,0.25,1.0,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-med,pooled,104.0,0.682,0.6827,0.0,0.6786,0.6875,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-med,Immature,34.0,0.5143,0.5294,0.0,0.5217,0.5455,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-med,Mature,41.0,0.8048,0.8049,0.0,0.8095,0.8,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 scores,lobo,F1-med,Overmature,29.0,0.6882,0.6897,0.0,0.75,0.6471,,,,,,,,,,,,,,,,,,,,,,,,
+round 6 primary contrast,,,,,,,,,,9.8893,-1.1016,20.1805,0.0769,8.6538,-1.9417,18.8679,0.1172,0.0,0.0,0.0,33.0,R6,R6,CDR_RO,0.0769,False,,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,6.7221,-0.0921,13.8502,0.0877,6.7308,0.0,13.5922,0.0707,0.0,0.0,0.0,15.0,,R6,F3,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,19.2089,8.8138,29.9684,0.0008,15.3846,5.6604,25.9615,0.0077,0.0,0.0,0.0,36.0,,R6,K1,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,-0.0868,-10.4735,9.7186,1.0,-0.9615,-10.6796,8.6538,0.8474,0.0,0.0,0.0,27.0,,A1-anch,CDR_RO,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,1.0479,-7.5783,9.2894,0.6772,0.9615,-7.767,9.6154,0.8348,0.0,0.0,0.0,23.0,,A1-anch,A1,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,7.6925,-2.6157,18.1097,0.1628,6.7308,-3.8462,17.4757,0.223,0.0,0.0,0.0,33.0,,A5-anch,CDR_RO,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,-0.1756,-7.5825,7.366,0.8173,0.0,-7.6923,7.767,1.0,0.0,0.0,0.0,18.0,,A5-anch,A5,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,6.6614,-4.802,17.6254,0.2559,5.7692,-5.7692,17.3077,0.3304,0.0,0.0,0.0,38.0,,F1-anch,CDR_RO,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,-0.3533,-7.6327,6.3043,0.7847,0.0,-6.7961,6.7961,1.0,0.0,0.0,0.0,14.0,,F1-anch,F1,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,3.2279,-5.4776,11.4027,0.3757,2.8846,-5.7692,10.693,0.4913,0.0,0.0,0.0,19.0,,R6,F1-anch,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,3.8907,-4.7685,12.993,0.3897,3.8462,-4.8544,12.6214,0.3938,0.0,0.0,0.0,22.0,,R6,F3-med,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,5.9986,-6.2128,17.7111,0.349,4.8077,-7.6923,16.3462,0.4349,0.0,0.0,0.0,41.0,,F3-med,CDR_RO,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,4.071,-7.5056,15.2399,0.5099,2.8846,-8.6538,14.5631,0.6219,0.0,0.0,0.0,37.0,,A1-med,CDR_RO,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,7.9261,-3.0805,18.3606,0.1656,6.7308,-4.717,17.4757,0.223,0.0,0.0,0.0,33.0,,A5-med,CDR_RO,,,exploratory_unadjusted,,,,,,
+round 6 secondary contrasts,lobo,,,,,,,,,2.1435,-9.707,13.51,0.7474,0.9615,-10.6796,12.5,0.8728,0.0,0.0,0.0,39.0,,F1-med,CDR_RO,,,exploratory_unadjusted,,,,,,
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.5584,,,,,,,,,,,,,,,,,,,,,,,CDR_RO,23.0,11.0,34.0,0.3818,0.7237
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.4632,,,,,,,,,,,,,,,,,,,,,,,K1,23.0,11.0,34.0,0.2915,0.6146
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.4279,,,,,,,,,,,,,,,,,,,,,,,A1,23.0,11.0,34.0,0.3061,0.572
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.6092,,,,,,,,,,,,,,,,,,,,,,,A5,23.0,11.0,34.0,0.4288,0.7639
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.6713,,,,,,,,,,,,,,,,,,,,,,,F1,23.0,11.0,34.0,0.4769,0.8419
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.6386,,,,,,,,,,,,,,,,,,,,,,,F3,23.0,11.0,34.0,0.4623,0.8068
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.6978,,,,,,,,,,,,,,,,,,,,,,,R6,23.0,11.0,34.0,0.494,0.8573
+per-batch macro-F1 with bootstrap CI (post hoc),,,Immature,34.0,0.1393,,,,,,,,,,,,,,,,,,,,,,,R6 - CDR_RO,23.0,11.0,34.0,-0.0882,0.3569
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,0.8289,,,,,,,,,,,,,,,,,,,,,,,CDR_RO,21.0,20.0,41.0,0.7029,0.9268
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,0.7147,,,,,,,,,,,,,,,,,,,,,,,K1,21.0,20.0,41.0,0.565,0.8529
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,0.7147,,,,,,,,,,,,,,,,,,,,,,,A1,21.0,20.0,41.0,0.565,0.8423
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,0.8778,,,,,,,,,,,,,,,,,,,,,,,A5,21.0,20.0,41.0,0.7718,0.9751
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,0.8293,,,,,,,,,,,,,,,,,,,,,,,F1,21.0,20.0,41.0,0.7057,0.9267
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,0.7258,,,,,,,,,,,,,,,,,,,,,,,F3,21.0,20.0,41.0,0.5795,0.8666
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,0.756,,,,,,,,,,,,,,,,,,,,,,,R6,21.0,20.0,41.0,0.6095,0.8778
+per-batch macro-F1 with bootstrap CI (post hoc),,,Mature,41.0,-0.0729,,,,,,,,,,,,,,,,,,,,,,,R6 - CDR_RO,21.0,20.0,41.0,-0.225,0.0927
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.3696,,,,,,,,,,,,,,,,,,,,,,,CDR_RO,12.0,17.0,28.0,0.2821,0.434
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.3696,,,,,,,,,,,,,,,,,,,,,,,K1,12.0,17.0,28.0,0.2821,0.434
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.4547,,,,,,,,,,,,,,,,,,,,,,,A1,12.0,17.0,28.0,0.3171,0.6349
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.6478,,,,,,,,,,,,,,,,,,,,,,,A5,12.0,17.0,28.0,0.435,0.8117
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.3696,,,,,,,,,,,,,,,,,,,,,,,F1,12.0,17.0,28.0,0.2821,0.434
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.5292,,,,,,,,,,,,,,,,,,,,,,,F3,12.0,17.0,28.0,0.345,0.7205
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.7088,,,,,,,,,,,,,,,,,,,,,,,R6,12.0,17.0,28.0,0.5088,0.8793
+per-batch macro-F1 with bootstrap CI (post hoc),,,Overmature,29.0,0.3392,,,,,,,,,,,,,,,,,,,,,,,R6 - CDR_RO,12.0,17.0,28.0,0.1417,0.4996
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.6605,,,,,,,,,,,,,,,,,,,,,,,CDR_RO,56.0,48.0,103.0,0.5639,0.7451
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.5673,,,,,,,,,,,,,,,,,,,,,,,K1,56.0,48.0,103.0,0.4687,0.6615
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.6492,,,,,,,,,,,,,,,,,,,,,,,A1,56.0,48.0,103.0,0.5513,0.7402
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.7392,,,,,,,,,,,,,,,,,,,,,,,A5,56.0,48.0,103.0,0.6506,0.8185
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.7307,,,,,,,,,,,,,,,,,,,,,,,F1,56.0,48.0,103.0,0.6402,0.8095
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.6922,,,,,,,,,,,,,,,,,,,,,,,F3,56.0,48.0,103.0,0.5922,0.7783
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.7594,,,,,,,,,,,,,,,,,,,,,,,R6,56.0,48.0,103.0,0.6726,0.8365
+per-batch macro-F1 with bootstrap CI (post hoc),,,pooled,104.0,0.0989,,,,,,,,,,,,,,,,,,,,,,,R6 - CDR_RO,56.0,48.0,103.0,-0.0039,0.2078

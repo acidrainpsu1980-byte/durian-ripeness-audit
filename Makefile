@@ -4,7 +4,7 @@
 #   make raw       - plus features, embeddings and primary-partition knock CNNs from the raw archives (DURIAN_DATA_ROOT)
 #   make audit     - rebuild audit/ (exclusion ledger, sessions, registry, predictions, S-tables) in place
 #   make fusion    - re-derive every table in results/ from the shipped out-of-fold predictions (~3 min, CPU)
-#   make figures   - fusion / leakage / LOBO figures into figures/
+#   make figures   - diagnostic fusion / leakage / LOBO figures into figures/diagnostic/
 #   make verify    - compare results_repro/ with the shipped results/ (prints max |diff| per table)
 #   make thermal | multispectral | sound | rgb  - full per-modality re-runs (need DURIAN_DATA_ROOT, hours)
 #   make all       - fusion + figures + verify
@@ -31,7 +31,7 @@ verify: results_repro/fusion_results.csv
 	$(PY) $(SRC)/verify_reproduction.py results results_repro
 
 figures:
-	DURIAN_RESULTS=results DURIAN_FIGURES=figures $(PY) $(SRC)/fusion_figures.py
+	DURIAN_RESULTS=results DURIAN_FIGURES=figures/diagnostic $(PY) $(SRC)/fusion_figures.py
 
 # ---- per-modality tracks (raw Zenodo archives required; outputs land in work/<modality>/results) ----
 thermal:

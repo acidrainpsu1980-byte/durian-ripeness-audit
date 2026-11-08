@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this code or the frozen fruit-level splits, please cite the paper and this repository, and cite the underlying dataset separately (see references)."
 type: software
 title: "durian-ripeness-audit: reproducible audit package for fruit-grouped and batch-aware evaluation of multimodal durian ripeness classification"
-version: 1.9.1
-date-released: "2026-11-01"
+version: 2.2.0
+date-released: "2026-11-05"
 license: MIT
 repository-code: "https://github.com/acidrainpsu1980-byte/durian-ripeness-audit"
 authors:

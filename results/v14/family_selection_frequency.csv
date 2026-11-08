@@ -7,9 +7,9 @@ rgb,hc_lgbm,4
 rgb,hc_logreg,12
 rgb,hc_rf,1
 rgb,mobilenetv2_probe,10
-sound,cnn,36
+sound,cnn,37
 sound,knn,2
-sound,lgbm,4
+sound,lgbm,3
 sound,logreg,5
 sound,rf,1
 sound,svm,2

@@ -27,7 +27,10 @@ import stats4
 
 IN = os.environ.get("DURIAN_V17_IN", "results/v17") + "/matched_space_session_oof.parquet"
 OUT = os.environ.get("DURIAN_V19_OUT", "results/v19"); os.makedirs(OUT, exist_ok=True)
-TEN = [f"p{i}" for i in range(10)]
+# v2.2 (single manifest): the ten partitions are the primary CPU run of partition 0 (p0cpu) and the GPU refits of partitions 1-9;
+# the GPU refit of partition 0 ("p0") is kept only as a hardware-reproducibility check.
+# DURIAN_P0_PLATFORM=gpu recomputes every summary with the GPU refit of partition 0 (hardware check, results/v19/p0_gpu_check).
+TEN = (["p0"] if os.environ.get("DURIAN_P0_PLATFORM", "cpu") == "gpu" else ["p0cpu"]) + [f"p{i}" for i in range(1, 10)]
 CLS = ["Unripe", "Ripe", "Overripe"]
 N_PERM, N_BOOT, SEED = 20000, 2000, 42
 
@@ -56,7 +59,8 @@ P0 = B[B.partition == "p0cpu"].set_index("estimate"); T = B[B.partition.isin(TEN
 for e in ms.index:
     assert abs(round(P0.loc[e, "foldmean_acc"], 3) - ms.loc[e, "acc"]) < 1e-9 and abs(round(P0.loc[e, "foldmean_f1"], 3) - ms.loc[e, "f1"]) < 1e-9, e
     t = T[T.estimate == e].foldmean_acc
-    assert abs(round(t.mean(), 3) - ms.loc[e, "mean"]) < 1e-9 and abs(round(t.min(), 3) - ms.loc[e, "min"]) < 1e-9 and abs(round(t.max(), 3) - ms.loc[e, "max"]) < 1e-9, e
+    if os.environ.get("DURIAN_P0_PLATFORM", "cpu") == "cpu":   # matched_space_summary.csv is the CPU-partition-0 manifest
+        assert abs(round(t.mean(), 3) - ms.loc[e, "mean"]) < 1e-9 and abs(round(t.min(), 3) - ms.loc[e, "min"]) < 1e-9 and abs(round(t.max(), 3) - ms.loc[e, "max"]) < 1e-9, e
 
 # ---------------------------------------------------------------- per estimate summary
 MET = ["foldmean_acc", "foldmean_f1", "pooled_acc", "pooled_f1", "recall_U", "recall_R", "recall_O"]

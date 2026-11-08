@@ -7,8 +7,8 @@
 #   CNN=1    retrain the five primary-partition knock CNNs on CPU, export their weights and compare (~70 min; needs RAW=1
 #            in the same call or an existing work/raw/sound directory, because the log-mel array is regenerated from raw audio)
 #   LABELSENS=1  label-policy sensitivity with retraining, results/v20 (Table 11 right-hand columns, S23; LABELSENS_REFIT=1 refits)
-#   ANCHOR=1     pre-registered intake-anchored calibration and physics-guided acoustics, results/v21 (~25 min; ANCHOR_CNN=1
-#                retrains the 17 knock CNNs, ~2.5 h)
+#   ANCHOR=1     the six sequential adaptation rounds (results/v21, round2-round6), the post hoc diagnostics of rounds 5-6 and the
+#                power/harvest scenarios (docs/protocol) (~30 min; ANCHOR_CNN=1 retrains the 17 round-1 knock CNNs, ~2.5 h)
 set -euo pipefail
 cd "$(dirname "$0")"
 export OMP_NUM_THREADS=${OMP_NUM_THREADS:-4}   # keep >= 4: with 1 thread three lbfgs logistic fits drift at the 1e-2 level
@@ -21,8 +21,8 @@ python src/fusion_pipeline.py --config fusion_config_repro.json > results_repro_
 python src/verify_reproduction.py results results_repro
 python src/sensitivity/sensitivity_tables.py results_repro        # Tables 10, 11; S6, S9, S11 (were interactive cells before v1.8)
 $CMP results results_repro label_sets.csv sound_matching_sensitivity.csv label_policy_sensitivity.csv nested_vs_global_stacking.csv
-echo "[2/7] figures -> figures/"
-DURIAN_RESULTS=results DURIAN_FIGURES=figures python src/fusion_figures.py
+echo "[2/7] diagnostic figures -> figures/diagnostic/"
+DURIAN_RESULTS=results DURIAN_FIGURES=figures/diagnostic python src/fusion_figures.py
 echo "[3/7] nested selection, ten partitions, dependence-aware tests -> results_repro/v14 (Tables 3-4, S12-S14)"
 DURIAN_V14_OUT=results_repro/v14 python src/nested_selection/evaluate_v14.py
 $CMP results/v14 results_repro/v14
@@ -34,8 +34,13 @@ echo "[5/7] development pipelines vs selection procedures, matched candidate spa
 DURIAN_V17_OUT=results_repro/v17 python src/nested_selection/matched_space.py
 $CMP results/v17 results_repro/v17 "*.csv" "*.parquet"
 DURIAN_V17_IN=results_repro/v17 DURIAN_V19_OUT=results_repro/v19 python src/nested_selection/primary_metric.py > /dev/null
+# v2.2: hardware check with the GPU refit of partition 0, platform sensitivity, and the 50-fold single-sensor ranking
+DURIAN_P0_PLATFORM=gpu DURIAN_V17_IN=results_repro/v17 DURIAN_V19_OUT=results_repro/v19/p0_gpu_check python src/nested_selection/primary_metric.py > /dev/null
+DURIAN_V19_OUT=results_repro/v19 python src/nested_selection/p0_platform_sensitivity.py > /dev/null
+DURIAN_V19_OUT=results_repro/v19 python src/nested_selection/fold_ranking.py > /dev/null
 $CMP results/v19 results_repro/v19
-echo "[6/7] Supplementary Tables S1-S25 from the regenerated results -> results_repro/supplementary"
+$CMP results/v19/p0_gpu_check results_repro/v19/p0_gpu_check
+echo "[6/7] Supplementary Tables S1-S27 from the regenerated results -> results_repro/supplementary"
 DURIAN_RESULTS=results_repro python src/audit/build_supplementary_tables.py results_repro/supplementary
 $CMP audit/supplementary results_repro/supplementary
 echo "[7/7] audit tables, model registry, out-of-fold prediction export, saved-model check -> results_repro/audit"
@@ -47,6 +52,9 @@ DURIAN_AUDIT_OUT=results_repro/audit CAND_NJ=2 python src/audit/search_log.py > 
 $CMP audit results_repro/audit fruits.csv sessions.csv fruit_partitions.csv exclusion_ledger.csv model_registry.csv configuration_space.csv \
      table1_dataset_structure.csv hyperparameter_search_p0.csv "predictions/*.csv" "predictions/*.parquet"
 DURIAN_AUDIT_OUT=results_repro/audit python src/audit/export_models.py check
+echo "[v2.2] LightGBM comparison models refit on the reconstructed (common) label -> results_repro/common_label (Table B3, Figure 4)"
+COMMON_LABEL_OUT=results_repro/common_label python src/common_label/lgbm_common_leakage.py > /dev/null
+$CMP results/common_label results_repro/common_label "*.csv"
 if [ "${REFIT:-0}" = "1" ]; then
   echo "[REFIT] classical candidates on the primary partition from cached features -> results_repro/fits"
   JOBS=$(python -c "import sys; sys.path.insert(0,'src/nested_selection'); import cands; print(' '.join(f'{m}:{c}' for m,l in cands.CANDIDATES.items() for c in l if c!='cnn'))")
@@ -127,5 +135,21 @@ if [ "${ANCHOR:-0}" = "1" ]; then
   ROUND_V21=$O ROUND4_DIR=$O4 python src/anchor_physics/round4.py classical > /dev/null
   ROUND_V21=$O ROUND4_DIR=$O4 python src/anchor_physics/round4.py evaluate > /dev/null
   $CMP results/round4 $O4 "*.csv" "*.parquet"
+  # rounds 5-6 (docs/ANALYSIS_PLAN_round5.md, _round6.md): evaluation from the shipped probe/fine-tune predictions (results/round5,
+  # results/round6); the frozen embeddings (1.7 GB) and the GPU fits are not rerun here (src/foundation/extract_r5.py, docs/round5/)
+  O5=results_repro/round5; O6=results_repro/round6; rm -rf $O5 $O6; mkdir -p $O5 $O6
+  cp -R results/round5/probe_sessions.parquet results/round5/ft $O5/; cp results/round6/probe_sessions_with_intake.parquet $O6/
+  cp results/round5/batch_decodability.csv $O5/     # computed on the GPU host from the embeddings (round5.py diagnose); shipped, not rerun
+  ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 python src/foundation/round5.py evaluate > /dev/null
+  ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 python src/foundation/posthoc_shift.py > /dev/null     # post hoc (main-text Table 7)
+  ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 python src/foundation/posthoc_auc_ci.py > /dev/null    # post hoc AUC CIs (Table 7; ~80 s)
+  ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 ROUND6_DIR=$O6 python src/foundation/round5.py evaluate6 > /dev/null
+  ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 ROUND6_DIR=$O6 python src/foundation/per_batch_ci.py > /dev/null   # post hoc (Table 6)
+  $CMP results/round5 $O5 "*.csv"
+  $CMP results/round6 $O6 "*.csv"
+  # fruit-level power illustration and between-harvest scenarios (Section 4.3, Figure 6, Table D5)
+  ROUND_V21=$O ROUND5_DIR=$O5 PROTOCOL_OUT=results_repro/protocol python src/protocol/power_analysis.py > /dev/null
+  PROTOCOL_OUT=results_repro/protocol python src/protocol/harvest_scenarios.py > /dev/null
+  $CMP docs/protocol results_repro/protocol power_analysis.csv power_halfwidth_scaling.csv harvest_variance_scenarios.csv
 fi
 echo "done: all regenerated tables are identical to the shipped ones"

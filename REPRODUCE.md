@@ -1,4 +1,4 @@
-# Reproducing the paper (audit package v2.0.0)
+# Reproducing the paper (audit package v2.2.0)
 
 This package reproduces every table of *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and
 RGB Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* at three depths. Each depth regenerates its
@@ -49,7 +49,7 @@ conda env create -f environment.yml && conda activate durian      # Python 3.12,
 | Stage | Script(s) | Regenerates | Paper items |
 |---|---|---|---|
 | 1 | `src/fusion_pipeline.py` (config `src/fusion_config.json`), `src/verify_reproduction.py`, `src/sensitivity/sensitivity_tables.py` | `results/*.csv` | Tables 5–11; S1–S6, S9, S11 |
-| 2 | `src/fusion_figures.py` | `figures/` | diagnostic plots of the data behind Figures 3, 5, 6 (the composed paper figures are not part of the verified package) |
+| 2 | `src/fusion_figures.py` | `figures/diagnostic/` | diagnostic plots of the data behind Figures 3-5 (the leakage plot uses the earlier table `results/leakage_table.csv`); the paper figures are shipped in `figures/paper/` (see `figures/README.md`) |
 | 3 | `src/nested_selection/evaluate_v14.py` (`nsel.py`, `stats4.py`) | `results/v14/` | Tables 3 (selection procedures, ten partitions), 4; S12–S14 |
 | 4 | `src/ablations/evaluate_v15.py`, `src/ablations/ms_wavelength_ablation.py` | `results/v15/` | Table 12; S15–S17, S19 |
 | 5 | `src/nested_selection/matched_space.py`; `src/nested_selection/primary_metric.py` | `results/v17/` (incl. `matched_space_session_oof.parquet`); `results/v19/` | Tables 3 and 4 (fold-mean, pooled and across-partition macro-F1 / accuracy, class recall, paired comparisons); S20–S22 |
@@ -62,9 +62,9 @@ primary partition with the v1.4 code (`nsel.py`); the two agree to within 0.0065
 for all 268 sessions in all 11 subsets, so every reported metric is identical.
 
 Further checks shipped with their output: `src/audit/table1.py` (Table 1 from `audit/fruits.csv`, `audit/sessions.csv` and the
-feature tables) and `src/audit/check_manuscript_numbers.py MANUSCRIPT.md`, which confirms that each of the 809 three-decimal numbers in
-Tables 3–12 occurs in the result files mapped to that table (`audit/manuscript_number_check.csv`; a presence check per table, not a
-cell-by-cell match). `audit/table_map.csv` lists, for every table and figure of the paper, the source file, script and stage.
+feature tables) and `src/audit/check_manuscript_numbers.py MANUSCRIPT.md SUPPLEMENT.md`, which confirms that every number in the results tables of the
+v2.2 manuscript (main Tables 3–7; Supplementary Tables A1, B1–B4, C1, C2, D1–D3, D5; 1,320 numbers) occurs in the result files mapped to
+that table (`audit/manuscript_number_check.csv`; a presence check per table, not a cell-by-cell match). `audit/table_map.csv` lists, for every table and figure of the paper, the source file, script and stage.
 
 ## 3. Level B — predictions from cached features
 
@@ -107,11 +107,11 @@ label differs is reported separately and equals the documented relabelling (22 m
 The per-modality model comparisons that preceded the common-label refits (the `make thermal|multispectral|sound|rgb` targets,
 file-label OOF in `intermediate/`) are kept for provenance; the literal interactive cells are in `src/session_traces/`.
 
-## 5. Optional stages added in v2.0
+## 5. Optional stages (v2.0–v2.2)
 
 ```bash
 LABELSENS=1 ./run_all.sh        # label-policy retraining (results/v20 -> results_repro/v20); LABELSENS_REFIT=1 also refits thermal/RGB
-ANCHOR=1 ./run_all.sh           # pre-registered adaptation, rounds 1-3 (results/v21, round2, round3 -> results_repro/...), ~25 min
+ANCHOR=1 ./run_all.sh           # the six adaptation rounds (results/v21, round2-round6), post hoc diagnostics, docs/protocol (~30 min)
 ANCHOR=1 ANCHOR_CNN=1 ./run_all.sh   # also retrains the 17 round-1 knock CNNs on CPU (~2.5 h on 9 cores; needs work/raw/sound)
 ```
 
@@ -121,6 +121,14 @@ two-class single-batch fits, 3 two-class LOBO fits) are documented in `docs/ANAL
 their weights are shipped in `results/round2/cnn/*_weights/`. Plans, deviations and the tags that fix them before evaluation are listed in
 `README.md`. After the pre-evaluation tags, only output-path overrides (`ROUND_V21`, `ROUND2_DIR`, `ROUND3_DIR`, `ANCHOR_OUT`) were added to
 the round scripts; the defaults reproduce the tagged behaviour.
+
+**v2.2 additions.** Every run also refits the four LightGBM comparison models on the reconstructed (common) label
+(`src/common_label/lgbm_common_leakage.py` -> `results/common_label/`, ~1 min; Table B3, Figure 4). The ten-partition summaries
+(Tables 3, 4, S13, S14, S20–S22, D3) use one manifest: the CPU knock CNN on partition 0 (`intermediate_v14/cnn_cpu_p0/`) and the GPU refits
+on partitions 1–9 (`intermediate_v14/cnn/`); the GPU refit of partition 0 is kept as a hardware check only. The ANCHOR stage additionally
+regenerates rounds 5–6 from the shipped probe predictions (the 1.7 GB round-5 embeddings are not shipped; `src/foundation/extract_r5.py`
+and `docs/round5/emb_md5_list.txt`), the post hoc diagnostics (`posthoc_shift.py`, `posthoc_auc_ci.py`, `per_batch_ci.py`) and the
+planning files (`src/protocol/power_analysis.py`, `harvest_scenarios.py`).
 
 ## 6. Where each reviewer-requested item is
 

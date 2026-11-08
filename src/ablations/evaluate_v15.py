@@ -183,10 +183,11 @@ rows = []
 for nm, th, rv in FUS:
     def comb(i, cpu):
         return np.mean([src(i, "thermal", cpu) if th == "orig" else THR[("harm_rel", "svm_rbf", PS[i])], src(i, "sound", cpu), rgbv(rv, i, cpu)], 0)
-    p0 = pf(comb(0, True)); a = np.array([pf(comb(i, False), PS[i]) for i in range(10)])
+    # v2.2 single manifest: partition 0 of the ten-partition summary is the primary CPU run
+    p0 = pf(comb(0, True)); a = np.array([pf(comb(i, i == 0), PS[i]) for i in range(10)])
     rows.append(dict(configuration=nm, acc_p0_cpu=p0[0], f1_p0_cpu=p0[1], acc_mean10=a[:, 0].mean().round(3), acc_min=a[:, 0].min(), acc_max=a[:, 0].max(),
                      f1_mean10=a[:, 1].mean().round(3)))
-a = np.array([pf(src(i, "sound", False), PS[i]) for i in range(10)]); p0 = pf(src(0, "sound", True))
+a = np.array([pf(src(i, "sound", i == 0), PS[i]) for i in range(10)]); p0 = pf(src(0, "sound", True))
 rows.append(dict(configuration="Sound alone", acc_p0_cpu=p0[0], f1_p0_cpu=p0[1], acc_mean10=a[:, 0].mean().round(3), acc_min=a[:, 0].min(),
                  acc_max=a[:, 0].max(), f1_mean10=a[:, 1].mean().round(3)))
 pd.DataFrame(rows).to_csv(f"{OUT}/fusion_with_ablated_inputs.csv", index=False)

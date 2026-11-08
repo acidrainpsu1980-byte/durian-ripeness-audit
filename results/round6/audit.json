@@ -1,0 +1,89 @@
+{
+ "audit": {
+  "round6_uses_storage_or_weight": false,
+  "endpoint_identity_max_abs_diff_vs_round5": {
+   "A1": 1.1102230246251565e-16,
+   "A5": 1.1102230246251565e-16,
+   "V-thermal-DINO": 1.1102230246251565e-16,
+   "V-ms-DINO": 1.5265566588595902e-16,
+   "V-rgb-DINO": 0.0,
+   "F3": 2.220446049250313e-16
+  },
+  "p0": "not evaluated for anchored arms (plan Section 4)"
+ },
+ "shifts": {
+  "R6": {
+   "Immature": {
+    "shift_logit": -1.0113889859414735,
+    "n_intake_test": 59,
+    "n_intake_train": 103
+   },
+   "Mature": {
+    "shift_logit": 1.0853205631803342,
+    "n_intake_test": 54,
+    "n_intake_train": 108
+   },
+   "Overmature": {
+    "shift_logit": -0.7358724001647845,
+    "n_intake_test": 49,
+    "n_intake_train": 113
+   }
+  },
+  "A1-anch": {
+   "Immature": {
+    "shift_logit": 0.27551686099129125,
+    "n_intake_test": 59,
+    "n_intake_train": 103
+   },
+   "Mature": {
+    "shift_logit": 2.250659185229718,
+    "n_intake_test": 54,
+    "n_intake_train": 108
+   },
+   "Overmature": {
+    "shift_logit": 0.41657332762023713,
+    "n_intake_test": 49,
+    "n_intake_train": 113
+   }
+  },
+  "A5-anch": {
+   "Immature": {
+    "shift_logit": -2.354130123575384,
+    "n_intake_test": 59,
+    "n_intake_train": 103
+   },
+   "Mature": {
+    "shift_logit": -0.37230596127075793,
+    "n_intake_test": 54,
+    "n_intake_train": 108
+   },
+   "Overmature": {
+    "shift_logit": 0.003505912391145616,
+    "n_intake_test": 49,
+    "n_intake_train": 113
+   }
+  },
+  "F1-anch": {
+   "Immature": {
+    "shift_logit": -1.0954548132388853,
+    "n_intake_test": 59,
+    "n_intake_train": 103
+   },
+   "Mature": {
+    "shift_logit": -0.27495537451019103,
+    "n_intake_test": 54,
+    "n_intake_train": 108
+   },
+   "Overmature": {
+    "shift_logit": -0.45100510570530516,
+    "n_intake_test": 49,
+    "n_intake_train": 113
+   }
+  }
+ },
+ "wording_conditions": {
+  "shift_correction_recovers_overmature": false
+ },
+ "population": 104,
+ "primary_beneficial": false
+}

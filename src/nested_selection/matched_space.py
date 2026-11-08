@@ -106,7 +106,10 @@ for p in PS:
 pd.concat(so, ignore_index=True).to_parquet(f"{OUT}/matched_space_session_oof.parquet", index=False)
 pd.Series({p: ", ".join(PICK[p]) for p in PS}).to_csv(f"{OUT}/nested_cfg_fixedfam_choices.csv", header=["chosen per fold"])
 prim = D[D.partition == "p0cpu"].set_index("estimate")[["acc", "f1"]]
-ten = D[D.partition.isin([f"p{i}" for i in range(10)])].groupby("estimate").acc.agg(["mean", "min", "max"])
+# v2.2 (single manifest): the ten partitions are the primary CPU run of partition 0 (p0cpu) and the GPU refits of partitions 1-9;
+# the GPU refit of partition 0 ("p0") is kept only as a hardware-reproducibility check.
+TEN = ["p0cpu"] + [f"p{i}" for i in range(1, 10)]
+ten = D[D.partition.isin(TEN)].groupby("estimate").acc.agg(["mean", "min", "max"])
 S = prim.join(ten).round(3); S.to_csv(f"{OUT}/matched_space_summary.csv")
 print("post hoc best C26:", best26, "| C37:", best37)
 print(S.loc[[i for i in S.index if not i.startswith("fixed_") or i.count("+") == 0 or "thermal+sound+rgb" in i or i.startswith("fixed_thermal+multispectral+sound+rgb") or i == best26 or i == best37]].to_string())
@@ -123,7 +126,7 @@ PF = pd.DataFrame(pf_rows); PF.to_csv(f"{OUT}/matched_space_per_fold.csv", index
 COMP = [("P1", "nestedfam_thermal+sound+rgb|mean", "nestedfam_sound"), ("P2", "nestedfam_thermal+multispectral+sound+rgb|stacking", "nestedfam_sound"),
         ("P3", "nested_cfg_nestedfam", "nested_single_nestedfam"), ("P4", "nested_cfg_fixedfam", "fixed_sound")]
 crow = []
-g10 = PF[PF.partition != "p0cpu"]
+g10 = PF[PF.partition.isin(TEN)]
 for cid, cand, ref in COMP:
     okc = R["p0cpu"][cand].argmax(1) == y; okr = R["p0cpu"][ref].argmax(1) == y
     mc = stats4.clustered_mcnemar(okr, okc, ST.fruit_id.values)

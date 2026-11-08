@@ -3,7 +3,7 @@ import json, numpy as np, pandas as pd, matplotlib as mpl, matplotlib.pyplot as 
 
 import os
 RES = os.environ.get("DURIAN_RESULTS", "results")
-FIG = os.environ.get("DURIAN_FIGURES", "figures"); os.makedirs(FIG, exist_ok=True)
+FIG = os.environ.get("DURIAN_FIGURES", "figures/diagnostic"); os.makedirs(FIG, exist_ok=True)
 RULE_LABEL = {"single": "single modality", "mean": "late: mean of probabilities", "product": "late: product rule",
               "stacking": "late: stacked logistic regression", "early_lgbm": "early: LightGBM on features",
               "early_logreg": "early: logistic regression on features"}
@@ -131,7 +131,7 @@ def fig_lobo(out=os.path.join(FIG, "fig_lobo.png")):
     axes[1].text(2.42, 1 / 3, "chance", fontsize=6, va="center", color="0.35")
     h, l = axes[0].get_legend_handles_labels(); uniq = dict(zip(l, h))
     fig.legend(uniq.values(), uniq.keys(), loc="lower center", ncol=4, frameon=False, fontsize=6.5, bbox_to_anchor=(0.5, -0.2))
-    fig.suptitle("With a harvest batch held out, no configuration beats the majority class by more than 12 pp on Immature (Ripe recall ≤ 0.04) or at all on Overmature", x=0.02, ha="left", fontsize=8)
+    fig.suptitle("Diagnostic: leave-one-harvest-batch-out session accuracy and macro-F1 versus the held-out batch's majority-class rate (paper: Figure 5)", x=0.02, ha="left", fontsize=8)
     axes[0].text(-0.18, 1.04, "a", transform=axes[0].transAxes, fontweight="bold", fontsize=10); axes[1].text(-0.18, 1.04, "b", transform=axes[1].transAxes, fontweight="bold", fontsize=10)
     fig.savefig(out, dpi=300, bbox_inches="tight"); return fig
 
