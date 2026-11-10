@@ -1,5 +1,9 @@
-# v2.3.0 verification: LABELSENS=1 ANCHOR=1 ./run_all.sh (level A, cached predictions, plus the label-policy retraining, the seven
-# adaptation rounds, the post hoc oracle-threshold headroom and the Figure 1c statistics) in a fresh copy of the package.
+# v2.3.0 verification: LABELSENS=1 ANCHOR=1 ./run_all.sh (level A, cached predictions, plus the label-policy
+# retraining and the seven adaptation rounds with the post hoc diagnostics) in a fresh copy of the package
+# commit: b074759; date: 2026-11-10; wall time 1249 s (21 min) for run 2, which ran to the end, plus run 1 from 19:39:12 to its
+#   interruption (last log line written 20:13:46, i.e. at least 2074 s; the exact stop time was not recorded); OMP_NUM_THREADS=4;
+#   exit status 0 (run 2; run 1 was killed and has no exit status). Details below.
+#
 # commit: b0747593acf26b8e7561f553add1214def894a6e (tag v2.3.0), extracted with `git archive b074759` into an empty directory;
 #   after the run all 1,269 tracked files of the copy were still byte-identical to the commit.
 # machine: 10-core Apple-silicon laptop, CPU only; OMP_NUM_THREADS=4; times are local (UTC+7).

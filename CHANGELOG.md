@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.3.2 — verification statements as specified (10 Nov 2026)
+
+Documentation only; code and results are those of v2.3.0.
+
+- `REPRODUCE.md`: the footnote and paragraph under the level table are replaced by the wording of `REPRODUCE_patch_v2.3.1.md` (table of
+  what was verified for which version; Levels B and C last run for v1.8.0; per-analysis list). Four factual points differ from the patch
+  draft: the label-policy models were re-evaluated from shipped fits (`LABELSENS_REFIT=1` was not set), the stage-4 ablation models were
+  refitted, the v1.8.0 refits matched to max |diff| ≤ 3.3e-16 (not 0), and the md5 lists are in `results/round7/DEVIATIONS.md` and
+  `docs/round5/emb_md5_list.txt`. This replaces the v2.3.1 wording.
+- `audit/verification_log_v2.3.0.txt`: header in the specified form (commit, date, wall time, exit status).
+
 ## v2.3.1 — verification record (10 Nov 2026)
 
 Documentation only; code and results are those of v2.3.0.
