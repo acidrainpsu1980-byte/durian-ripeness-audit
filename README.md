@@ -1,4 +1,4 @@
-# durian-ripeness-audit (v2.3.0)
+# durian-ripeness-audit (v2.3.1)
 
 Reproducible audit package for *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and RGB
 Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* (prepared for *Computers and Electronics in Agriculture*, 2026).

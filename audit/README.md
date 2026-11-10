@@ -50,5 +50,5 @@ Where each artifact requested in review is, how it was produced, and how it is c
 ## 5. Commands from raw data and from cached features
 
 `../REPRODUCE.md`: level A `./run_all.sh` (cached predictions), level B `REFIT=1` (cached features), level C `RAW=1 CNN=1`
-(raw Zenodo archives). `raw_verification.csv` records the raw → feature comparison and `verification_log.txt` the full run of all
-three levels for this release.
+(raw Zenodo archives). `raw_verification.csv` records the raw → feature comparison and `verification_log_v1.8.0.txt` the full run of all
+three levels for v1.8.0; `verification_log_v<version>.txt` holds the later runs (which run checked which release: `../REPRODUCE.md`).

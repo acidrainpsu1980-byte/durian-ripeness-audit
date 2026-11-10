@@ -1,4 +1,4 @@
-# Reproducing the paper (audit package v2.3.0)
+# Reproducing the paper (audit package v2.3.1)
 
 This package reproduces every table of *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and
 RGB Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* at three depths. Each depth regenerates its
@@ -10,15 +10,46 @@ outputs in a scratch directory and compares them with the shipped files; nothing
 | B. Cached features | shipped feature tables and embeddings | `REFIT=1 ./run_all.sh` | 7 min more | The 20 classical candidates refitted on the primary partition (5 outer + 10 fold-pair fits each, 300 fits) reproduce the shipped predictions |
 | C. Raw data | the four Zenodo archives (23.4 GB) | `DURIAN_DATA_ROOT=/path/to/zips RAW=1 CNN=1 ./run_all.sh` | 74 min (raw extraction 26 min, CNN retraining 48 min) more | Every feature table, the RGB cache and masks, both CNN embeddings and the log-mel arrays re-extracted from the archives; the five primary-partition knock CNNs retrained on CPU with weight export, reproducing the shipped predictions |
 
-\*Measured for this release in a fresh copy of the package on a 10-core Apple-silicon laptop (CPU only, `OMP_NUM_THREADS=4`), with all
-three levels in one call; see `audit/verification_log.txt`.
+\*Measured for v1.8.0 in a fresh copy of the package on a 10-core Apple-silicon laptop (CPU only, `OMP_NUM_THREADS=4`), with all
+three levels in one call (`audit/verification_log_v1.8.0.txt`).
 
-All three levels were run for this release in one call, in a fresh copy of the package, on 31 October 2026
-(`audit/verification_log.txt`, 1 h 54 min in total), and passed. The fusion stage and every regenerated result table, Supplementary
-Table and audit table were identical to the shipped files (max |diff| = 0). The 300 classical refits and the five CPU knock-CNN refits
-reproduced the shipped predictions exactly. Every re-extracted feature table and both CNN embeddings matched (max |diff| = 0;
-`audit/raw_verification.csv`), and all 20 saved models reproduced their held-out predictions (`models/primary_p0/model_check.csv`).
-The one non-zero tolerance in the package concerns a cached input, not a regenerated output, and is described in Section 2.
+**Which run checked which release.** Every run below was made in a fresh copy of the release tree on the same laptop and compared each
+regenerated file with the shipped one (`ok` = max |diff| ≤ 1e-9). The largest difference was 3.3e-16 in the v1.8.0 run; in the
+later logged runs every difference was 0.
+
+| Release | Date | Command | What the run covered | Wall time | Exit | Evidence |
+|---|---|---|---|---|---|---|
+| v1.8.0 | 31 Oct 2026 | `REFIT=1 RAW=1 CNN=1 ./run_all.sh` | levels A, B and C | 1 h 54 min | 0 | `audit/verification_log_v1.8.0.txt` |
+| v1.9.0 | 1 Nov 2026 | `./run_all.sh` | level A | 34 min | 0 | `audit/verification_log_v1.9.0.txt` |
+| v1.9.1 | 1 Nov 2026 | `./run_all.sh` | level A | 36 min | 0 | `audit/verification_log_v1.9.1.txt` |
+| v2.0.0 | 2 Nov 2026 | `LABELSENS=1 ANCHOR=1 ./run_all.sh` | level A, label-policy retraining (re-evaluation), rounds 1–3 | 47 min | 0 | `audit/verification_log_v2.0.0.txt` |
+| v2.1.0 | — | — | never published (`results/round6/DEVIATIONS.md`, item 7) | — | — | none |
+| v2.2.0 | 8 Nov 2026 | `LABELSENS=1 ANCHOR=1 ./run_all.sh` | level A, label-policy retraining (re-evaluation), rounds 1–6 | 54 min | 0 | the v2.2.0 tag and its GitHub release notes only; no log file was kept in the package |
+| v2.3.0 | 10 Nov 2026 | `LABELSENS=1 ANCHOR=1 ./run_all.sh` | level A, label-policy retraining (re-evaluation), rounds 1–7, oracle-threshold bound, Figure 1c statistics, S1–S29 | about 55 min, in two parts (see log) | 0 | `audit/verification_log_v2.3.0.txt` (commit b074759) |
+
+v2.3.1 changes only documentation and logs (this section, the log file names, version numbers); its code and results are those of v2.3.0.
+Levels B and C were last run for v1.8.0; no later release repeated them.
+
+**What the v2.3.0 run did, by kind of check.**
+
+1. *Regenerated from cached predictions.* The fusion pipeline, including its stacking meta-learners, and the sensitivity tables
+   (stage 1), nested selection over the ten partitions (stage 3), the development pipelines and matched candidate space (stage 5),
+   Supplementary Tables S1–S29 and the Figure 1c statistics from the deposited characteristics file (stage 6), and the audit tables and
+   out-of-fold prediction export (stage 7), all from the shipped out-of-fold predictions in `intermediate_*`.
+2. *Re-evaluated from shipped outputs (no model refitted).* The label-policy retraining (`LABELSENS=1`: shipped retrained predictions in
+   `results/v20/`; `LABELSENS_REFIT=1` was not set) and, under `ANCHOR=1`, every knock-CNN arm of rounds 1, 2 and 4 (shipped CNN
+   predictions), the probe and fine-tune arms of rounds 5–6 (shipped predictions; batch decodability shipped, not recomputed), round 7
+   (shipped `fit7` output `results/round7/rta_sessions.parquet`), the post hoc analyses of rounds 5–7 including the oracle-threshold
+   bound, the power and harvest scenarios, and the 15 saved classical models (stage 7, `export_models.py check`).
+3. *Refitted from cached features.* The targeted ablations (stage 4: thermal, multispectral-wavelength and RGB ablations, from the
+   shipped feature tables and image embeddings), the four LightGBM comparison models on the common label (`[v2.2]` stage), and, under
+   `ANCHOR=1`, the round-1 classical and physics-guided models, baselines, within-batch checks and anchor sensitivity and the classical
+   candidates of rounds 2 and 4 (including L1–L5 and T1), from the shipped feature tables and `results/v21/physics_*.parquet`. The 300
+   classical candidate refits of level B (`REFIT=1`) were not part of this run.
+4. *Computed from raw data.* None. No feature table, embedding or log-mel array was re-extracted from the Zenodo archives, and no knock CNN,
+   foundation-encoder probe or `fit7` model was retrained; level C (`RAW=1 CNN=1`) was last run for v1.8.0, and the GPU and
+   foundation-embedding fits (`ANCHOR_CNN=1`, `src/foundation/extract_r5.py`, `round7.py fit7`) have not been rerun from raw data in a
+   verification run.
 
 ## 1. Environment
 

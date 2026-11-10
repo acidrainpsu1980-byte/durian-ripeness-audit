@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.3.1 — verification record (10 Nov 2026)
+
+Documentation only; code and results are those of v2.3.0.
+
+- `audit/verification_log.txt` renamed `audit/verification_log_v1.8.0.txt` (it records the v1.8.0 run of levels A–C).
+- New `audit/verification_log_v2.3.0.txt`: `LABELSENS=1 ANCHOR=1 ./run_all.sh` on a fresh copy of commit b074759, 10 Nov 2026, exit 0;
+  the run was interrupted once by a session restart in stage 7 and resumed from `src/audit/search_log.py`, as stated in the log.
+- `REPRODUCE.md`: the paragraph under the level table is replaced by a table of which run checked which release and a list of what the
+  v2.3.0 run regenerated from cached predictions, re-evaluated from shipped outputs, refitted from features and computed from raw data.
+
 ## v2.3.0 — round 7, headroom bound, Figure 1c script, S28–S29 (10 Nov 2026)
 
 - **Round 7 (Rank-then-Anchor).** Plan `docs/ANALYSIS_PLAN_round7.md` and code `src/foundation/round7.py` at `prereg-round7` (35ea496);
