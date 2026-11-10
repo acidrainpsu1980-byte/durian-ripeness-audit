@@ -1,0 +1,57 @@
+{
+ "audit": {
+  "round7_fit_reads_storage_visit_or_weight": false,
+  "identity": {
+   "F3_vs_round6_max_abs_diff": 0.0,
+   "rows_compared": 1504
+  },
+  "centring": {
+   "n_intake": {
+    "Immature": 59,
+    "Mature": 54,
+    "Overmature": 49
+   },
+   "max_abs_intake_mean_after": 2.9545527022677635e-15
+  },
+  "pairs_within_batch_only": true,
+  "intake_never_training_rows": true,
+  "held_out_rows_never_training_rows": true,
+  "held_out_information": "only the intake-session embeddings of the held-out batch enter its centring mean (Step 1)"
+ },
+ "wording_conditions": {
+  "threshold_transfers_without_post_hoc_shift": false,
+  "within_batch_ranking_training_does_not_cost_ranking": false,
+  "intake_centring_is_the_active_component": false,
+  "ranking_head_is_the_active_component": false,
+  "components_not_separable_at_n104": true
+ },
+ "population": 104,
+ "primary_beneficial": false,
+ "selected_C": {
+  "R7|lobo|Immature": 0.001,
+  "R7|lobo|Mature": 0.001,
+  "R7|lobo|Overmature": 0.001,
+  "R7|p0|0": 0.1,
+  "R7|p0|1": 0.001,
+  "R7|p0|2": 0.1,
+  "R7|p0|3": 0.1,
+  "R7|p0|4": 0.1,
+  "R7-nc|lobo|Immature": 0.1,
+  "R7-nc|lobo|Mature": 0.1,
+  "R7-nc|lobo|Overmature": 0.1,
+  "R7-ce|lobo|Immature": 0.001,
+  "R7-ce|lobo|Mature": 0.01,
+  "R7-ce|lobo|Overmature": 0.01,
+  "R7-ce|p0|0": 0.1,
+  "R7-ce|p0|1": 0.001,
+  "R7-ce|p0|2": 0.01,
+  "R7-ce|p0|3": 0.1,
+  "R7-ce|p0|4": 0.001,
+  "R7-A|lobo|Immature": 0.001,
+  "R7-A|lobo|Mature": 0.1,
+  "R7-A|lobo|Overmature": 0.001,
+  "R7-noRGB|lobo|Immature": 0.1,
+  "R7-noRGB|lobo|Mature": 0.1,
+  "R7-noRGB|lobo|Overmature": 0.1
+ }
+}

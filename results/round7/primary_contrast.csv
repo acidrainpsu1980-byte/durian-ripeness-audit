@@ -1,0 +1,2 @@
+d_f1_pp,ci_f1_lo_pp,ci_f1_hi_pp,p_perm,d_acc_pp,ci_acc_lo_pp,ci_acc_hi_pp,p_mcnemar_clustered,d_false_unripe_pp,ci_fu_lo_pp,ci_fu_hi_pp,sessions_changed,contrast,candidate,reference,p_holm,beneficial
+0.9503855727169719,-10.743957506742786,11.66065620400955,0.8651567421628918,0.0,-11.54126213592233,11.538461538461538,1.0,0.0,0.0,0.0,38,R7,R7,CDR_RO,0.8651567421628918,False
