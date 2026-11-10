@@ -1,4 +1,4 @@
-# Reproducing the paper (audit package v2.2.0)
+# Reproducing the paper (audit package v2.3.0)
 
 This package reproduces every table of *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and
 RGB Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* at three depths. Each depth regenerates its
@@ -107,11 +107,11 @@ label differs is reported separately and equals the documented relabelling (22 m
 The per-modality model comparisons that preceded the common-label refits (the `make thermal|multispectral|sound|rgb` targets,
 file-label OOF in `intermediate/`) are kept for provenance; the literal interactive cells are in `src/session_traces/`.
 
-## 5. Optional stages (v2.0–v2.2)
+## 5. Optional stages (v2.0–v2.3)
 
 ```bash
 LABELSENS=1 ./run_all.sh        # label-policy retraining (results/v20 -> results_repro/v20); LABELSENS_REFIT=1 also refits thermal/RGB
-ANCHOR=1 ./run_all.sh           # the six adaptation rounds (results/v21, round2-round6), post hoc diagnostics, docs/protocol (~30 min)
+ANCHOR=1 ./run_all.sh           # the seven adaptation rounds (results/v21, round2-round7), post hoc diagnostics, docs/protocol (~32 min)
 ANCHOR=1 ANCHOR_CNN=1 ./run_all.sh   # also retrains the 17 round-1 knock CNNs on CPU (~2.5 h on 9 cores; needs work/raw/sound)
 ```
 
@@ -133,3 +133,8 @@ planning files (`src/protocol/power_analysis.py`, `harvest_scenarios.py`).
 ## 6. Where each reviewer-requested item is
 
 See `audit/README.md`.
+
+**v2.3 additions.** The ANCHOR stage also evaluates round 7 (`src/foundation/round7.py evaluate7`) from the shipped `fit7` outputs
+(`results/round7/rta_sessions.parquet`; `fit7` needs the round-5 embeddings and ran on the GPU host, CPU only), recomputes the post hoc
+oracle-threshold bound (`src/foundation/posthoc_oracle_headroom.py`) and rebuilds Supplementary Tables S24–S29 from the regenerated rounds.
+Stage 6 builds S1–S29 and recomputes the Figure 1c statistics (`src/audit/fig1c_reference.py` -> `results/fig1c/`, which also redraws panel c).

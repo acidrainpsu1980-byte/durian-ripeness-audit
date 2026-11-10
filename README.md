@@ -1,4 +1,4 @@
-# durian-ripeness-audit (v2.2.0)
+# durian-ripeness-audit (v2.3.0)
 
 Reproducible audit package for *"Fruit-Grouped and Batch-Aware Evaluation of Thermal, Multispectral, Knocking-Sound and RGB
 Sensing for Durian Ripeness Classification on a Public Longitudinal Dataset"* (prepared for *Computers and Electronics in Agriculture*, 2026).
@@ -13,7 +13,7 @@ capture-level leakage controls. This repository contains everything needed to au
 | Recording exclusions with the evidence for each | `audit/exclusion_ledger.csv`, `data/raw_file_inventory.csv`, `data/sound_recording_manifest.csv` (S7), `data/sound_session_evidence.csv` (S8), `data/sound_exclude_wrong_session.txt` |
 | Session identifiers, label decisions, the ten fruit partitions | `audit/sessions.csv`, `data/session_labels_common.csv` (S10), `audit/fruit_partitions.csv`, `audit/fruits.csv` |
 | Candidate models, hyper-parameter searches, software versions, training settings | `audit/model_registry.csv`, `audit/configuration_space.csv`, `audit/hyperparameter_search_p0.csv`, `audit/SOFTWARE.md`, `audit/requirements_lock_cpu.txt`, `models/primary_p0/` |
-| Out-of-fold predictions and scripts reproducing the principal tables | `audit/predictions/`, `audit/supplementary/` (S1–S27), `audit/table_map.csv`, `run_all.sh` |
+| Out-of-fold predictions and scripts reproducing the principal tables | `audit/predictions/`, `audit/supplementary/` (S1–S29), `audit/table_map.csv`, `run_all.sh` |
 | Commands from raw data and from cached features | `REPRODUCE.md` |
 
 Details: `audit/README.md`. Version history: `CHANGELOG.md`.
@@ -37,21 +37,24 @@ falls to about the majority rate. Development pipelines (families fixed after in
 separately in the paper (sound 0.899 on the primary partition, 0.885 held fixed over ten partitions). All numbers are read from
 `results/` (see `audit/table_map.csv`).
 
-## Sequential cross-batch adaptation rounds (v2.0–v2.2)
+## Sequential cross-batch adaptation rounds (v2.0–v2.3)
 
-Six sequential, prospectively specified exploratory rounds of label-free adaptation to a held-out harvest batch. Each round's plan was
-committed and tagged before fitting (`docs/ANALYSIS_PLAN_anchor_physics.md`, `docs/ANALYSIS_PLAN_round2.md` … `_round6.md`; tags
-`prereg-anchor-physics`, `prereg-round2` … `prereg-round6`), and its predictions and deviation list were tagged before its single evaluation
-(`pre-evaluation-anchor-physics`, `pre-evaluation-round2` … `pre-evaluation-round5`). The round-6 pre-evaluation tag was lost before it was
+Seven sequential, prospectively specified exploratory rounds of label-free adaptation to a held-out harvest batch. Each round's plan was
+committed and tagged before fitting (`docs/ANALYSIS_PLAN_anchor_physics.md`, `docs/ANALYSIS_PLAN_round2.md` … `_round7.md`; tags
+`prereg-anchor-physics`, `prereg-round2` … `prereg-round7`), and its predictions and deviation list were tagged before its single evaluation
+(`pre-evaluation-anchor-physics`, `pre-evaluation-round2` … `pre-evaluation-round5`, `pre-evaluation-round7`; both round-7 tags were pushed
+and verified on the remote before the next step). The round-6 pre-evaluation tag was lost before it was
 pushed; `results/round6/DEVIATIONS.md` (item 7) gives the md5 sum and archive timestamps that document the order of events instead.
 Each round after the first was designed after the earlier results on the same three batches had been seen, so the rounds are exploratory.
 
 The reference is a protocol-gated acoustic classifier (CDR-RO): Unripe for intake scans, otherwise the more probable of Ripe and Overripe
-under the unadapted knock CNN (endpoint macro-F1 0.656 on rounds 1–3, 0.661 on rounds 4–6). The endpoint task classifies sessions that the
+under the unadapted knock CNN (endpoint macro-F1 0.656 on rounds 1–3, 0.661 on rounds 4–7). The endpoint task classifies sessions that the
 study design identifies as endpoints; the dataset cannot evaluate later scans that are still Unripe. No round met its superiority
 criterion; the best selected arm (round 6) reached 0.759 (+9.9 pp [−1.1, 20.2]), with per-batch differences of +13.9, −7.3 and +33.9 pp
-(`results/round6/per_batch_ci.csv`, post hoc). Code: `src/anchor_physics/`, `src/foundation/`; results: `results/v21/` (round 1),
-`results/round2/` … `results/round6/`; Supplementary Tables S24–S27. Planning material for a new-harvest study (fruit-level power
+(`results/round6/per_batch_ci.csv`, post hoc). Round 7 (Rank-then-Anchor: intake-centred embeddings with a within-batch ranking head)
+scored 0.670 (+1.0 pp [−10.7, 11.7]) and met none of its pre-specified wording conditions. A post hoc oracle-threshold bound
+(`src/foundation/posthoc_oracle_headroom.py`) gives the embedding fusion 0.798 with per-batch thresholds chosen on the batch's labels. Code: `src/anchor_physics/`, `src/foundation/`; results: `results/v21/` (round 1),
+`results/round2/` … `results/round7/`; Supplementary Tables S24–S29. Planning material for a new-harvest study (fruit-level power
 illustration and between-harvest scenarios): `docs/protocol/`, `src/protocol/`.
 
 ## Repository layout

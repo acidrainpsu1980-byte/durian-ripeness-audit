@@ -6,7 +6,7 @@ Plan `docs/ANALYSIS_PLAN_round7.md` (tag `prereg-round7`, 35ea496); frozen predi
 
 | Contrast | Pooled macro-F1 | Δ (pp) [95% CI] | p (perm.; Holm = identity) | Beneficial |
 |---|---|---|---|---|
-| R7 vs CDR-RO | 0.670 vs 0.661 | +0.9 [−10.7, 11.7] | 0.865 | **no** |
+| R7 vs CDR-RO | 0.670 vs 0.661 | +1.0 [−10.7, 11.7] | 0.865 | **no** |
 
 ## Scores (LOBO; macro-F1 pooled / Immature / Mature / Overmature)
 

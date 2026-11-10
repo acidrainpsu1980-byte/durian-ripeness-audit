@@ -7,8 +7,8 @@
 #   CNN=1    retrain the five primary-partition knock CNNs on CPU, export their weights and compare (~70 min; needs RAW=1
 #            in the same call or an existing work/raw/sound directory, because the log-mel array is regenerated from raw audio)
 #   LABELSENS=1  label-policy sensitivity with retraining, results/v20 (Table 11 right-hand columns, S23; LABELSENS_REFIT=1 refits)
-#   ANCHOR=1     the six sequential adaptation rounds (results/v21, round2-round6), the post hoc diagnostics of rounds 5-6 and the
-#                power/harvest scenarios (docs/protocol) (~30 min; ANCHOR_CNN=1 retrains the 17 round-1 knock CNNs, ~2.5 h)
+#   ANCHOR=1     the seven sequential adaptation rounds (results/v21, round2-round7), the post hoc diagnostics of rounds 5-7 and the
+#                power/harvest scenarios (docs/protocol) (~32 min; ANCHOR_CNN=1 retrains the 17 round-1 knock CNNs, ~2.5 h)
 set -euo pipefail
 cd "$(dirname "$0")"
 export OMP_NUM_THREADS=${OMP_NUM_THREADS:-4}   # keep >= 4: with 1 thread three lbfgs logistic fits drift at the 1e-2 level
@@ -40,9 +40,11 @@ DURIAN_V19_OUT=results_repro/v19 python src/nested_selection/p0_platform_sensiti
 DURIAN_V19_OUT=results_repro/v19 python src/nested_selection/fold_ranking.py > /dev/null
 $CMP results/v19 results_repro/v19
 $CMP results/v19/p0_gpu_check results_repro/v19/p0_gpu_check
-echo "[6/7] Supplementary Tables S1-S27 from the regenerated results -> results_repro/supplementary"
+echo "[6/7] Supplementary Tables S1-S29 from the regenerated results -> results_repro/supplementary; Figure 1c statistics -> results_repro/fig1c"
 DURIAN_RESULTS=results_repro python src/audit/build_supplementary_tables.py results_repro/supplementary
 $CMP audit/supplementary results_repro/supplementary
+python src/audit/fig1c_reference.py results_repro/fig1c > /dev/null
+$CMP results/fig1c results_repro/fig1c fig1c_reference_stats.csv
 echo "[7/7] audit tables, model registry, out-of-fold prediction export, saved-model check -> results_repro/audit"
 DURIAN_RESULTS=results_repro DURIAN_AUDIT_OUT=results_repro/audit python src/audit/build_audit_tables.py
 DURIAN_AUDIT_OUT=results_repro/audit python src/audit/model_registry.py > /dev/null
@@ -147,6 +149,14 @@ if [ "${ANCHOR:-0}" = "1" ]; then
   ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 ROUND6_DIR=$O6 python src/foundation/per_batch_ci.py > /dev/null   # post hoc (Table 6)
   $CMP results/round5 $O5 "*.csv"
   $CMP results/round6 $O6 "*.csv"
+  # round 7 (docs/ANALYSIS_PLAN_round7.md): evaluation from the shipped fit7 outputs (fit7 needs the frozen embeddings; GPU host, CPU only)
+  O7=results_repro/round7; rm -rf $O7; mkdir -p $O7
+  cp results/round7/rta_sessions.parquet results/round7/fit7_identity_check.json results/round7/batch_decodability_centred.csv $O7/
+  ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 ROUND6_DIR=$O6 ROUND7_DIR=$O7 python src/foundation/round7.py evaluate7 > /dev/null
+  ROUND_V21=$O ROUND4_DIR=$O4 ROUND5_DIR=$O5 ROUND6_DIR=$O6 ROUND7_IN=$O7 python src/foundation/posthoc_oracle_headroom.py $O7 > /dev/null   # post hoc
+  $CMP results/round7 $O7 "*.csv"
+  DURIAN_RESULTS=results_repro python src/audit/build_supplementary_tables.py results_repro/supplementary_anchor > /dev/null
+  $CMP audit/supplementary results_repro/supplementary_anchor "TableS2[4-9]_*.csv"     # S24-S29 from the regenerated rounds
   # fruit-level power illustration and between-harvest scenarios (Section 4.3, Figure 6, Table D5)
   ROUND_V21=$O ROUND5_DIR=$O5 PROTOCOL_OUT=results_repro/protocol python src/protocol/power_analysis.py > /dev/null
   PROTOCOL_OUT=results_repro/protocol python src/protocol/harvest_scenarios.py > /dev/null

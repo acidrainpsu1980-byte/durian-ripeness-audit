@@ -1,5 +1,23 @@
 # Changelog
 
+## v2.3.0 — round 7, headroom bound, Figure 1c script, S28–S29 (10 Nov 2026)
+
+- **Round 7 (Rank-then-Anchor).** Plan `docs/ANALYSIS_PLAN_round7.md` and code `src/foundation/round7.py` at `prereg-round7` (35ea496);
+  frozen `fit7` predictions and deviation list at `pre-evaluation-round7` (f899f99); both tags were pushed and verified on the remote before
+  the next step. `evaluate7` ran once: R7 0.670 vs CDR-RO 0.661, +1.0 pp [−10.7, 11.7], p = 0.865, not beneficial; none of the
+  pre-specified wording conditions was met (`results/round7/`). Correction: the results commit message (3e2bc34) and the first version of
+  `results/round7/RESULTS_SUMMARY.md` rounded the difference (0.950 pp) to +0.9; it is +1.0 pp.
+- **Post hoc oracle-threshold bound** (`src/foundation/posthoc_oracle_headroom.py` -> `results/round7/posthoc_oracle_headroom*.csv`):
+  per-batch thresholds chosen on each held-out batch's labels; embedding fusion F3 0.798 (0.717 / 0.780 / 0.847), +13.7 pp [3.2, 24.2] over
+  CDR-RO as used and +8.1 pp [−2.7, 19.1] over CDR-RO with its own oracle threshold (thresholds held fixed in the bootstrap; optimistic).
+- **Figure 1c script** (`src/audit/fig1c_reference.py` -> `results/fig1c/`): redraws panel c and computes its statistics on the 185-fruit
+  log and on the 164 analysis fruits (n, mean, SD, median, Kruskal–Wallis p, Ripe-vs-Overripe AUC with ties counted one half).
+- **Supplementary Tables S28** (ranking versus thresholding, compiled from the post hoc parts of S26) **and S29** (round 7 and the oracle
+  bound) are built by `src/audit/build_supplementary_tables.py`; S1–S27 are unchanged.
+- `run_all.sh`: ANCHOR stage adds round 7, the oracle bound and a rebuild of S24–S29 from the regenerated rounds; stage 6 adds S28–S29 and
+  the Figure 1c statistics. `audit/table_map.csv` follows the numbering of the current manuscript (Tables 1–7, Supplementary Tables
+  A1–D5 and S1–S29; former Table 7 is now Supplementary Table S28) and gains rows for Table 2, S29, the oracle bound and Figure 1c.
+
 ## v2.2.0 — second pre-submission review (5 Nov 2026)
 
 Includes the rounds 4–6 material of v2.0.x (plans `prereg-round4` … `prereg-round6`). v2.1.0 was prepared but never published: its local
